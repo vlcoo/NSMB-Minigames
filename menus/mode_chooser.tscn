@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhr7urltfg0v2"]
+[gd_scene load_steps=16 format=3 uid="uid://bhr7urltfg0v2"]
 
 [ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_o3ip1"]
+[ext_resource type="Texture2D" uid="uid://bg13prjtyha1j" path="res://menus/assets/graphics/background_faces.png" id="2_gywkq"]
 [ext_resource type="Texture2D" uid="uid://cpgyun2rrntv" path="res://menus/assets/graphics/button_single_normal.png" id="2_si50q"]
 [ext_resource type="Texture2D" uid="uid://bw2oei8a38ab3" path="res://menus/assets/graphics/button_single_pressed.png" id="3_2b1qa"]
 [ext_resource type="Texture2D" uid="uid://g4qsffpm8p7k" path="res://menus/assets/graphics/button_vs_normal.png" id="4_b5rh0"]
@@ -8,10 +9,87 @@
 [ext_resource type="Texture2D" uid="uid://crj3y8etdowhy" path="res://menus/assets/graphics/button_back_normal.png" id="6_apb1n"]
 [ext_resource type="Texture2D" uid="uid://docojj1nq3phv" path="res://menus/assets/graphics/button_back_pressed.png" id="7_npih3"]
 [ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="8_8u6mv"]
+[ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="9_kr076"]
+[ext_resource type="Texture2D" uid="uid://bumxrblndqx6a" path="res://menus/assets/graphics/arrow.png" id="10_8lq72"]
+
+[sub_resource type="Animation" id="Animation_u5srr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HBoxContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 291)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("VBoxContainer:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(14.4, 344)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ButtonBack:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(628, 631.4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ButtonSingle:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(280, 528)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ButtonVS:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 344)]
+}
 
 [sub_resource type="Animation" id="Animation_rvbr0"]
 resource_name = "intro"
-length = 0.4
+length = 0.8
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -34,46 +112,61 @@ tracks/1/keys = {
 "points": PackedFloat32Array(744, -0.25, 0, 0, -138, 280, -0.4, 6.10352e-05, 0.25, 0),
 "times": PackedFloat32Array(0, 0.4)
 }
-
-[sub_resource type="Animation" id="Animation_u5srr"]
-length = 0.001
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ButtonVS:position:x")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(216, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ButtonVS:position:y")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(344, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
-}
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ButtonSingle:position:x")
+tracks/2/path = NodePath("ButtonBack:position:y")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(280, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(736, -0.25, 0, 0.0980749, -103.5, 631.4, -0.101094, 107.1, 0.25, 0),
+"times": PackedFloat32Array(0.7, 0.8)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("VBoxContainer:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-104, -0.25, 0, 0.099649, 118.5, 14.4, -0.101094, -117.9, 0.25, 0),
+"times": PackedFloat32Array(0.7, 0.8)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_75k3p"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 291), Vector2(0, 297)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n1y5y"]
 _data = {
 "RESET": SubResource("Animation_u5srr"),
+"idle": SubResource("Animation_75k3p"),
 "intro": SubResource("Animation_rvbr0")
 }
 
@@ -86,7 +179,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="BG" type="TextureRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,6 +187,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_o3ip1")
+
+[node name="BGFaces" type="TextureRect" parent="."]
+layout_mode = 0
+anchor_top = 0.0888889
+anchor_right = 1.0
+anchor_bottom = 0.411111
+texture = ExtResource("2_gywkq")
+expand_mode = 1
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
 
 [node name="LabelTitle" type="RichTextLabel" parent="."]
 custom_minimum_size = Vector2(0, 60)
@@ -119,10 +222,15 @@ scroll_active = false
 
 [node name="ButtonVS" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 216.0
-offset_top = 344.0
-offset_right = 415.0
-offset_bottom = 427.0
+anchor_left = 0.3
+anchor_top = 0.477778
+anchor_right = 0.852778
+anchor_bottom = 0.708333
+offset_left = -1.52588e-05
+offset_right = -199.0
+offset_bottom = -83.0
+grow_horizontal = 2
+grow_vertical = 2
 scale = Vector2(2, 2)
 texture_normal = ExtResource("4_b5rh0")
 texture_pressed = ExtResource("5_bvds5")
@@ -130,10 +238,12 @@ stretch_mode = 3
 
 [node name="ButtonSingle" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 280.0
-offset_top = 528.0
-offset_right = 447.0
-offset_bottom = 611.0
+anchor_left = 0.388889
+anchor_top = 0.733333
+anchor_right = 0.852778
+anchor_bottom = 0.963889
+offset_right = -167.0
+offset_bottom = -83.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("2_si50q")
 texture_pressed = ExtResource("3_2b1qa")
@@ -142,10 +252,14 @@ stretch_mode = 3
 [node name="ButtonBack" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.92
-anchor_top = 0.92
-anchor_right = 0.92
-anchor_bottom = 0.92
+anchor_left = 0.968611
+anchor_top = 0.963056
+anchor_right = 0.968611
+anchor_bottom = 0.963056
+offset_left = -69.4
+offset_top = -62.0
+offset_right = -34.4
+offset_bottom = -31.0
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -153,8 +267,76 @@ texture_normal = ExtResource("6_apb1n")
 texture_pressed = ExtResource("7_npih3")
 stretch_mode = 3
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.02
+anchor_top = 0.477778
+anchor_right = 0.02
+anchor_bottom = 1.0
+offset_right = 75.0
+grow_vertical = 2
+theme_override_constants/separation = 24
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonOptions" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("9_kr076")
+text = "Options"
+alignment = 0
+
+[node name="ButtonAbout" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme = ExtResource("9_kr076")
+text = "About"
+alignment = 0
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "intro"
 libraries = {
 "": SubResource("AnimationLibrary_n1y5y")
 }
+next/intro = &"idle"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.404
+anchor_right = 1.0
+anchor_bottom = 0.457
+offset_top = 0.119995
+offset_bottom = -0.0400085
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ArrowL" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("10_8lq72")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 4
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("8_8u6mv")
+theme_override_font_sizes/font_size = 28
+text = "Tap to Select"
+
+[node name="ArrowR" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_stretch_ratio = 0.4
+texture = ExtResource("10_8lq72")
+stretch_mode = 4
