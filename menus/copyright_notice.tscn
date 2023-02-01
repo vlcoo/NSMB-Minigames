@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dtwrvfdlfqa0x"]
 
 [ext_resource type="FontFile" uid="uid://bemooruqc0syy" path="res://menus/assets/theme_resources/pretendo.ttf" id="1_dqplu"]
-[ext_resource type="AudioStream" uid="uid://b851kh4g0nhdj" path="res://menus/assets/audio/coin.ogg" id="2_juqyp"]
+[ext_resource type="AudioStream" uid="uid://briufx41hbd1x" path="res://menus/assets/audio/logo.ogg" id="2_3sbu0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfmkb"]
 draw_center = false
@@ -10,10 +10,10 @@ border_width_top = 14
 border_width_right = 14
 border_width_bottom = 14
 border_color = Color(1, 0, 0, 1)
-corner_radius_top_left = 64
-corner_radius_top_right = 64
-corner_radius_bottom_right = 64
-corner_radius_bottom_left = 64
+corner_radius_top_left = 46
+corner_radius_top_right = 46
+corner_radius_bottom_right = 46
+corner_radius_bottom_left = 46
 expand_margin_left = 24.0
 expand_margin_top = 12.0
 expand_margin_right = 24.0
@@ -23,6 +23,21 @@ font_names = PackedStringArray("Sans-Serif")
 font_weight = 600
 hinting = 2
 subpixel_positioning = 0
+
+[sub_resource type="Animation" id="Animation_4a4qf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ihd6o"]
 resource_name = "intro"
@@ -37,7 +52,7 @@ tracks/0/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("2_juqyp")
+"stream": ExtResource("2_3sbu0")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -52,35 +67,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_4a4qf"]
-length = 0.001
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("2_juqyp")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BoxContainer:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pbmjy"]
@@ -108,16 +94,22 @@ metadata/_edit_use_anchors_ = true
 
 [node name="BoxContainer" type="BoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -207.5
+offset_right = 207.5
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 120
+theme_override_constants/separation = -120
 alignment = 1
+vertical = true
 
 [node name="LabelLogo" type="Label" parent="BoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_fonts/font = ExtResource("1_dqplu")
 theme_override_font_sizes/font_size = 56
@@ -128,7 +120,8 @@ vertical_alignment = 1
 
 [node name="LabelDetail" type="Label" parent="BoxContainer"]
 layout_mode = 2
-size_flags_vertical = 1
+size_flags_horizontal = 4
+size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.647059, 0.647059, 0.647059, 1)
 theme_override_constants/line_spacing = -5
 theme_override_fonts/font = SubResource("SystemFont_ac4f2")
@@ -148,4 +141,4 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_juqyp")
+stream = ExtResource("2_3sbu0")

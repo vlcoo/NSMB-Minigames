@@ -1,0 +1,64 @@
+[gd_scene load_steps=5 format=3 uid="uid://drp4bjol414cv"]
+
+[ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_aegqw"]
+[ext_resource type="FontFile" uid="uid://cpqpr3nr5kmx5" path="res://menus/assets/theme_resources/super_mario_64DS.ttf" id="2_7ji1y"]
+[ext_resource type="AudioStream" uid="uid://cpqn13fxw36jx" path="res://menus/assets/audio/fatal.ogg" id="3_02gf7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bisvy"]
+bg_color = Color(0.886275, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(-4, -4)
+
+[node name="FatalError" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color(0.521569, 0.541176, 0.552941, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_aegqw")
+
+[node name="Panel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.5
+offset_top = -113.5
+offset_right = 166.5
+offset_bottom = 113.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bisvy")
+
+[node name="Label" type="Label" parent="Panel"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("2_7ji1y")
+text = "Wireless Communication Error!
+
+Communications have been terminated. Press the A button to return to the title screen."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_02gf7")
+autoplay = true
