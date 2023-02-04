@@ -87,6 +87,22 @@ tracks/5/keys = {
 "values": [Vector2(216, 344)]
 }
 
+[sub_resource type="Animation" id="Animation_75k3p"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HBoxContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 291), Vector2(0, 297)]
+}
+
 [sub_resource type="Animation" id="Animation_rvbr0"]
 resource_name = "intro"
 length = 0.8
@@ -147,22 +163,6 @@ tracks/4/keys = {
 "values": [false, true]
 }
 
-[sub_resource type="Animation" id="Animation_75k3p"]
-resource_name = "idle"
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HBoxContainer:position")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 291), Vector2(0, 297)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_n1y5y"]
 _data = {
 "RESET": SubResource("Animation_u5srr"),
@@ -217,7 +217,6 @@ theme_override_fonts/normal_font = ExtResource("8_8u6mv")
 theme_override_font_sizes/normal_font_size = 56
 bbcode_enabled = true
 text = "[center][rainbow freq=0.1 val=0.9 sat=1]Minigames"
-fit_content_height = true
 scroll_active = false
 
 [node name="ButtonVS" type="TextureButton" parent="."]
@@ -226,9 +225,10 @@ anchor_left = 0.3
 anchor_top = 0.477778
 anchor_right = 0.852778
 anchor_bottom = 0.708333
-offset_left = -1.52588e-05
-offset_right = -199.0
-offset_bottom = -83.0
+offset_left = 216.0
+offset_top = 344.0
+offset_right = 415.0
+offset_bottom = 427.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -242,8 +242,10 @@ anchor_left = 0.388889
 anchor_top = 0.733333
 anchor_right = 0.852778
 anchor_bottom = 0.963889
-offset_right = -167.0
-offset_bottom = -83.0
+offset_left = 280.0
+offset_top = 528.0
+offset_right = 447.0
+offset_bottom = 611.0
 scale = Vector2(2, 2)
 texture_normal = ExtResource("2_si50q")
 texture_pressed = ExtResource("3_2b1qa")
@@ -256,10 +258,10 @@ anchor_left = 0.968611
 anchor_top = 0.963056
 anchor_right = 0.968611
 anchor_bottom = 0.963056
-offset_left = -69.4
-offset_top = -62.0
-offset_right = -34.4
-offset_bottom = -31.0
+offset_left = 628.0
+offset_top = 631.4
+offset_right = 663.0
+offset_bottom = 662.4
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -270,11 +272,14 @@ stretch_mode = 3
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.02
+anchor_left = 0.0194444
 anchor_top = 0.477778
-anchor_right = 0.02
+anchor_right = 0.022
 anchor_bottom = 1.0
-offset_right = 75.0
+offset_left = 14.4
+offset_top = 344.0
+offset_right = 89.4
+offset_bottom = 720.0
 grow_vertical = 2
 theme_override_constants/separation = 24
 alignment = 1
@@ -304,11 +309,12 @@ next/intro = &"idle"
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.404
+anchor_top = 0.404167
 anchor_right = 1.0
-anchor_bottom = 0.457
-offset_top = 0.119995
-offset_bottom = -0.0400085
+anchor_bottom = 0.456944
+offset_top = 291.0
+offset_right = 720.0
+offset_bottom = 329.0
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1

@@ -1,0 +1,252 @@
+[gd_scene load_steps=10 format=3 uid="uid://nu7p0kg0jvd6"]
+
+[ext_resource type="AudioStream" uid="uid://ceiob0ihr5jtu" path="res://menus/assets/songs/NCS_BGM_MINIOVER.ogg" id="2_7d885"]
+[ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="2_p75an"]
+
+[sub_resource type="Gradient" id="Gradient_kcneg"]
+offsets = PackedFloat32Array(0.323529, 0.887255)
+colors = PackedColorArray(0.319664, 0.110352, 0.441406, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_wtg0f"]
+gradient = SubResource("Gradient_kcneg")
+
+[sub_resource type="Animation" id="Animation_yrwvm"]
+resource_name = "in"
+length = 2.5
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_7d885")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:self_modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0.419608, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.3)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel:process_mode")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [4, 0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("RichTextLabel:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_mhp4q"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("RichTextLabel:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RichTextLabel:self_modulate:a")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("RichTextLabel:process_mode")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("RichTextLabel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m24k6"]
+_data = {
+"RESET": SubResource("Animation_mhp4q"),
+"in": SubResource("Animation_yrwvm")
+}
+
+[sub_resource type="Gradient" id="Gradient_l6d1c"]
+offsets = PackedFloat32Array(0.392157, 0.882353)
+colors = PackedColorArray(0.765625, 0.158508, 0.158508, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_lph43"]
+gradient = SubResource("Gradient_l6d1c")
+
+[node name="ResultsOverlay" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(360, 360)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.177556
+anchor_right = 1.0
+anchor_bottom = 0.277556
+offset_top = 0.159988
+offset_right = 8.0
+offset_bottom = 0.159973
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(364, 36)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 16
+theme_override_fonts/normal_font = ExtResource("2_p75an")
+theme_override_font_sizes/normal_font_size = 72
+bbcode_enabled = true
+text = "[shake rate=14 level=20][center]%placeholder%"
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="RichTextLabel"]
+position = Vector2(360, 26)
+rotation = 4.71239
+scale = Vector2(0.635576, 1176.22)
+energy = 2.13
+blend_mode = 2
+texture = SubResource("GradientTexture1D_wtg0f")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_m24k6")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+anchor_top = 0.467
+anchor_right = 1.0
+anchor_bottom = 0.556
+offset_top = -0.23999
+offset_right = 8.0
+offset_bottom = -0.320038
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(364, 36)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_p75an")
+theme_override_font_sizes/font_size = 30
+text = "Scoreboard"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="Label"]
+position = Vector2(360, 28)
+rotation = -1.5708
+scale = Vector2(0.401201, 1176.22)
+energy = 2.13
+blend_mode = 2
+texture = SubResource("GradientTexture1D_lph43")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.555556
+anchor_right = 0.711111
+anchor_bottom = 0.877778
+metadata/_edit_use_anchors_ = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+light_mask = 0
+layout_mode = 2
+text = "wawer"
