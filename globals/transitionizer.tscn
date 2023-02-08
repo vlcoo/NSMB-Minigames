@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://beh64qqbfinwd"]
+[gd_scene load_steps=11 format=3 uid="uid://beh64qqbfinwd"]
 
 [ext_resource type="Script" path="res://globals/transitionizer.gd" id="1_68rui"]
 [ext_resource type="Texture2D" uid="uid://d4avt3x0oo31f" path="res://common/assets/graphics/transition_star.png" id="1_urrnu"]
@@ -65,7 +65,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.1, 0.9),
-"transitions": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(0.2, 0.2),
 "update": 0,
 "values": [Vector2(7.5, 7.5), Vector2(1e-05, 1e-05)]
 }
@@ -142,7 +142,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0.1, 0.9),
-"transitions": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(0.2, 0.2),
 "update": 0,
 "values": [Vector2(16, 16), Vector2(1e-05, 1e-05)]
 }
@@ -154,7 +154,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0.1, 0.9),
-"transitions": PackedFloat32Array(0.2, 0.5),
+"transitions": PackedFloat32Array(0.2, 0.2),
 "update": 0,
 "values": [Vector2(360, 250), Vector2(360, 360)]
 }
@@ -183,11 +183,50 @@ tracks/3/keys = {
 "values": [Vector2(1e-05, 1e-05)]
 }
 
+[sub_resource type="Animation" id="Animation_ee4fp"]
+resource_name = "transition_none"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasGroup/ColorRect:self_modulate:a")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.5, 0.00578287),
+"times": PackedFloat32Array(0.1)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasGroup/SpriteStar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasGroup/SpriteCircle:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yrkn8"]
 _data = {
 "RESET": SubResource("Animation_c7kq6"),
 "transition_circle": SubResource("Animation_5vwra"),
 "transition_fade": SubResource("Animation_xc32l"),
+"transition_none": SubResource("Animation_ee4fp"),
 "transition_star": SubResource("Animation_hrqro")
 }
 

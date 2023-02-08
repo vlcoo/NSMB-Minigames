@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-enum TransitionStyles {FADE, CIRCLE, STAR}
+enum TransitionStyles {FADE, CIRCLE, STAR, NONE}
 
 var current_scene: Node
 
@@ -14,6 +14,7 @@ func _ready():
 
 func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: bool, scene: String):
 	$CanvasGroup/ColorRect.color = Color.BLACK if dark else Color.WHITE
+	create_tween().tween_method(_set_fadeable_music_db, 0, -25, 0.8).set_ease(Tween.EASE_IN)
 	$AnimationPlayer.play("transition_" + TransitionStyles.keys()[in_style].to_lower())
 	if in_style == TransitionStyles.STAR:
 		$AudioStreamPlayer.play()
@@ -28,4 +29,15 @@ func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: b
 		get_tree().get_root().add_child(current_scene)
 
 	$CanvasGroup/ColorRect.color = Color.BLACK if dark else Color.WHITE
+	_set_fadeable_music_db(0)
 	$AnimationPlayer.play_backwards("transition_" + TransitionStyles.keys()[out_style].to_lower())
+
+
+func _set_fadeable_music_db(value: float):
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("FadeableMusic"), value)
+
+
+func _do_special_command(which: String):
+	match which:
+		"quit":
+			get_tree().quit()

@@ -392,9 +392,10 @@ anchor_left = 0.3
 anchor_top = 0.477778
 anchor_right = 0.852778
 anchor_bottom = 0.708333
-offset_left = -3.05176e-05
+offset_left = -1.52588e-05
+offset_top = -0.000152588
 offset_right = -199.0
-offset_bottom = -83.0
+offset_bottom = -82.9998
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -481,4 +482,6 @@ bus = &"FadeableMusic"
 
 [node name="AudioSFX" type="AudioStreamPlayer" parent="."]
 
+[connection signal="button_down" from="ButtonVS" to="." method="_on_button_vs_button_down"]
+[connection signal="button_down" from="ButtonSingle" to="." method="_on_button_single_button_down"]
 [connection signal="button_down" from="ButtonBack" to="." method="_on_button_back_button_down"]
