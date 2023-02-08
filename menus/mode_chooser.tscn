@@ -218,7 +218,7 @@ _data = {
 "intro": SubResource("Animation_rvbr0")
 }
 
-[node name="ModeChooser" type="Control"]
+[node name="ModeChooser" type="Control" groups=["BaseScreen"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://dtwrvfdlfqa0x"]
+[gd_scene load_steps=9 format=3 uid="uid://dtwrvfdlfqa0x"]
 
 [ext_resource type="FontFile" uid="uid://bemooruqc0syy" path="res://menus/assets/theme_resources/pretendo.ttf" id="1_dqplu"]
+[ext_resource type="Script" path="res://menus/copyright_notice.gd" id="1_toyc1"]
 [ext_resource type="AudioStream" uid="uid://briufx41hbd1x" path="res://menus/assets/audio/logo.ogg" id="2_3sbu0"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfmkb"]
@@ -76,13 +77,14 @@ _data = {
 "intro": SubResource("Animation_ihd6o")
 }
 
-[node name="CopyrightNotice" type="Control"]
+[node name="CopyrightNotice" type="Control" groups=["BaseScreen"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_toyc1")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -143,3 +145,10 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_3sbu0")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
