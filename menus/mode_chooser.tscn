@@ -350,11 +350,13 @@ scroll_active = false
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
+anchor_left = -0.011
 anchor_top = 0.404167
 anchor_right = 1.0
-anchor_bottom = 0.456944
+anchor_bottom = 0.404167
+offset_left = 7.92
 offset_top = -0.000244141
-offset_bottom = 0.000335693
+offset_bottom = 37.9998
 grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
@@ -388,37 +390,39 @@ stretch_mode = 4
 
 [node name="ButtonVS" type="TextureButton" parent="."]
 layout_mode = 2
-anchor_left = 0.3
+anchor_left = 0.853
 anchor_top = 0.477778
-anchor_right = 0.852778
-anchor_bottom = 0.708333
-offset_left = -1.52588e-05
+anchor_right = 0.853
+anchor_bottom = 0.708
+offset_left = -398.16
 offset_top = -0.000152588
-offset_right = -199.0
-offset_bottom = -82.9998
+offset_right = -199.16
+offset_bottom = -82.76
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
 toggle_mode = true
 texture_normal = ExtResource("4_b5rh0")
 texture_pressed = ExtResource("5_bvds5")
+texture_disabled = ExtResource("5_bvds5")
 stretch_mode = 3
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSingle" type="TextureButton" parent="."]
 layout_mode = 2
-anchor_left = 0.388889
+anchor_left = 0.852778
 anchor_top = 0.733333
 anchor_right = 0.852778
-anchor_bottom = 0.963889
-offset_left = -9.15527e-05
+anchor_bottom = 0.967
+offset_left = -334.0
 offset_top = 0.000244141
 offset_right = -167.0
-offset_bottom = -83.0001
+offset_bottom = -85.2401
 scale = Vector2(2, 2)
 toggle_mode = true
 texture_normal = ExtResource("2_si50q")
 texture_pressed = ExtResource("3_2b1qa")
+texture_disabled = ExtResource("3_2b1qa")
 stretch_mode = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -466,6 +470,7 @@ scale = Vector2(2, 2)
 toggle_mode = true
 texture_normal = ExtResource("6_apb1n")
 texture_pressed = ExtResource("7_npih3")
+texture_disabled = ExtResource("7_npih3")
 stretch_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

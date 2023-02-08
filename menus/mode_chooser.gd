@@ -12,7 +12,7 @@ func _on_button_back_button_down():
 func _on_button_single_button_down():
 	sfx.set_stream(DBs.sounds.positive)
 	sfx.play()
-	Transitionizer.transition(Transitionizer.TransitionStyles.FADE, Transitionizer.TransitionStyles.FADE, false, "res://menus/mode_chooser.tscn")
+	Transitionizer.transition(Transitionizer.TransitionStyles.FADE, Transitionizer.TransitionStyles.FADE, false, "res://menus/single_game_chooser.tscn")
 
 
 func _on_button_vs_button_down():

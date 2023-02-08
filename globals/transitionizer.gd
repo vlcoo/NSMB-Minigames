@@ -13,6 +13,7 @@ func _ready():
 
 
 func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: bool, scene: String):
+	$CanvasGroup/ColorRect.set_mouse_filter(Control.MOUSE_FILTER_STOP)
 	$CanvasGroup/ColorRect.color = Color.BLACK if dark else Color.WHITE
 	create_tween().tween_method(_set_fadeable_music_db, 0, -25, 0.8).set_ease(Tween.EASE_IN)
 	$AnimationPlayer.play("transition_" + TransitionStyles.keys()[in_style].to_lower())
@@ -31,6 +32,7 @@ func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: b
 	$CanvasGroup/ColorRect.color = Color.BLACK if dark else Color.WHITE
 	_set_fadeable_music_db(0)
 	$AnimationPlayer.play_backwards("transition_" + TransitionStyles.keys()[out_style].to_lower())
+	$CanvasGroup/ColorRect.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 
 
 func _set_fadeable_music_db(value: float):
