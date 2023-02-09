@@ -32,6 +32,7 @@ func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: b
 	$CanvasGroup/ColorRect.color = Color.BLACK if dark else Color.WHITE
 	_set_fadeable_music_db(0)
 	$AnimationPlayer.play_backwards("transition_" + TransitionStyles.keys()[out_style].to_lower())
+	await $AnimationPlayer.animation_finished
 	$CanvasGroup/ColorRect.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
 
 
