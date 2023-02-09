@@ -1,9 +1,0 @@
-[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dkaj8w6ix4v8o"]
-
-[sub_resource type="GDScript" id="GDScript_urfls"]
-script/source = "@export var waluigi: String
-"
-
-[resource]
-script = SubResource("GDScript_urfls")
-waluigi = "go"
