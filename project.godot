@@ -13,7 +13,7 @@ config_version=5
 config/name="NSMB Minigames"
 run/main_scene="res://menus/copyright_notice.tscn"
 config/features=PackedStringArray("4.0", "Mobile")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
 
 [autoload]
 
