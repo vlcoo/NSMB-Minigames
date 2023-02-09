@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://tadec8otcayg"]
+[gd_scene load_steps=70 format=3 uid="uid://tadec8otcayg"]
 
 [ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_8k22e"]
 [ext_resource type="Script" path="res://menus/single_game_chooser.gd" id="1_vvenx"]
@@ -240,6 +240,164 @@ singleplayer = true
 multiplayer = false
 description = "Draw a line on the bottom to create a trampoline. You can draw up to three lines at a time.. Use the trampolines to bounce Mario to safety!"
 
+[sub_resource type="Animation" id="Animation_jqu64"]
+resource_name = "intro"
+length = 1.8
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonBack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(624, 736), Vector2(624, 736), Vector2(628, 631.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContainerCategories/Action:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.8, 1.15),
+"transitions": PackedFloat32Array(1, 0.2, 1),
+"update": 0,
+"values": [Vector2(-88, 0), Vector2(-88, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ContainerCategories/Puzzle:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.85, 1.2),
+"transitions": PackedFloat32Array(1, 0.2, 1),
+"update": 0,
+"values": [Vector2(-88, 45), Vector2(-88, 45), Vector2(0, 45)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ContainerCategories/Table:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.25),
+"transitions": PackedFloat32Array(1, 0.2, 1),
+"update": 0,
+"values": [Vector2(-88, 90), Vector2(-88, 90), Vector2(0, 90)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ContainerCategories/Variety:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.95, 1.3),
+"transitions": PackedFloat32Array(1, 0.2, 1),
+"update": 0,
+"values": [Vector2(-88, 135), Vector2(-88, 135), Vector2(0, 135)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ContainerGames:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.3, 1.8),
+"transitions": PackedFloat32Array(1, 0.2, 1),
+"update": 0,
+"values": [Vector2(824, 480), Vector2(824, 480), Vector2(336, 480)]
+}
+
+[sub_resource type="Animation" id="Animation_e3cb4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonBack:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(628, 631.4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ContainerCategories/Action:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ContainerCategories/Puzzle:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 45)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ContainerCategories/Table:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 90)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ContainerCategories/Variety:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 135)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ContainerGames:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(336, 480)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wh84v"]
+_data = {
+"RESET": SubResource("Animation_e3cb4"),
+"intro": SubResource("Animation_jqu64")
+}
+
 [node name="SingleGameChooser" type="Control" groups=["BaseScreen"]]
 texture_filter = 1
 layout_mode = 3
@@ -347,26 +505,24 @@ bus = &"FadeableMusic"
 
 [node name="AudioSFX" type="AudioStreamPlayer" parent="."]
 
-[node name="ContainerCategories" type="VBoxContainer" parent="."]
+[node name="ContainerCategories" type="Control" parent="."]
 layout_mode = 1
-anchors_preset = -1
 anchor_top = 0.5
 anchor_bottom = 1.0
 offset_right = 76.0
 offset_bottom = -180.0
 grow_vertical = 2
 scale = Vector2(2, 2)
-theme_override_constants/separation = 0
-alignment = 1
-metadata/_edit_group_ = true
 
 [node name="Action" type="Button" parent="ContainerCategories"]
 light_mask = 2
 layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 0.25
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -383,10 +539,13 @@ text = "Action"
 [node name="Puzzle" type="Button" parent="ContainerCategories"]
 light_mask = 2
 layout_mode = 2
+anchor_top = 0.25
+anchor_right = 1.0
+anchor_bottom = 0.5
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -402,10 +561,13 @@ text = "Puzzle"
 [node name="Table" type="Button" parent="ContainerCategories"]
 light_mask = 2
 layout_mode = 2
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.75
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -421,10 +583,13 @@ text = "Table"
 [node name="Variety" type="Button" parent="ContainerCategories"]
 light_mask = 2
 layout_mode = 2
+anchor_top = 0.75
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -440,20 +605,73 @@ text = "Variety"
 [node name="ContainerGames" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.767111
+anchor_left = 0.767
 anchor_top = 0.591778
-anchor_right = 0.808111
-anchor_bottom = 0.888778
-offset_left = -216.32
+anchor_right = 0.808
+anchor_bottom = 0.889
+offset_left = -216.24
 offset_top = 53.92
-offset_right = -81.84
-offset_bottom = -51.92
+offset_right = -81.7601
+offset_bottom = -52.08
 scale = Vector2(2, 2)
 pivot_offset = Vector2(82, 54)
 columns = 3
 metadata/_edit_group_ = true
 metadata/AvailableGames = [SubResource("Resource_5w17d"), SubResource("Resource_i13gi"), SubResource("Resource_1ax0a"), SubResource("Resource_kg0xq"), SubResource("Resource_s7q8f"), SubResource("Resource_h4spp"), SubResource("Resource_5nra8"), SubResource("Resource_xrpg8"), SubResource("Resource_32rx7"), SubResource("Resource_cui2d"), SubResource("Resource_8qe5m"), SubResource("Resource_6hcd6"), SubResource("Resource_82y3g"), SubResource("Resource_jnt1a"), SubResource("Resource_8khe4"), SubResource("Resource_h5sid"), SubResource("Resource_a1pda"), SubResource("Resource_irb51")]
-metadata/_edit_use_anchors_ = true
+
+[node name="ReferenceRect" type="ReferenceRect" parent="ContainerGames"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(0.0784314, 1, 0, 1)
+border_width = 0.5
+
+[node name="ReferenceRect2" type="ReferenceRect" parent="ContainerGames"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(0.0784314, 1, 0, 1)
+border_width = 0.5
+
+[node name="ReferenceRect3" type="ReferenceRect" parent="ContainerGames"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(0.0784314, 1, 0, 1)
+border_width = 0.5
+
+[node name="ReferenceRect4" type="ReferenceRect" parent="ContainerGames"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(0.0784314, 1, 0, 1)
+border_width = 0.5
+
+[node name="ReferenceRect5" type="ReferenceRect" parent="ContainerGames"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(0.0784314, 1, 0, 1)
+border_width = 0.5
+
+[node name="ReferenceRect6" type="ReferenceRect" parent="ContainerGames"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+border_color = Color(0.0784314, 1, 0, 1)
+border_width = 0.5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_wh84v")
+}
 
 [connection signal="button_down" from="ButtonBack" to="." method="_on_button_back_button_down"]
 [connection signal="button_down" from="ContainerCategories/Action" to="." method="change_category" binds= [0, false]]
