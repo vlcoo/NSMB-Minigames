@@ -1,0 +1,389 @@
+[gd_scene load_steps=15 format=3 uid="uid://doqxbruw1chop"]
+
+[ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_x4xmj"]
+[ext_resource type="FontFile" uid="uid://cpqpr3nr5kmx5" path="res://menus/assets/theme_resources/super_mario_64DS.ttf" id="2_oagsf"]
+[ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="3_uuyvv"]
+[ext_resource type="StyleBox" uid="uid://o8sfnpxebumo" path="res://menus/assets/theme_resources/panel_static_gray.tres" id="4_qwmpi"]
+[ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="5_7vb0x"]
+[ext_resource type="FontFile" uid="uid://cyv5rrm616cq8" path="res://menus/assets/theme_resources/sheet_font_numbers.png" id="6_ph0lk"]
+[ext_resource type="Texture2D" uid="uid://crj3y8etdowhy" path="res://menus/assets/graphics/button_back_normal.png" id="7_ioojb"]
+[ext_resource type="Texture2D" uid="uid://docojj1nq3phv" path="res://menus/assets/graphics/button_back_pressed.png" id="8_i6xki"]
+[ext_resource type="AudioStream" uid="uid://bxkjlyno74b2j" path="res://menus/assets/songs/NCS_BGM_VS_EXPLAIN.ogg" id="9_oiy3n"]
+[ext_resource type="Texture2D" uid="uid://biesatt8rga6b" path="res://menus/assets/graphics/tap_0.png" id="10_pdrsi"]
+[ext_resource type="Texture2D" uid="uid://btb8labs882av" path="res://menus/assets/graphics/tap_1.png" id="11_ar7qf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gfnk1"]
+bg_color = Color(0.321569, 0.290196, 0.258824, 1)
+border_width_top = 4
+border_width_bottom = 4
+border_color = Color(0.192157, 0.160784, 0.129412, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3r7jr"]
+bg_color = Color(0.321569, 0.352941, 0.45098, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 1)
+shadow_size = 1
+shadow_offset = Vector2(-2, -2)
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_pc8ob"]
+frames = 2
+frame_0/texture = ExtResource("10_pdrsi")
+frame_0/duration = 0.3
+frame_1/texture = ExtResource("11_ar7qf")
+frame_1/duration = 0.3
+
+[node name="MinigameDescription" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ReferenceRect" type="ReferenceRect" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+pivot_offset = Vector2(360, 180)
+border_color = Color(1, 0, 0.913725, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_x4xmj")
+
+[node name="PanelTitle" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 16.0
+offset_bottom = 64.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_gfnk1")
+
+[node name="Label" type="Label" parent="PanelTitle"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_oagsf")
+text = "Minigame Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PanelDescription" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.155556
+anchor_top = 0.122
+anchor_right = 0.847
+anchor_bottom = 0.122
+offset_top = 0.159996
+offset_right = 0.159973
+offset_bottom = 248.16
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("4_qwmpi")
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelDescription"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_uuyvv")
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 20
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="PanelDescription/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry‘s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged."
+autowrap_mode = 2
+text_overrun_behavior = 3
+
+[node name="PanelScoreboard" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.255556
+anchor_top = 0.956
+anchor_right = 0.744
+anchor_bottom = 0.956
+offset_left = -1.52588e-05
+offset_top = -296.32
+offset_right = -175.68
+offset_bottom = -148.32
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+theme_override_styles/panel = SubResource("StyleBoxFlat_3r7jr")
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelScoreboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_uuyvv")
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelScoreboard/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_7vb0x")
+theme_override_font_sizes/font_size = 16
+text = "High Scores"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_7vb0x")
+theme_override_font_sizes/font_size = 16
+text = "1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_7vb0x")
+theme_override_font_sizes/font_size = 16
+text = "2"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_7vb0x")
+theme_override_font_sizes/font_size = 16
+text = "3"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_7vb0x")
+theme_override_font_sizes/font_size = 16
+text = "4"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_7vb0x")
+theme_override_font_sizes/font_size = 16
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="ButtonBack" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.968611
+anchor_top = 0.963056
+anchor_right = 0.968611
+anchor_bottom = 0.963056
+offset_left = -70.3999
+offset_top = -62.0003
+offset_right = -35.3999
+offset_bottom = -31.0003
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(2, 2)
+toggle_mode = true
+texture_normal = ExtResource("7_ioojb")
+texture_pressed = ExtResource("8_i6xki")
+texture_disabled = ExtResource("8_i6xki")
+stretch_mode = 3
+
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_oiy3n")
+autoplay = true
+bus = &"FadeableMusic"
+
+[node name="AudioSFX" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = -24.0
+grow_vertical = 0
+texture = SubResource("AnimatedTexture_pc8ob")

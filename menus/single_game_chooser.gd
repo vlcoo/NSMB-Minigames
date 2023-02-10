@@ -37,3 +37,4 @@ func _on_button_back_button_down():
 func _on_button_minigame_pressed(minigame: MinigameData, button):
 	button.modulate = Color(1.2, 1.2, 0.3, 1)
 	Transitionizer.transition(Transitionizer.TransitionStyles.STAR, Transitionizer.TransitionStyles.STAR, false, "res://menus/single_game_chooser.tscn")
+	Transitionizer.selected_minigame = minigame

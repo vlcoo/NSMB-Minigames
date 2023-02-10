@@ -5,6 +5,8 @@ enum TransitionStyles {FADE, CIRCLE, STAR, NONE}
 var current_scene: Node
 var current_overlay: Node
 
+var selected_minigame: MinigameData
+
 
 func _ready():
 	for child in get_tree().get_root().get_children():

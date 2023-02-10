@@ -161,7 +161,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_em113")
 
-[node name="Panel" type="PanelContainer" parent="."]
+[node name="Panel" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.211111
@@ -179,7 +179,18 @@ theme_override_styles/panel = ExtResource("2_75vf5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="RichTextLabel" parent="Panel"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -76.0
+offset_top = -27.0
+offset_right = 76.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("3_i6kr5")
@@ -189,7 +200,7 @@ ver 0.0"
 fit_content = true
 autowrap_mode = 0
 
-[node name="Panel2" type="PanelContainer" parent="."]
+[node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.211111
@@ -207,7 +218,18 @@ theme_override_styles/panel = ExtResource("2_75vf5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="RichTextLabel" parent="Panel2"]
-layout_mode = 2
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = -26.0
+offset_right = 159.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/normal_font = ExtResource("3_i6kr5")
