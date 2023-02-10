@@ -19,3 +19,7 @@ func _on_button_vs_button_down():
 	sfx.set_stream(DBs.SOUNDS.positive)
 	sfx.play()
 	Transitionizer.transition(Transitionizer.TransitionStyles.NONE, Transitionizer.TransitionStyles.NONE, false, "res://menus/fatal_error.tscn")
+
+
+func _on_button_options_pressed():
+	Transitionizer.set_overlay("res://menus/opions_overlay.tscn")

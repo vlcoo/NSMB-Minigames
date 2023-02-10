@@ -4,7 +4,9 @@ const SOUNDS: Dictionary = {
 	"quit": preload("res://menus/assets/audio/negative.ogg"),
 	"positive": preload("res://menus/assets/audio/positive.ogg"),
 	"negative": preload("res://menus/assets/audio/negative.ogg"),
-	"cursor": preload("res://menus/assets/audio/cursor.ogg")
+	"cursor": preload("res://menus/assets/audio/cursor.ogg"),
+	"pause": preload("res://menus/assets/audio/pause.ogg"),
+	"soundmode": preload("res://menus/assets/audio/soundmode.ogg"),
 }
 
 const CATEGORY_DESCRIPTIONS: Dictionary = {

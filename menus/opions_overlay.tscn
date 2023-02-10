@@ -1,0 +1,287 @@
+[gd_scene load_steps=15 format=3 uid="uid://cyxir4vkgljqt"]
+
+[ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="1_4v6p5"]
+[ext_resource type="Script" path="res://menus/opions_overlay.gd" id="1_26hkp"]
+[ext_resource type="StyleBox" uid="uid://cl21lofeowt5r" path="res://menus/assets/theme_resources/blocky_colorful_base.tres" id="2_fojsy"]
+[ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="3_bkn2g"]
+[ext_resource type="AudioStream" uid="uid://bk4b6vmi3fn1a" path="res://menus/assets/audio/pause.ogg" id="5_1e05x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jf6d"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+bg_color = Color(0.870588, 0.937255, 0.870588, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+expand_margin_top = 2.0
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8aq7q"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la724"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0.678431, 0.352941, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njyxm"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+bg_color = Color(0.968627, 0, 0.160784, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6jqe"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+bg_color = Color(1, 0.968627, 0, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xy64"]
+
+[sub_resource type="Animation" id="Animation_qpdrl"]
+resource_name = "intro"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.15, 1),
+"update": 0,
+"values": [Vector2(-240, 241.75), Vector2(290, 241.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxBottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(0.15, 1),
+"update": 0,
+"values": [Vector2(816, 399.75), Vector2(290, 399.75)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioSFX")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_1e05x")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="Animation" id="Animation_nkfgm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(290, 241.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxBottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(290, 399.75)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1nnsl"]
+_data = {
+"RESET": SubResource("Animation_nkfgm"),
+"intro": SubResource("Animation_qpdrl")
+}
+
+[node name="OpionsOverlay" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_26hkp")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.584314)
+
+[node name="VBoxTop" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 290.0
+offset_top = 241.75
+offset_right = 431.0
+offset_bottom = 308.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(70.625, 33.75)
+theme_override_constants/separation = 12
+metadata/_edit_group_ = true
+
+[node name="ButtonContinue" type="Button" parent="VBoxTop"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_4v6p5")
+theme_override_styles/normal = ExtResource("2_fojsy")
+theme_override_styles/hover = ExtResource("2_fojsy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3jf6d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8aq7q")
+text = "Continue"
+
+[node name="ButtonMusicVol" type="PanelContainer" parent="VBoxTop"]
+layout_mode = 2
+theme = ExtResource("3_bkn2g")
+theme_override_styles/panel = SubResource("StyleBoxFlat_la724")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxTop/ButtonMusicVol"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxTop/ButtonMusicVol/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 8
+text = "Music"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxTop/ButtonMusicVol/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_bkn2g")
+min_value = -60.0
+max_value = 0.0
+value = -10.0
+
+[node name="VBoxBottom" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 290.0
+offset_top = 399.75
+offset_right = 431.0
+offset_bottom = 466.75
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(70.625, 33.75)
+theme_override_constants/separation = 12
+metadata/_edit_group_ = true
+
+[node name="ButtonSFXVol" type="PanelContainer" parent="VBoxBottom"]
+layout_mode = 2
+theme = ExtResource("3_bkn2g")
+theme_override_styles/panel = SubResource("StyleBoxFlat_la724")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxBottom/ButtonSFXVol"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxBottom/ButtonSFXVol/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_font_sizes/font_size = 8
+text = "SFX"
+vertical_alignment = 1
+
+[node name="HSlider" type="HSlider" parent="VBoxBottom/ButtonSFXVol/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme = ExtResource("3_bkn2g")
+min_value = -60.0
+max_value = 0.0
+value = -10.0
+tick_count = 1
+
+[node name="ButtonErase" type="Button" parent="VBoxBottom"]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_4v6p5")
+theme_override_styles/normal = SubResource("StyleBoxFlat_njyxm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_njyxm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y6jqe")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5xy64")
+text = "Erase Data?"
+
+[node name="AudioSFX" type="AudioStreamPlayer" parent="."]
+autoplay = true
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "intro"
+libraries = {
+"": SubResource("AnimationLibrary_1nnsl")
+}
+
+[connection signal="pressed" from="VBoxTop/ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="value_changed" from="VBoxTop/ButtonMusicVol/HBoxContainer/HSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="drag_ended" from="VBoxBottom/ButtonSFXVol/HBoxContainer/HSlider" to="." method="_on_sfx_slider_drag_ended"]
+[connection signal="value_changed" from="VBoxBottom/ButtonSFXVol/HBoxContainer/HSlider" to="." method="_on_sfx_slider_value_changed"]

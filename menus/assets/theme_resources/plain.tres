@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=6 format=3 uid="uid://c45u3bs2vsb7a"]
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://c45u3bs2vsb7a"]
 
 [ext_resource type="FontFile" uid="uid://cpqpr3nr5kmx5" path="res://menus/assets/theme_resources/super_mario_64DS.ttf" id="1_0m1lr"]
 
@@ -49,6 +49,23 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(1, 1)
 
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_oljea"]
+color = Color(1, 1, 1, 1)
+grow_begin = -2.0
+grow_end = -2.0
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_6vsiw"]
+color = Color(1, 1, 1, 1)
+grow_begin = -2.0
+grow_end = -2.0
+thickness = 6
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_pllp4"]
+grow_begin = 0.0
+grow_end = 0.0
+thickness = 6
+
 [resource]
 default_font = ExtResource("1_0m1lr")
 Button/colors/font_color = Color(1, 1, 1, 1)
@@ -58,3 +75,6 @@ Button/styles/focus = SubResource("StyleBoxEmpty_g0gi5")
 Button/styles/hover = SubResource("StyleBoxFlat_38jd5")
 Button/styles/normal = SubResource("StyleBoxFlat_nxvn3")
 Button/styles/pressed = SubResource("StyleBoxFlat_527oe")
+HSlider/styles/grabber_area = SubResource("StyleBoxLine_oljea")
+HSlider/styles/grabber_area_highlight = SubResource("StyleBoxLine_6vsiw")
+HSlider/styles/slider = SubResource("StyleBoxLine_pllp4")

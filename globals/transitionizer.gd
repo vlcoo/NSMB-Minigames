@@ -3,6 +3,7 @@ extends CanvasLayer
 enum TransitionStyles {FADE, CIRCLE, STAR, NONE}
 
 var current_scene: Node
+var current_overlay: Node
 
 
 func _ready():
@@ -21,6 +22,7 @@ func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: b
 		$AudioStreamPlayer.play()
 	await $AnimationPlayer.animation_finished
 
+	free_current_overlay()
 	if scene.begins_with("%special%"):
 		_do_special_command(scene.split("%")[2])
 	elif scene != "":
@@ -34,6 +36,19 @@ func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: b
 	$AnimationPlayer.play_backwards("transition_" + TransitionStyles.keys()[out_style].to_lower())
 	await $AnimationPlayer.animation_finished
 	$CanvasGroup/ColorRect.set_mouse_filter(Control.MOUSE_FILTER_IGNORE)
+
+
+func set_overlay(scene: String):
+	free_current_overlay()
+
+	current_overlay = load(scene).instantiate()
+	get_tree().get_root().add_child(current_overlay)
+
+
+func free_current_overlay():
+	if current_overlay != null:
+		current_overlay.queue_free()
+		current_overlay = null
 
 
 func _set_fadeable_music_db(value: float):

@@ -10,7 +10,7 @@ func _ready():
 		button.texture_normal = minigame.icon
 		button.size_flags_vertical = Control.SIZE_SHRINK_CENTER + Control.SIZE_EXPAND
 		$ContainerGames.add_child(button)
-		button.pressed.connect(_on_button_minigame_pressed.bind(minigame, button))
+		button.button_down.connect(_on_button_minigame_pressed.bind(minigame, button))
 		button.add_to_group(MinigameData.GameCategories.keys()[minigame.category])
 
 	change_category(MinigameData.GameCategories.ACTION)
@@ -37,7 +37,3 @@ func _on_button_back_button_down():
 func _on_button_minigame_pressed(minigame: MinigameData, button):
 	button.modulate = Color(1.2, 1.2, 0.3, 1)
 	Transitionizer.transition(Transitionizer.TransitionStyles.STAR, Transitionizer.TransitionStyles.STAR, false, "res://menus/single_game_chooser.tscn")
-
-
-func _on_action_button_down(extra_arg_0):
-	pass # Replace with function body.
