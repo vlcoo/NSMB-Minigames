@@ -264,3 +264,4 @@ libraries = {
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ddw8q")
+bus = &"SFX"

@@ -270,6 +270,7 @@ pivot_offset = Vector2(360, 360)
 script = ExtResource("1_bbuyh")
 
 [node name="GameOverTitle" type="RichTextLabel" parent="."]
+light_mask = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.177556
@@ -296,6 +297,7 @@ rotation = 4.71239
 scale = Vector2(0.635576, 1176.22)
 energy = 2.13
 blend_mode = 2
+range_item_cull_mask = 2
 texture = SubResource("GradientTexture1D_wtg0f")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -305,8 +307,10 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="ScoreboardTitle" type="Label" parent="."]
+light_mask = 4
 layout_mode = 2
 anchor_top = 0.467
 anchor_right = 1.0
@@ -333,6 +337,7 @@ rotation = -1.5708
 scale = Vector2(0.401201, 1176.22)
 energy = 2.13
 blend_mode = 2
+range_item_cull_mask = 4
 texture = SubResource("GradientTexture1D_lph43")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]

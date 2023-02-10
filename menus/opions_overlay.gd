@@ -19,7 +19,7 @@ func _on_sfx_slider_drag_ended(value_changed):
 	$AudioSFX.play()
 
 
-func _on_button_continue_pressed():
+func _on_button_continue_button_down():
 	$AudioSFX.stream = DBs.SOUNDS.positive
 	$AudioSFX.play()
 	await $AudioSFX.finished

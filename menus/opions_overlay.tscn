@@ -63,6 +63,33 @@ anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xy64"]
 
+[sub_resource type="Animation" id="Animation_nkfgm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("VBoxTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(290, 241.75)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("VBoxBottom:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(290, 399.75)]
+}
+
 [sub_resource type="Animation" id="Animation_qpdrl"]
 resource_name = "intro"
 length = 0.6
@@ -105,33 +132,6 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/2/use_blend = true
-
-[sub_resource type="Animation" id="Animation_nkfgm"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("VBoxTop:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(290, 241.75)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("VBoxBottom:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(290, 399.75)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1nnsl"]
 _data = {
@@ -186,6 +186,7 @@ theme_override_styles/normal = ExtResource("2_fojsy")
 theme_override_styles/hover = ExtResource("2_fojsy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3jf6d")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8aq7q")
+toggle_mode = true
 text = "Continue"
 
 [node name="ButtonMusicVol" type="PanelContainer" parent="VBoxTop"]
@@ -269,6 +270,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_njyxm")
 theme_override_styles/hover = SubResource("StyleBoxFlat_njyxm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y6jqe")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5xy64")
+toggle_mode = true
 text = "Erase Data?"
 
 [node name="AudioSFX" type="AudioStreamPlayer" parent="."]
@@ -281,7 +283,7 @@ libraries = {
 "": SubResource("AnimationLibrary_1nnsl")
 }
 
-[connection signal="pressed" from="VBoxTop/ButtonContinue" to="." method="_on_button_continue_pressed"]
+[connection signal="button_down" from="VBoxTop/ButtonContinue" to="." method="_on_button_continue_button_down"]
 [connection signal="value_changed" from="VBoxTop/ButtonMusicVol/HBoxContainer/HSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="drag_ended" from="VBoxBottom/ButtonSFXVol/HBoxContainer/HSlider" to="." method="_on_sfx_slider_drag_ended"]
 [connection signal="value_changed" from="VBoxBottom/ButtonSFXVol/HBoxContainer/HSlider" to="." method="_on_sfx_slider_value_changed"]

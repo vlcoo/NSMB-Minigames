@@ -496,4 +496,5 @@ bus = &"SFX"
 [connection signal="button_down" from="ButtonVS" to="." method="_on_button_vs_button_down"]
 [connection signal="button_down" from="ButtonSingle" to="." method="_on_button_single_button_down"]
 [connection signal="pressed" from="VBoxContainer/ButtonOptions" to="." method="_on_button_options_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonAbout" to="." method="_on_button_about_pressed"]
 [connection signal="button_down" from="ButtonBack" to="." method="_on_button_back_button_down"]

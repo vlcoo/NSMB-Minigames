@@ -403,6 +403,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(824, 480), Vector2(824, 480), Vector2(336, 480)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ContainerGames:size")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(165, 107)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wh84v"]
 _data = {
@@ -497,10 +509,10 @@ anchor_left = 0.968611
 anchor_top = 0.963056
 anchor_right = 0.968611
 anchor_bottom = 0.963056
-offset_left = -69.3999
-offset_top = -62.0003
-offset_right = -34.3999
-offset_bottom = -31.0003
+offset_left = 628.0
+offset_top = 631.4
+offset_right = 663.0
+offset_bottom = 662.4
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -632,10 +644,10 @@ anchor_left = 0.767
 anchor_top = 0.591778
 anchor_right = 0.808
 anchor_bottom = 0.889
-offset_left = -216.24
-offset_top = 53.9199
-offset_right = -80.76
-offset_bottom = -53.08
+offset_left = 336.0
+offset_top = 480.0
+offset_right = 501.0
+offset_bottom = 587.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(82, 54)
 columns = 3

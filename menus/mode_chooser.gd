@@ -23,3 +23,9 @@ func _on_button_vs_button_down():
 
 func _on_button_options_pressed():
 	Transitionizer.set_overlay("res://menus/opions_overlay.tscn")
+
+
+func _on_button_about_pressed():
+	sfx.set_stream(DBs.SOUNDS.positive)
+	sfx.play()
+	Transitionizer.transition(Transitionizer.TransitionStyles.FADE, Transitionizer.TransitionStyles.CIRCLE, false, "res://menus/about.tscn")
