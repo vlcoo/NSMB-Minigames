@@ -13,19 +13,23 @@ func _ready():
 		button.button_down.connect(_on_button_minigame_pressed.bind(minigame, button))
 		button.add_to_group(MinigameData.GameCategories.keys()[minigame.category])
 
-	change_category(MinigameData.GameCategories.ACTION)
+	change_category(Transitionizer.selected_category)
+	Transitionizer.selected_minigame = null
 
 
 func change_category(category: MinigameData.GameCategories, silently: bool = true):
-	$PanelDescription/Label.text = DBs.CATEGORY_DESCRIPTIONS[category];
+	Transitionizer.selected_category = category
 	var category_name = MinigameData.GameCategories.keys()[category]
 
 	for button_game in $ContainerGames.get_children():
 		button_game.visible = category_name in button_game.get_groups()
 
 	if not silently:
+		$PanelDescription/Label.text = DBs.CATEGORY_DESCRIPTIONS[category];
 		sfx.set_stream(DBs.SOUNDS.cursor)
 		sfx.play()
+	else:
+		$ContainerCategories.get_node(category_name.capitalize()).button_pressed = true
 
 
 func _on_button_back_button_down():
@@ -36,5 +40,5 @@ func _on_button_back_button_down():
 
 func _on_button_minigame_pressed(minigame: MinigameData, button):
 	button.modulate = Color(1.2, 1.2, 0.3, 1)
-	Transitionizer.transition(Transitionizer.TransitionStyles.STAR, Transitionizer.TransitionStyles.STAR, false, "res://menus/single_game_chooser.tscn")
+	Transitionizer.transition(Transitionizer.TransitionStyles.STAR, Transitionizer.TransitionStyles.STAR, false, "res://menus/minigame_description.tscn")
 	Transitionizer.selected_minigame = minigame

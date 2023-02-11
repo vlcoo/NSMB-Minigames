@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://doqxbruw1chop"]
+[gd_scene load_steps=20 format=3 uid="uid://doqxbruw1chop"]
 
+[ext_resource type="Script" path="res://menus/minigame_description.gd" id="1_r5hxt"]
 [ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_x4xmj"]
 [ext_resource type="FontFile" uid="uid://cpqpr3nr5kmx5" path="res://menus/assets/theme_resources/super_mario_64DS.ttf" id="2_oagsf"]
 [ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="3_uuyvv"]
@@ -28,14 +29,58 @@ shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(-2, -2)
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_pc8ob"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_10ocj"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+bg_color = Color(0.141176, 0.435294, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+expand_margin_top = 2.0
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dfc4f"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+bg_color = Color(0.141176, 0.435294, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+expand_margin_top = 2.0
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rh5ry"]
+content_margin_left = 18.0
+content_margin_top = 6.0
+content_margin_right = 18.0
+content_margin_bottom = 6.0
+bg_color = Color(0.505882, 0.67451, 1, 1)
+border_width_left = 2
+border_width_top = 2
+border_color = Color(0.94902, 0.94902, 0.94902, 1)
+expand_margin_top = 2.0
+shadow_size = 1
+shadow_offset = Vector2(2, 2)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hekx1"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_2jisx"]
 frames = 2
 frame_0/texture = ExtResource("10_pdrsi")
 frame_0/duration = 0.3
 frame_1/texture = ExtResource("11_ar7qf")
 frame_1/duration = 0.3
 
-[node name="MinigameDescription" type="Control"]
+[node name="MinigameDescription" type="Control" groups=["BaseScreen"]]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -43,6 +88,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_r5hxt")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
 z_index = 1
@@ -61,6 +107,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("1_x4xmj")
 
 [node name="PanelTitle" type="Panel" parent="."]
@@ -70,6 +117,7 @@ anchor_right = 1.0
 offset_top = 16.0
 offset_bottom = 64.0
 grow_horizontal = 2
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_gfnk1")
 
 [node name="Label" type="Label" parent="PanelTitle"]
@@ -102,9 +150,9 @@ offset_right = 0.159973
 offset_bottom = 248.16
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_styles/panel = ExtResource("4_qwmpi")
 metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelDescription"]
 layout_mode = 1
@@ -141,9 +189,9 @@ offset_bottom = -148.32
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3r7jr")
 metadata/_edit_group_ = true
-metadata/_edit_use_anchors_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelScoreboard"]
 layout_mode = 1
@@ -170,7 +218,7 @@ theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 2
 theme_override_fonts/font = ExtResource("5_7vb0x")
 theme_override_font_sizes/font_size = 16
-text = "High Scores"
+text = "Scoreboard"
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
@@ -348,6 +396,24 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
+[node name="ButtonStart" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("5_7vb0x")
+theme_override_styles/normal = SubResource("StyleBoxFlat_10ocj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dfc4f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rh5ry")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_hekx1")
+toggle_mode = true
+flat = true
+
 [node name="ButtonBack" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -386,4 +452,8 @@ offset_top = -64.0
 offset_right = 64.0
 offset_bottom = -24.0
 grow_vertical = 0
-texture = SubResource("AnimatedTexture_pc8ob")
+texture = SubResource("AnimatedTexture_2jisx")
+
+[connection signal="gui_input" from="BG" to="." method="_on_bg_gui_input"]
+[connection signal="button_down" from="ButtonStart" to="." method="_on_button_start_button_down"]
+[connection signal="button_down" from="ButtonBack" to="." method="_on_button_back_button_down"]

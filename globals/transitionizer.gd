@@ -6,6 +6,7 @@ var current_scene: Node
 var current_overlay: Node
 
 var selected_minigame: MinigameData
+var selected_category: MinigameData.GameCategories = MinigameData.GameCategories.ACTION
 
 
 func _ready():
@@ -15,7 +16,12 @@ func _ready():
 	$AnimationPlayer.play_backwards("transition_fade")
 
 
-func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: bool, scene: String):
+func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: bool, path_or_scene):
+	var scene: String
+	if path_or_scene != null:
+		scene = path_or_scene.resource_path if path_or_scene is PackedScene else path_or_scene
+	assert(scene != null and ResourceLoader.exists(str(scene)), "Tried to transition into non-existent Scene.")
+
 	$CanvasGroup/ColorRect.set_mouse_filter(Control.MOUSE_FILTER_STOP)
 	$CanvasGroup/ColorRect.color = Color.BLACK if dark else Color.WHITE
 	create_tween().tween_method(_set_fadeable_music_db, 0, -25, 0.8).set_ease(Tween.EASE_IN)
