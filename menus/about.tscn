@@ -245,8 +245,6 @@ autoplay = true
 bus = &"FadeableMusic"
 
 [node name="AudioSFX" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_rdonh")
-autoplay = true
 bus = &"SFX"
 
 [node name="ButtonBack" type="TextureButton" parent="."]

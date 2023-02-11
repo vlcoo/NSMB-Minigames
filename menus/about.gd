@@ -8,4 +8,6 @@ func _on_button_back_pressed():
 
 
 func _on_label_meta_clicked(meta):
+	$AudioSFX.set_stream(DBs.SOUNDS.advance)
+	$AudioSFX.play()
 	OS.shell_open(meta)

@@ -2,6 +2,7 @@ extends CanvasLayer
 
 enum TransitionStyles {FADE, CIRCLE, STAR, NONE}
 
+@onready var sfx = $AudioStreamPlayer
 var current_scene: Node
 var current_overlay: Node
 
@@ -20,14 +21,14 @@ func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: b
 	var scene: String
 	if path_or_scene != null:
 		scene = path_or_scene.resource_path if path_or_scene is PackedScene else path_or_scene
-	assert(scene != null and ResourceLoader.exists(str(scene)), "Tried to transition into non-existent Scene.")
+	assert(scene != null and (scene.begins_with("%special%") or ResourceLoader.exists(str(scene))), "Tried to transition into non-existent Scene.")
 
 	$CanvasGroup/ColorRect.set_mouse_filter(Control.MOUSE_FILTER_STOP)
 	$CanvasGroup/ColorRect.color = Color.BLACK if dark else Color.WHITE
 	create_tween().tween_method(_set_fadeable_music_db, 0, -25, 0.8).set_ease(Tween.EASE_IN)
 	$AnimationPlayer.play("transition_" + TransitionStyles.keys()[in_style].to_lower())
 	if in_style == TransitionStyles.STAR:
-		$AudioStreamPlayer.play()
+		sfx.play()
 	await $AnimationPlayer.animation_finished
 
 	free_current_overlay()
