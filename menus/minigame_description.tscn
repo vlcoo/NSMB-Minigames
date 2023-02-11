@@ -191,6 +191,7 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_3r7jr")
+metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
 [node name="MarginContainer" type="MarginContainer" parent="PanelScoreboard"]
@@ -221,10 +222,10 @@ theme_override_font_sizes/font_size = 16
 text = "Scoreboard"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LabelPlace" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -239,10 +240,11 @@ theme_override_font_sizes/font_size = 16
 text = "1"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
 theme_override_fonts/font = ExtResource("6_ph0lk")
 text = "abcd"
@@ -256,10 +258,10 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="LabelPlace" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -274,10 +276,11 @@ theme_override_font_sizes/font_size = 16
 text = "2"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
 theme_override_fonts/font = ExtResource("6_ph0lk")
 text = "abcd"
@@ -291,10 +294,10 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="LabelPlace" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -309,10 +312,11 @@ theme_override_font_sizes/font_size = 16
 text = "3"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
 theme_override_fonts/font = ExtResource("6_ph0lk")
 text = "abcd"
@@ -326,10 +330,10 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="LabelPlace" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -344,10 +348,11 @@ theme_override_font_sizes/font_size = 16
 text = "4"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
 theme_override_fonts/font = ExtResource("6_ph0lk")
 text = "abcd"
@@ -361,10 +366,10 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="LabelPlace" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
@@ -379,16 +384,95 @@ theme_override_font_sizes/font_size = 16
 text = "5"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
 theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
 theme_override_fonts/font = ExtResource("6_ph0lk")
 text = "abcd"
 vertical_alignment = 1
 
 [node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="PanelCoincount" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.255556
+anchor_top = 0.722
+anchor_right = 0.744
+anchor_bottom = 0.722
+offset_left = -1.52588e-05
+offset_top = -127.84
+offset_right = -175.68
+offset_bottom = -63.84
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_3r7jr")
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelCoincount"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_uuyvv")
+theme_override_constants/margin_left = 46
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 46
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelCoincount/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Label" type="Label" parent="PanelCoincount/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("5_7vb0x")
+theme_override_font_sizes/font_size = 16
+text = "Coins"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelCoincount/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelCoincount/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "ef"
+vertical_alignment = 1
+
+[node name="Label3" type="Label" parent="PanelCoincount/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("6_ph0lk")
+text = "cd"
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelCoincount/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("6_ph0lk")

@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://nu7p0kg0jvd6"]
+[gd_scene load_steps=15 format=3 uid="uid://nu7p0kg0jvd6"]
 
 [ext_resource type="Script" path="res://menus/results_overlay.gd" id="1_bbuyh"]
 [ext_resource type="AudioStream" uid="uid://ceiob0ihr5jtu" path="res://menus/assets/songs/NCS_BGM_MINIOVER.ogg" id="2_7d885"]
 [ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="2_p75an"]
+[ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="4_kgo0j"]
+[ext_resource type="FontFile" uid="uid://cyv5rrm616cq8" path="res://menus/assets/theme_resources/sheet_font_numbers.png" id="5_mtb8q"]
 
 [sub_resource type="Gradient" id="Gradient_kcneg"]
 offsets = PackedFloat32Array(0.323529, 0.887255)
@@ -77,6 +79,18 @@ tracks/5/path = NodePath("ScoreboardTitle:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PanelScoreboard:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -243,6 +257,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PanelScoreboard:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m24k6"]
 _data = {
@@ -257,6 +283,8 @@ colors = PackedColorArray(0.765625, 0.158508, 0.158508, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lph43"]
 gradient = SubResource("Gradient_l6d1c")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fohiw"]
 
 [node name="ResultsOverlay" type="Control"]
 texture_filter = 1
@@ -311,13 +339,16 @@ bus = &"SFX"
 
 [node name="ScoreboardTitle" type="Label" parent="."]
 light_mask = 4
-layout_mode = 2
-anchor_top = 0.467
-anchor_right = 1.0
-anchor_bottom = 0.556
-offset_top = -0.23999
-offset_right = 8.0
-offset_bottom = -0.320038
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -5.0
+offset_right = 96.0
+offset_bottom = 27.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(364, 36)
@@ -328,11 +359,10 @@ theme_override_font_sizes/font_size = 30
 text = "Scoreboard"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="ScoreboardTitle"]
-position = Vector2(360, 28)
+position = Vector2(101, 13)
 rotation = -1.5708
 scale = Vector2(0.401201, 1176.22)
 energy = 2.13
@@ -340,14 +370,281 @@ blend_mode = 2
 range_item_cull_mask = 4
 texture = SubResource("GradientTexture1D_lph43")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="PanelScoreboard" type="Panel" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.555556
-anchor_right = 0.711111
-anchor_bottom = 0.877778
+anchor_left = 0.255556
+anchor_top = 0.956
+anchor_right = 0.744
+anchor_bottom = 0.956
+offset_left = -1.52588e-05
+offset_top = -296.32
+offset_right = -175.68
+offset_bottom = -148.32
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_fohiw")
 metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="PanelScoreboard"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_kgo0j")
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 24
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelScoreboard/MarginContainer"]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
+layout_mode = 2
+
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_p75an")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
+layout_mode = 2
+
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_p75an")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
+layout_mode = 2
+
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_p75an")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
+layout_mode = 2
+
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_p75an")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
+layout_mode = 2
+
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_p75an")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Spacer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/Spacer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_p75an")
+theme_override_font_sizes/font_size = 16
+horizontal_alignment = 1
+
+[node name="NoTopEntry" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
+layout_mode = 2
+
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 0.913725, 0, 1)
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "abcd"
+vertical_alignment = 1
+
+[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_p75an")
+theme_override_font_sizes/font_size = 16
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("5_mtb8q")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
