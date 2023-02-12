@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://byarotjtjykxc"]
+
+[ext_resource type="Texture2D" uid="uid://dul2qr8816pld" path="res://game_scenes/whack_mole/assets/graphics/luigi_stare.png" id="1_m2utl"]
+[ext_resource type="Texture2D" uid="uid://bug2ru0uv63by" path="res://game_scenes/whack_mole/assets/graphics/luigi_hit.png" id="2_qdg8m"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m2utl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qdg8m")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}]

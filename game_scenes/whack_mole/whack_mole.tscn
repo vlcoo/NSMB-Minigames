@@ -1,3 +1,123 @@
-[gd_scene format=3 uid="uid://5ecipxy1qolo"]
+[gd_scene load_steps=7 format=3 uid="uid://5ecipxy1qolo"]
 
-[node name="Minigame" type="Node2D"]
+[ext_resource type="Script" path="res://game_scenes/whack_mole/whack_mole.gd" id="1_fhnkf"]
+[ext_resource type="AudioStream" uid="uid://ctuto8184lb2a" path="res://common/assets/songs/NCS_BGM_MINICOIN.ogg" id="1_gc23r"]
+[ext_resource type="PackedScene" uid="uid://nu7p0kg0jvd6" path="res://menus/results_overlay.tscn" id="2_b4dgq"]
+[ext_resource type="Texture2D" uid="uid://0g4ncys2nu6l" path="res://game_scenes/whack_mole/assets/graphics/bg_top.png" id="2_imnym"]
+[ext_resource type="Texture2D" uid="uid://cvn77rja747j6" path="res://game_scenes/whack_mole/assets/graphics/bg_bottom.png" id="3_gs8l7"]
+[ext_resource type="Texture2D" uid="uid://dlur5jvk3o0bn" path="res://game_scenes/whack_mole/assets/graphics/bg_mask.png" id="4_82vsv"]
+
+[node name="Minigame" type="Node" groups=["BaseScreen"]]
+script = ExtResource("1_fhnkf")
+
+[node name="2D" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="BGBottom" type="Sprite2D" parent="2D"]
+position = Vector2(360, 536)
+texture = ExtResource("3_gs8l7")
+
+[node name="Mask" type="Sprite2D" parent="2D/BGBottom"]
+texture = ExtResource("4_82vsv")
+
+[node name="Marker2D" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(-168, -120)
+gizmo_extents = 15.0
+
+[node name="Marker2D2" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(-80, -120)
+gizmo_extents = 15.0
+
+[node name="Marker2D3" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(0, -120)
+gizmo_extents = 15.0
+
+[node name="Marker2D4" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(86, -120)
+gizmo_extents = 15.0
+
+[node name="Marker2D5" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(168, -120)
+gizmo_extents = 15.0
+
+[node name="Marker2D6" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(-168, -37)
+gizmo_extents = 15.0
+
+[node name="Marker2D7" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(-80, -37)
+gizmo_extents = 15.0
+
+[node name="Marker2D8" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(0, -37)
+gizmo_extents = 15.0
+
+[node name="Marker2D9" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(86, -37)
+gizmo_extents = 15.0
+
+[node name="Marker2D10" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(168, -37)
+gizmo_extents = 15.0
+
+[node name="Marker2D11" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(-168, 43)
+gizmo_extents = 15.0
+
+[node name="Marker2D12" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(-80, 43)
+gizmo_extents = 15.0
+
+[node name="Marker2D13" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(0, 43)
+gizmo_extents = 15.0
+
+[node name="Marker2D14" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(86, 43)
+gizmo_extents = 15.0
+
+[node name="Marker2D15" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(168, 43)
+gizmo_extents = 15.0
+
+[node name="Marker2D16" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(-168, 121)
+gizmo_extents = 15.0
+
+[node name="Marker2D17" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(-80, 121)
+gizmo_extents = 15.0
+
+[node name="Marker2D18" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(0, 121)
+gizmo_extents = 15.0
+
+[node name="Marker2D19" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(86, 121)
+gizmo_extents = 15.0
+
+[node name="Marker2D20" type="Marker2D" parent="2D/BGBottom/Mask"]
+position = Vector2(168, 121)
+gizmo_extents = 15.0
+
+[node name="BGTop" type="Sprite2D" parent="2D"]
+position = Vector2(360, 160)
+texture = ExtResource("2_imnym")
+
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_gc23r")
+autoplay = true
+bus = &"FadeableMusic"
+
+[node name="AudioSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_gc23r")
+bus = &"SFX"
+
+[node name="ResultsOverlay" parent="." instance=ExtResource("2_b4dgq")]
+visible = false
+show_scorelist = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 4.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

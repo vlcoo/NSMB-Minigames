@@ -1,0 +1,23 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dtof5rr3r2uy3"]
+
+[ext_resource type="Texture2D" uid="uid://hxesn5shaoji" path="res://game_scenes/whack_mole/assets/graphics/mole_stare.png" id="1_rmjty"]
+[ext_resource type="Texture2D" uid="uid://c4upajtf65sn0" path="res://game_scenes/whack_mole/assets/graphics/mole_hit.png" id="2_bx615"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rmjty")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_bx615")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}]

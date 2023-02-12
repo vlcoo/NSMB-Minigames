@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://tadec8otcayg"]
+[gd_scene load_steps=71 format=3 uid="uid://tadec8otcayg"]
 
 [ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_8k22e"]
 [ext_resource type="Script" path="res://menus/single_game_chooser.gd" id="1_vvenx"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://globals/minigame_data.gd" id="17_sgy8n"]
 [ext_resource type="Texture2D" uid="uid://c0swh76jhukf5" path="res://menus/assets/graphics/game_icons/slingshot_basket.png" id="19_m3sa4"]
 [ext_resource type="Texture2D" uid="uid://c3i0fqj6wwq0n" path="res://menus/assets/graphics/game_icons/avoid_fireball.png" id="20_ffcwn"]
+[ext_resource type="PackedScene" uid="uid://5ecipxy1qolo" path="res://game_scenes/whack_mole/whack_mole.tscn" id="21_u1lof"]
 [ext_resource type="Texture2D" uid="uid://cmq0y1p25i4ex" path="res://menus/assets/graphics/game_icons/whack_mole.png" id="21_uwsoc"]
 [ext_resource type="Texture2D" uid="uid://cx20fbgqybsk6" path="res://menus/assets/graphics/game_icons/blow_balloon.png" id="22_hncyr"]
 [ext_resource type="Texture2D" uid="uid://deksdwellbg5i" path="res://menus/assets/graphics/game_icons/find_wanted.png" id="23_xj3c7"]
@@ -86,7 +87,7 @@ scoreboard_type = 2
 icon = ExtResource("17_k4d8b")
 singleplayer = true
 multiplayer = false
-description = "Rub the Touch Screen to roll the snowman’s head to the goal before time runs out! Rocks will slow you down, so avoid them!"
+description = "Rub the snowman’s head to roll it to the goal before time runs out! Rocks will slow you down, so avoid them!"
 
 [sub_resource type="Resource" id="Resource_i13gi"]
 script = ExtResource("17_sgy8n")
@@ -106,7 +107,7 @@ scoreboard_type = 0
 icon = ExtResource("20_ffcwn")
 singleplayer = true
 multiplayer = false
-description = "Slide over the Touch Screen to guide the Bob-omb out of the incoming fireballs. Watch out for Bowser‘s flame breath too. How long can you survive?"
+description = "Drag the Bob-omb to guide it out of the incoming fireballs. Watch out for Bowser‘s flame breath too. How long can you survive?"
 
 [sub_resource type="Resource" id="Resource_kg0xq"]
 script = ExtResource("17_sgy8n")
@@ -116,7 +117,8 @@ scoreboard_type = 0
 icon = ExtResource("21_uwsoc")
 singleplayer = true
 multiplayer = false
-description = "Whack Monty Mole whenever he pops out of a hole! WHACKITY WHACK!!! You’ll lose points if you hit poort Luigi by mistake. Be careful! How many Monty Moles can you whack?"
+description = "Whack Monty Mole whenever he pops out of a hole! WHACKITY WHACK!!! You’ll lose points if you hit poor Luigi by mistake. Be careful! How many Monty Moles can you whack?"
+game_scene = ExtResource("21_u1lof")
 
 [sub_resource type="Resource" id="Resource_s7q8f"]
 script = ExtResource("17_sgy8n")
@@ -136,7 +138,7 @@ scoreboard_type = 1
 icon = ExtResource("23_xj3c7")
 singleplayer = true
 multiplayer = false
-description = "It’s easy to get lost in a crowd! Find the one who disappeared and touch him. There he is!"
+description = "It’s easy to get lost in a crowd! Find the one who disappeared and touch or click on him. There he is!"
 
 [sub_resource type="Resource" id="Resource_5nra8"]
 script = ExtResource("17_sgy8n")
@@ -146,7 +148,7 @@ scoreboard_type = 1
 icon = ExtResource("24_6nd0i")
 singleplayer = true
 multiplayer = false
-description = "Touch the Wiggler on the bottom that matches the one on the top. Choose carefully, though: he has a terrible temper."
+description = "Touch or click on the Wiggler on the bottom that matches the one on the top. Choose carefully, though: he has a terrible temper."
 
 [sub_resource type="Resource" id="Resource_xrpg8"]
 script = ExtResource("17_sgy8n")
@@ -156,7 +158,7 @@ scoreboard_type = 1
 icon = ExtResource("25_0hmsm")
 singleplayer = true
 multiplayer = false
-description = "Rub the Touch Screen where the Boos are hiding! Can you find them all before the time runs out?"
+description = "Rub the screen to reveal where the Boos are hiding! Can you find them all before the time runs out?"
 
 [sub_resource type="Resource" id="Resource_32rx7"]
 script = ExtResource("17_sgy8n")
@@ -166,7 +168,7 @@ scoreboard_type = 1
 icon = ExtResource("26_d522s")
 singleplayer = true
 multiplayer = false
-description = "Match the bottom picture to the top one. Touch a panel to turn over the sorrounding panels. Harder levels will take more turns to solve."
+description = "Match the bottom picture to the top one. Touch or click on a panel to turn over the sorrounding panels. Harder levels will take more turns to solve."
 
 [sub_resource type="Resource" id="Resource_cui2d"]
 script = ExtResource("17_sgy8n")
@@ -176,7 +178,7 @@ scoreboard_type = 0
 icon = ExtResource("27_yf0l4")
 singleplayer = true
 multiplayer = false
-description = "Pay attention to where the falling coins land. Tap the blocks to retrieve the coins. Choose wisely: if you pick the wrong block, your game will end."
+description = "Pay attention to where the falling coins land. Tap or click on the blocks to retrieve the coins. Choose wisely: if you pick the wrong block, your game will end."
 
 [sub_resource type="Resource" id="Resource_8qe5m"]
 script = ExtResource("17_sgy8n")
@@ -226,7 +228,7 @@ scoreboard_type = 0
 icon = ExtResource("32_pn7iw")
 singleplayer = true
 multiplayer = false
-description = "Guide black Bob-ombs to the black carpet and red Bob-ombs to the red carpet. If you bring in the wrong Bob-omb, it will explde, and that’s no good!"
+description = "Guide black Bob-ombs to the black carpet and red Bob-ombs to the red carpet. If you bring in the wrong Bob-omb, it will explode, and that’s no good!"
 
 [sub_resource type="Resource" id="Resource_h5sid"]
 script = ExtResource("17_sgy8n")
@@ -236,7 +238,7 @@ scoreboard_type = 0
 icon = ExtResource("33_r4elh")
 singleplayer = true
 multiplayer = false
-description = "The sky is thick with Fly Guys! Help Mario stomp on their heads by tapping on him. Tap Mario on the left, right, or center to make him bounce left, right, or straight up into the air."
+description = "The sky is thick with Fly Guys! Help Mario stomp on their heads by tapping or clicking on him. Tap or click on Mario on the left, right, or center to make him bounce left, right, or straight up into the air."
 
 [sub_resource type="Resource" id="Resource_a1pda"]
 script = ExtResource("17_sgy8n")
@@ -256,7 +258,7 @@ scoreboard_type = 0
 icon = ExtResource("35_s3af0")
 singleplayer = true
 multiplayer = false
-description = "Draw a line on the bottom to create a trampoline. You can draw up to three lines at a time.. Use the trampolines to bounce Mario to safety!"
+description = "Draw a line on the bottom to create a trampoline. You can draw up to three lines at a time. Use the trampolines to bounce Mario to safety!"
 
 [sub_resource type="Animation" id="Animation_e3cb4"]
 length = 0.001
@@ -525,8 +527,8 @@ grow_vertical = 2
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.901961, 0.901961, 0.901961, 1)
 theme_override_fonts/font = ExtResource("4_j74r8")
-text = "Select a genre, and then tap on
-any game in that genre to play."
+text = "Select a genre, and then tap or click
+on any game in that genre to play."
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
@@ -538,10 +540,10 @@ anchor_left = 0.968611
 anchor_top = 0.963056
 anchor_right = 0.968611
 anchor_bottom = 0.963056
-offset_left = -69.3999
-offset_top = -62.0003
-offset_right = -34.3999
-offset_bottom = -31.0003
+offset_left = 628.0
+offset_top = 631.4
+offset_right = 663.0
+offset_bottom = 662.4
 grow_horizontal = 0
 grow_vertical = 0
 scale = Vector2(2, 2)
@@ -673,10 +675,10 @@ anchor_left = 0.767
 anchor_top = 0.591778
 anchor_right = 0.808
 anchor_bottom = 0.889
-offset_left = -216.24
-offset_top = 53.9199
-offset_right = -80.76
-offset_bottom = -53.08
+offset_left = 336.0
+offset_top = 480.0
+offset_right = 501.0
+offset_bottom = 587.0
 scale = Vector2(2, 2)
 pivot_offset = Vector2(82, 54)
 columns = 3

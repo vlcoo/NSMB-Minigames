@@ -8,7 +8,7 @@ enum GameOverTypes {GENERIC, TIME_UP, GOAL}
 
 
 func _ready():
-	appear()
+	pass
 
 
 func appear():

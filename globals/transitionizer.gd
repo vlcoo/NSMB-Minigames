@@ -12,7 +12,7 @@ var selected_category: MinigameData.GameCategories = MinigameData.GameCategories
 
 func _ready():
 	for child in get_tree().get_root().get_children():
-		if child is Control and child.is_in_group("BaseScreen"):
+		if child.is_in_group("BaseScreen"):
 			current_scene = child
 	$AnimationPlayer.play_backwards("transition_fade")
 

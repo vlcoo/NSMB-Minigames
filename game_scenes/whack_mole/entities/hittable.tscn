@@ -1,0 +1,176 @@
+[gd_scene load_steps=12 format=3 uid="uid://d2qxigbg83wpu"]
+
+[ext_resource type="SpriteFrames" uid="uid://dtof5rr3r2uy3" path="res://game_scenes/whack_mole/hittable_mole.tres" id="1_djyxv"]
+[ext_resource type="Script" path="res://game_scenes/whack_mole/entities/hittable.gd" id="1_nc8th"]
+[ext_resource type="Texture2D" uid="uid://bdiikmrnsxdcg" path="res://game_scenes/whack_mole/assets/graphics/particle_hit.png" id="3_8dftc"]
+[ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="4_iske5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3uxtw"]
+size = Vector2(64, 64)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yjpnl"]
+particle_flag_disable_z = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 80.0
+initial_velocity_max = 80.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+damping_min = 100.0
+damping_max = 100.0
+
+[sub_resource type="Animation" id="Animation_8hd0t"]
+resource_name = "RESET"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Label:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-11.5, -80)]
+}
+
+[sub_resource type="Animation" id="Animation_l2arp"]
+resource_name = "hit"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"hit"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GPUParticles2D:emitting")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_veimv"]
+resource_name = "number_positive"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-11.5, -9), Vector2(-11.5, -80)]
+}
+
+[sub_resource type="Animation" id="Animation_e1h7x"]
+resource_name = "number_negative"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-11.5, -9), Vector2(-11.5, 62)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vupop"]
+_data = {
+"RESET": SubResource("Animation_8hd0t"),
+"hit": SubResource("Animation_l2arp"),
+"number_negative": SubResource("Animation_e1h7x"),
+"number_positive": SubResource("Animation_veimv")
+}
+
+[node name="Hittable" type="AnimatableBody2D"]
+texture_filter = 1
+script = ExtResource("1_nc8th")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("1_djyxv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_3uxtw")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 3
+process_material = SubResource("ParticleProcessMaterial_yjpnl")
+texture = ExtResource("3_8dftc")
+lifetime = 0.6
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_vupop")
+}
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -11.5
+offset_top = -80.0
+offset_right = 11.5
+offset_bottom = -62.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(11.5, 9)
+theme_override_colors/font_color = Color(1, 0.517647, 0.517647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("4_iske5")
+text = "+ 1"
+horizontal_alignment = 1
+vertical_alignment = 1
