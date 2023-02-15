@@ -32,6 +32,7 @@ func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: b
 	await $AnimationPlayer.animation_finished
 
 	free_current_overlay()
+	DBs.free_preloads()
 	if scene.begins_with("%special%"):
 		_do_special_command(scene.split("%")[2])
 	elif scene != "":

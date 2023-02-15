@@ -11,6 +11,15 @@ const SOUNDS: Dictionary = {
 	"transition_star": preload("res://common/assets/audio/star_transition.ogg")
 }
 
+var SCENE_PRELOADS: Dictionary = {
+
+}
+
+func free_preloads():
+	for obj in SCENE_PRELOADS:
+		obj.free()
+	SCENE_PRELOADS.clear()
+
 const CATEGORY_DESCRIPTIONS: Dictionary = {
 	MinigameData.GameCategories.ACTION: "Choose Action to play games that\nrely on your skill with the touchscreen or mouse.",
 	MinigameData.GameCategories.PUZZLE: "If you think you’ve got a big brain,\nPuzzle games are the choice for you!",

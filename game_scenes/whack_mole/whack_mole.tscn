@@ -18,6 +18,8 @@ position = Vector2(360, 536)
 texture = ExtResource("3_gs8l7")
 
 [node name="Mask" type="Sprite2D" parent="2D/BGBottom"]
+z_index = 1
+position = Vector2(0, 8)
 texture = ExtResource("4_82vsv")
 
 [node name="Marker2D" type="Marker2D" parent="2D/BGBottom/Mask"]
@@ -118,6 +120,7 @@ visible = false
 show_scorelist = false
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 0.8
+autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
