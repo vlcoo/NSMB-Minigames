@@ -447,6 +447,18 @@ tracks/7/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ButtonContinue:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_uvupe"]
 resource_name = "reveal_scorelist"
@@ -1248,10 +1260,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -72.0
-offset_top = -72.0
-offset_right = -28.0
-offset_bottom = -26.0
+offset_left = 648.0
+offset_top = 648.0
+offset_right = 692.0
+offset_bottom = 694.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = SubResource("AnimatedTexture_1txaa")

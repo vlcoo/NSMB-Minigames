@@ -497,6 +497,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_rh5ry")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_hekx1")
 toggle_mode = true
 flat = true
+metadata/_edit_lock_ = true
 
 [node name="ButtonBack" type="TextureButton" parent="."]
 layout_mode = 1

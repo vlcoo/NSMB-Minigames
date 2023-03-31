@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://5ecipxy1qolo"]
+[gd_scene load_steps=8 format=3 uid="uid://5ecipxy1qolo"]
 
 [ext_resource type="Script" path="res://game_scenes/whack_mole/whack_mole.gd" id="1_fhnkf"]
 [ext_resource type="AudioStream" uid="uid://ctuto8184lb2a" path="res://common/assets/songs/NCS_BGM_MINICOIN.ogg" id="1_gc23r"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://0g4ncys2nu6l" path="res://game_scenes/whack_mole/assets/graphics/bg_top.png" id="2_imnym"]
 [ext_resource type="Texture2D" uid="uid://cvn77rja747j6" path="res://game_scenes/whack_mole/assets/graphics/bg_bottom.png" id="3_gs8l7"]
 [ext_resource type="Texture2D" uid="uid://dlur5jvk3o0bn" path="res://game_scenes/whack_mole/assets/graphics/bg_mask.png" id="4_82vsv"]
+[ext_resource type="PackedScene" uid="uid://nexju8ee1pc7" path="res://menus/mgm_hud_overlay.tscn" id="7_q10q3"]
 
 [node name="Minigame" type="Node" groups=["BaseScreen"]]
 script = ExtResource("1_fhnkf")
@@ -106,6 +107,8 @@ gizmo_extents = 15.0
 position = Vector2(360, 160)
 texture = ExtResource("2_imnym")
 
+[node name="HUDOverlay" parent="." instance=ExtResource("7_q10q3")]
+
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_gc23r")
 autoplay = true
@@ -121,4 +124,10 @@ bus = &"SFX"
 wait_time = 0.8
 autostart = true
 
+[node name="MgmTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="MgmTimer" to="." method="_on_mgm_timer_timeout"]
