@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://nexju8ee1pc7"]
+
+[ext_resource type="Texture2D" uid="uid://bu3sghyy4c8b3" path="res://common/assets/graphics/hint_hiscore.png" id="1_qfaia"]
+[ext_resource type="Script" path="res://menus/mgm_hud_overlay.gd" id="1_uy720"]
+[ext_resource type="FontFile" uid="uid://cyv5rrm616cq8" path="res://menus/assets/theme_resources/sheet_font_numbers.png" id="2_sh8ho"]
+[ext_resource type="Texture2D" uid="uid://c2iqlipt8vph7" path="res://common/assets/graphics/hint_score.png" id="3_gtjo5"]
+[ext_resource type="Texture2D" uid="uid://di8w1dsnra5jc" path="res://common/assets/graphics/hint_time.png" id="4_6eq8x"]
+[ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="5_oc2fj"]
+
+[node name="HUDOverlay" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uy720")
+
+[node name="GameTimer" type="Timer" parent="."]
+wait_time = 60.0
+one_shot = true
+autostart = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.044
+anchor_right = 0.956
+offset_left = 0.319998
+offset_top = 8.0
+offset_right = -328.32
+offset_bottom = 26.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+
+[node name="TextureHiScore" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_qfaia")
+stretch_mode = 3
+
+[node name="LabelHiScore" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_sh8ho")
+text = "0"
+vertical_alignment = 1
+
+[node name="TextureScore" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_gtjo5")
+stretch_mode = 3
+
+[node name="LabelScore" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.6
+theme_override_fonts/font = ExtResource("2_sh8ho")
+text = "0"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -38.0
+offset_top = 24.0
+offset_right = 40.0
+offset_bottom = 92.0
+grow_horizontal = 2
+pivot_offset = Vector2(34.5, 0)
+theme_override_constants/separation = 6
+
+[node name="TextureTime" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_6eq8x")
+stretch_mode = 3
+
+[node name="LabelTimer" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.996078, 1, 0.219608, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("5_oc2fj")
+theme_override_font_sizes/font_size = 48
+text = "54"
+horizontal_alignment = 1
