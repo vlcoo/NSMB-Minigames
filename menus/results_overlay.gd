@@ -1,6 +1,7 @@
 extends Control
 
 enum GameOverTypes {GENERIC, TIME_UP, GOAL}
+@onready var sfx: AudioStreamPlayer = $AudioStreamPlayer
 
 @export var type: GameOverTypes = GameOverTypes.GENERIC
 @export var scoreboard_style: MinigameData.ScoreboardTypes = MinigameData.ScoreboardTypes.GENERIC
@@ -50,4 +51,20 @@ func appear():
 
 func reveal_scorelist():
 	# TODO: reveal animation
-	pass
+	$AnimationPlayer.play("reveal_scorelist")
+
+
+func _on_button_continue_button_down():
+	$AnimationPlayer.play("reveal_buttons")
+
+
+func _on_button_retry_button_down():
+	sfx.set_stream(DBs.SOUNDS.positive)
+	sfx.play()
+	Transitionizer.transition(Transitionizer.TransitionStyles.STAR, Transitionizer.TransitionStyles.STAR, false, Transitionizer.selected_minigame.game_scene)
+
+
+func _on_button_quit_button_down():
+	sfx.set_stream(DBs.SOUNDS.negative)
+	sfx.play()
+	Transitionizer.transition(Transitionizer.TransitionStyles.CIRCLE, Transitionizer.TransitionStyles.CIRCLE, true, "res://menus/single_game_chooser.tscn")
