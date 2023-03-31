@@ -116,8 +116,6 @@ stream = ExtResource("1_gc23r")
 bus = &"SFX"
 
 [node name="ResultsOverlay" parent="." instance=ExtResource("2_b4dgq")]
-visible = false
-show_scorelist = false
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.8
