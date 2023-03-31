@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://nexju8ee1pc7"]
+[gd_scene load_steps=13 format=3 uid="uid://nexju8ee1pc7"]
 
 [ext_resource type="Texture2D" uid="uid://bu3sghyy4c8b3" path="res://common/assets/graphics/hint_hiscore.png" id="1_qfaia"]
 [ext_resource type="Script" path="res://menus/mgm_hud_overlay.gd" id="1_uy720"]
@@ -6,6 +6,181 @@
 [ext_resource type="Texture2D" uid="uid://c2iqlipt8vph7" path="res://common/assets/graphics/hint_score.png" id="3_gtjo5"]
 [ext_resource type="Texture2D" uid="uid://di8w1dsnra5jc" path="res://common/assets/graphics/hint_time.png" id="4_6eq8x"]
 [ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="5_oc2fj"]
+[ext_resource type="Texture2D" uid="uid://bhxdpkhdiw77k" path="res://common/assets/graphics/hint_counter_star.png" id="7_ycwpk"]
+[ext_resource type="Texture2D" uid="uid://blr4ewv2y2v3e" path="res://common/assets/graphics/hint_score_collection.png" id="8_8s0ws"]
+[ext_resource type="AudioStream" uid="uid://dpdf0fs3tinh6" path="res://menus/assets/audio/points_collect.ogg" id="9_gpruk"]
+
+[sub_resource type="Animation" id="Animation_dq80f"]
+resource_name = "collect_points"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxStars:theme_override_constants/separation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 0, 1),
+"update": 0,
+"values": [0, -17, 0]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_gpruk")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxStars/TextureRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoxStars/TextureRect2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoxStars/TextureRect3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoxStars/TextureRect4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BoxStars/TextureRect5:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_tyho2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxStars/TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxStars/TextureRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxStars/TextureRect3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoxStars/TextureRect4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoxStars/TextureRect5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoxStars:theme_override_constants/separation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pi73m"]
+_data = {
+"RESET": SubResource("Animation_tyho2"),
+"collect_points": SubResource("Animation_dq80f")
+}
 
 [node name="HUDOverlay" type="Control"]
 texture_filter = 1
@@ -25,11 +200,10 @@ autostart = true
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.044
-anchor_right = 0.956
-offset_left = 0.319998
+anchor_right = 1.0
+offset_left = 32.0
 offset_top = 8.0
-offset_right = -328.32
+offset_right = -360.0
 offset_bottom = 26.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
@@ -88,3 +262,70 @@ theme_override_fonts/font = ExtResource("5_oc2fj")
 theme_override_font_sizes/font_size = 48
 text = "54"
 horizontal_alignment = 1
+
+[node name="BoxStars" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.089
+anchor_right = 1.0
+anchor_bottom = 0.443
+offset_left = -56.0
+offset_top = 95.92
+offset_right = -29.0
+offset_bottom = -52.96
+grow_horizontal = 0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(13.5, 53)
+theme_override_constants/separation = 0
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="BoxStars"]
+layout_mode = 2
+texture = ExtResource("7_ycwpk")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="BoxStars"]
+layout_mode = 2
+texture = ExtResource("7_ycwpk")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="BoxStars"]
+layout_mode = 2
+texture = ExtResource("7_ycwpk")
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="BoxStars"]
+layout_mode = 2
+texture = ExtResource("7_ycwpk")
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="BoxStars"]
+layout_mode = 2
+texture = ExtResource("7_ycwpk")
+stretch_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="BoxStars"]
+layout_mode = 2
+texture = ExtResource("8_8s0ws")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="BoxStars/TextureRect6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.803922, 0.415686, 0.415686, 1)
+theme_override_fonts/font = ExtResource("2_sh8ho")
+text = "5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_pi73m")
+}
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
