@@ -61,6 +61,7 @@ func _on_button_continue_button_down():
 func _on_button_retry_button_down():
 	sfx.set_stream(DBs.SOUNDS.positive)
 	sfx.play()
+	if (Transitionizer.selected_minigame == null): return
 	Transitionizer.transition(Transitionizer.TransitionStyles.STAR, Transitionizer.TransitionStyles.STAR, false, Transitionizer.selected_minigame.game_scene)
 
 

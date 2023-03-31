@@ -27,7 +27,7 @@ tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(4, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/1/type = "bezier"
@@ -38,7 +38,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(4, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
 tracks/2/type = "bezier"
@@ -283,7 +283,7 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, -0.25, 0, 0.1, -0.00454283, 1, 0, 0.98515, 0.25, 0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.3, -0.0128016, 4, 0, 0.98515, 0.25, 0),
 "times": PackedFloat32Array(0, 0.4)
 }
 tracks/2/type = "bezier"
@@ -294,7 +294,7 @@ tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, -0.25, 0, 0.1, 0.00576472, 1, 0, 0.995457, 0.25, 0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.3, -0.0451508, 4, 0, 0.995457, 0.25, 0),
 "times": PackedFloat32Array(0, 0.4)
 }
 tracks/3/type = "bezier"
@@ -343,6 +343,233 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_7e3ic"]
+resource_name = "reveal_buttons"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonQuit:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonRetry:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonQuit:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.15, 1),
+"update": 0,
+"values": [Vector2(744, 568), Vector2(248, 568)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ButtonRetry:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.15, 1),
+"update": 0,
+"values": [Vector2(-264, 480), Vector2(248, 480)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PanelScoreboard:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_ws6p0")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/5/use_blend = true
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ScoreboardTitle:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("TextureRect:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_uvupe"]
+resource_name = "reveal_scorelist"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PanelScoreboard:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.6),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ButtonContinue:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("TextureRect:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("TextureRect:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(648, 648)]
 }
 
 [sub_resource type="Animation" id="Animation_5wv5v"]
@@ -538,221 +765,6 @@ tracks/15/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_uvupe"]
-resource_name = "reveal_scorelist"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("PanelScoreboard:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.4),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer:modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.6),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("ButtonContinue:disabled")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("TextureRect:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(2),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_7e3ic"]
-resource_name = "reveal_buttons"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ButtonQuit:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ButtonRetry:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ButtonQuit:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.15, 1),
-"update": 0,
-"values": [Vector2(744, 568), Vector2(248, 568)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ButtonRetry:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(0.15, 1),
-"update": 0,
-"values": [Vector2(-264, 480), Vector2(248, 480)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("PanelScoreboard:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "audio"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("4_ws6p0")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/5/use_blend = true
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ScoreboardTitle:visible")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("TextureRect:visible")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m24k6"]
 _data = {
 "RESET": SubResource("Animation_mhp4q"),
@@ -881,30 +893,35 @@ scoreboard_style = 3
 
 [node name="GameOverTitle" type="RichTextLabel" parent="."]
 light_mask = 2
+clip_contents = false
 layout_mode = 1
 anchors_preset = -1
-anchor_top = 0.177556
-anchor_right = 1.0
-anchor_bottom = 0.277556
-offset_top = 0.159988
-offset_right = 8.0
-offset_bottom = 0.159973
+anchor_left = 0.0749999
+anchor_top = 0.208
+anchor_right = 0.942
+anchor_bottom = 0.335
+offset_left = 234.0
+offset_top = 34.24
+offset_right = -234.24
+offset_bottom = -34.2
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(364, 36)
+scale = Vector2(4, 4)
+pivot_offset = Vector2(78, 11.5)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 16
+theme_override_constants/outline_size = 4
 theme_override_fonts/normal_font = ExtResource("2_p75an")
-theme_override_font_sizes/normal_font_size = 72
+theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
-text = "[shake rate=14 level=20][center]%placeholder%"
+text = "[shake rate=12 level=8][center]%placeholder%"
+threaded = true
 metadata/_edit_use_anchors_ = true
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="GameOverTitle"]
-position = Vector2(360, 26)
+position = Vector2(78.25, 5.375)
 rotation = 4.71239
-scale = Vector2(0.635576, 1176.22)
+scale = Vector2(0.142236, 148.027)
 energy = 2.13
 blend_mode = 2
 range_item_cull_mask = 2
@@ -915,7 +932,6 @@ autoplay = "wait_hidden"
 libraries = {
 "": SubResource("AnimationLibrary_m24k6")
 }
-next/wait_hidden = &"reveal_scorelist"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
@@ -928,26 +944,27 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -95.0
-offset_top = -5.0
-offset_right = 96.0
-offset_bottom = 27.0
+offset_left = -96.0
+offset_top = 8.0
+offset_right = 95.0
+offset_bottom = 40.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(364, 36)
+scale = Vector2(2, 2)
+pivot_offset = Vector2(94.25, 16.25)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 4
 theme_override_fonts/font = ExtResource("2_p75an")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 16
 text = "Scoreboard"
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="ScoreboardTitle"]
-position = Vector2(101, 13)
+position = Vector2(96.1251, 13.125)
 rotation = -1.5708
-scale = Vector2(0.401201, 1176.22)
+scale = Vector2(0.209682, 118.388)
 energy = 2.13
 blend_mode = 2
 range_item_cull_mask = 4
@@ -957,9 +974,9 @@ texture = SubResource("GradientTexture1D_lph43")
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.255556
-anchor_top = 0.956
+anchor_top = 0.967111
 anchor_right = 0.744
-anchor_bottom = 0.956
+anchor_bottom = 0.967111
 offset_left = -1.52588e-05
 offset_top = -296.32
 offset_right = -175.68
@@ -986,6 +1003,7 @@ theme_override_constants/margin_right = 24
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelScoreboard/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 3
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
@@ -1169,10 +1187,13 @@ vertical_alignment = 1
 
 [node name="Spacer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/Spacer"]
+clip_contents = true
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 0
 size_flags_stretch_ratio = 0.2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1253,8 +1274,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_unnth")
 disabled = true
 toggle_mode = true
 flat = true
+metadata/_edit_lock_ = true
 
 [node name="ButtonRetry" type="Button" parent="."]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 480.0
 offset_right = 361.0
@@ -1272,6 +1295,7 @@ toggle_mode = true
 text = "Play Again"
 
 [node name="ButtonQuit" type="Button" parent="."]
+layout_mode = 0
 offset_left = 240.0
 offset_top = 568.0
 offset_right = 360.0
