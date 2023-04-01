@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 Transitionizer="*res://globals/transitionizer.tscn"
 DBs="*res://globals/DBs.gd"
+SaveSystem="*res://globals/save_system.gd"
 
 [display]
 

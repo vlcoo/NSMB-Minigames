@@ -11,15 +11,23 @@ func _ready():
 
 
 func load_scoreboard(minigame: MinigameData):
-	# TODO: add loading here
-	# (...)
-
+	SaveSystem.load_scoreboard(minigame)
 	set_scoreboard_style(minigame.scoreboard_type)
+
+	match minigame.scoreboard_type:
+		MinigameData.ScoreboardTypes.GENERIC, MinigameData.ScoreboardTypes.STARS:
+			for i in range(1, 6):
+				get_node("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer%d/LabelScore" % i).text = str(minigame.scoreboard["Place" + str(i)])
+		MinigameData.ScoreboardTypes.TIME:
+			for i in range(1, 6):
+				get_node("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer%d/LabelScore" % i).text = str(minigame.scoreboard["Place" + str(i)]) + "\"" + str(minigame.scoreboard["Place" + str(i) + "MSeconds"])
+		MinigameData.ScoreboardTypes.COINS:
+			$PanelCoincount/MarginContainer/VBoxContainer/HBoxContainer/LabelScore.text = str(minigame.scoreboard["Coins"])
 
 
 func set_scoreboard_style(style: MinigameData.ScoreboardTypes):
 	match style:
-		[MinigameData.ScoreboardTypes.GENERIC, MinigameData.ScoreboardTypes.TIME]:
+		MinigameData.ScoreboardTypes.GENERIC, MinigameData.ScoreboardTypes.TIME:
 			for child in get_tree().get_nodes_in_group("ScoreboardEntry"):
 				child.get_node("LabelStarhint").visible = false
 		MinigameData.ScoreboardTypes.STARS:
