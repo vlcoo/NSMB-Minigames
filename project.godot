@@ -27,10 +27,6 @@ window/size/viewport_height=720
 window/handheld/orientation=5
 window/stretch/mode="viewport"
 
-[editor_plugins]
-
-enabled=PackedStringArray("res://addons/Todo_Manager/plugin.cfg")
-
 [gui]
 
 theme/custom="res://menus/assets/theme_resources/plain.tres"

@@ -108,6 +108,7 @@ position = Vector2(360, 160)
 texture = ExtResource("2_imnym")
 
 [node name="HUDOverlay" parent="." instance=ExtResource("7_q10q3")]
+timer = 15
 
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_gc23r")
@@ -119,15 +120,11 @@ stream = ExtResource("1_gc23r")
 bus = &"SFX"
 
 [node name="ResultsOverlay" parent="." instance=ExtResource("2_b4dgq")]
+type = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.8
 autostart = true
 
-[node name="MgmTimer" type="Timer" parent="."]
-wait_time = 3.0
-one_shot = true
-autostart = true
-
+[connection signal="time_up" from="HUDOverlay" to="." method="_on_hud_overlay_time_up"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="MgmTimer" to="." method="_on_mgm_timer_timeout"]

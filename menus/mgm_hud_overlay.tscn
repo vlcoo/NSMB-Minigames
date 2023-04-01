@@ -15,70 +15,58 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BoxStars/TextureRect:visible")
+tracks/0/path = NodePath("BoxStars/4thStar:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BoxStars/TextureRect2:visible")
+tracks/1/path = NodePath("BoxStars/3rdStar:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BoxStars/TextureRect3:visible")
+tracks/2/path = NodePath("BoxStars/2ndStar:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(-0.00305025),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BoxStars/TextureRect4:visible")
+tracks/3/path = NodePath("BoxStars/1stStar:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(-0.00305025),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BoxStars/TextureRect5:visible")
+tracks/4/path = NodePath("BoxStars:theme_override_constants/separation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BoxStars:theme_override_constants/separation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -103,7 +91,7 @@ tracks/0/keys = {
 tracks/1/type = "audio"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer")
+tracks/1/path = NodePath("SFXTimer")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -118,62 +106,64 @@ tracks/1/use_blend = true
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BoxStars/TextureRect:visible")
+tracks/2/path = NodePath("BoxStars/4thStar:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BoxStars/TextureRect2:visible")
+tracks/3/path = NodePath("BoxStars/3rdStar:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BoxStars/TextureRect3:visible")
+tracks/4/path = NodePath("BoxStars/2ndStar:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("BoxStars/TextureRect4:visible")
+tracks/5/path = NodePath("BoxStars/1stStar:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [false]
+"values": [true, false]
 }
-tracks/6/type = "value"
+tracks/6/type = "method"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("BoxStars/TextureRect5:visible")
+tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0.5),
+"times": PackedFloat32Array(0.4),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [{
+"args": [],
+"method": &"_update_star_collection_count"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pi73m"]
@@ -192,11 +182,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_uy720")
-timer = 12
+timer = 5
 
 [node name="SecondsTimer" type="Timer" parent="."]
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="BoxScoreBar" type="HBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -207,24 +197,24 @@ offset_bottom = 26.0
 grow_horizontal = 2
 scale = Vector2(2, 2)
 
-[node name="TextureHiScore" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureHiScore" type="TextureRect" parent="BoxScoreBar"]
 layout_mode = 2
 texture = ExtResource("1_qfaia")
 stretch_mode = 3
 
-[node name="LabelHiScore" type="Label" parent="HBoxContainer"]
+[node name="LabelHiScore" type="Label" parent="BoxScoreBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/font = ExtResource("2_sh8ho")
 text = "0"
 vertical_alignment = 1
 
-[node name="TextureScore" type="TextureRect" parent="HBoxContainer"]
+[node name="TextureScore" type="TextureRect" parent="BoxScoreBar"]
 layout_mode = 2
 texture = ExtResource("3_gtjo5")
 stretch_mode = 3
 
-[node name="LabelScore" type="Label" parent="HBoxContainer"]
+[node name="LabelScore" type="Label" parent="BoxScoreBar"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.6
@@ -279,37 +269,36 @@ pivot_offset = Vector2(13.5, 53)
 theme_override_constants/separation = 0
 alignment = 2
 
-[node name="TextureRect" type="TextureRect" parent="BoxStars"]
+[node name="4thStar" type="TextureRect" parent="BoxStars"]
+visible = false
 layout_mode = 2
 texture = ExtResource("7_ycwpk")
 stretch_mode = 3
 
-[node name="TextureRect2" type="TextureRect" parent="BoxStars"]
+[node name="3rdStar" type="TextureRect" parent="BoxStars"]
+visible = false
 layout_mode = 2
 texture = ExtResource("7_ycwpk")
 stretch_mode = 3
 
-[node name="TextureRect3" type="TextureRect" parent="BoxStars"]
+[node name="2ndStar" type="TextureRect" parent="BoxStars"]
+visible = false
 layout_mode = 2
 texture = ExtResource("7_ycwpk")
 stretch_mode = 3
 
-[node name="TextureRect4" type="TextureRect" parent="BoxStars"]
+[node name="1stStar" type="TextureRect" parent="BoxStars"]
+visible = false
 layout_mode = 2
 texture = ExtResource("7_ycwpk")
 stretch_mode = 3
 
-[node name="TextureRect5" type="TextureRect" parent="BoxStars"]
-layout_mode = 2
-texture = ExtResource("7_ycwpk")
-stretch_mode = 3
-
-[node name="TextureRect6" type="TextureRect" parent="BoxStars"]
+[node name="CollectionBG" type="TextureRect" parent="BoxStars"]
 layout_mode = 2
 texture = ExtResource("8_8s0ws")
 stretch_mode = 3
 
-[node name="Label" type="Label" parent="BoxStars/TextureRect6"]
+[node name="LabelScore" type="Label" parent="BoxStars/CollectionBG"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -318,7 +307,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_colors/font_color = Color(0.984314, 0.509804, 0.509804, 1)
 theme_override_fonts/font = ExtResource("2_sh8ho")
-text = "5"
+text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -327,7 +316,10 @@ libraries = {
 "": SubResource("AnimationLibrary_pi73m")
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="SFXTimer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[node name="SFXPoints" type="AudioStreamPlayer" parent="."]
 bus = &"SFX"
 
 [connection signal="timeout" from="SecondsTimer" to="." method="_on_seconds_timer_timeout"]

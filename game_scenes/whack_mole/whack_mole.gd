@@ -23,9 +23,15 @@ func spawn_new_target():
 	target.is_luigi = randi() % 2
 	target.global_position = $"2D/BGBottom/Mask".get_children()[randi() % $"2D/BGBottom/Mask".get_child_count()].global_position
 	$"2D".add_child(target)
+	target.hit.connect($HUDOverlay._on_points_sum_specific.bind(target.points))
 
 
 func _on_timer_timeout():
 	spawn_new_target()
 #	DBs.SCENE_PRELOADS.anim_speed += 0.01
 #	$Timer.wait_time -= 0.01
+
+
+func _on_hud_overlay_time_up():
+	$Timer.stop()
+	$ResultsOverlay.appear()

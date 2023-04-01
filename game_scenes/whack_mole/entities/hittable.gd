@@ -5,6 +5,8 @@ var points = 1
 var already_hit = false
 var luigi_number_hit = 0
 
+signal hit
+
 
 func _ready():
 	if is_luigi:
@@ -29,6 +31,7 @@ func _on_input_event(viewport, event, shape_idx):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		$AnimationPlayer.play("hit")
 		already_hit = true
+		emit_signal("hit")
 
 
 func _on_animation_in_finished():
