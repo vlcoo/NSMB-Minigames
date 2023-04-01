@@ -10,6 +10,81 @@
 [ext_resource type="Texture2D" uid="uid://blr4ewv2y2v3e" path="res://common/assets/graphics/hint_score_collection.png" id="8_8s0ws"]
 [ext_resource type="AudioStream" uid="uid://dpdf0fs3tinh6" path="res://menus/assets/audio/points_collect.ogg" id="9_gpruk"]
 
+[sub_resource type="Animation" id="Animation_tyho2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BoxStars/TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BoxStars/TextureRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BoxStars/TextureRect3:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BoxStars/TextureRect4:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BoxStars/TextureRect5:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BoxStars:theme_override_constants/separation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
 [sub_resource type="Animation" id="Animation_dq80f"]
 resource_name = "collect_points"
 length = 2.0
@@ -101,81 +176,6 @@ tracks/6/keys = {
 "values": [false]
 }
 
-[sub_resource type="Animation" id="Animation_tyho2"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("BoxStars/TextureRect:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("BoxStars/TextureRect2:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("BoxStars/TextureRect3:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("BoxStars/TextureRect4:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BoxStars/TextureRect5:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("BoxStars:theme_override_constants/separation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pi73m"]
 _data = {
 "RESET": SubResource("Animation_tyho2"),
@@ -190,12 +190,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_uy720")
+timer = 12
 
-[node name="GameTimer" type="Timer" parent="."]
-wait_time = 60.0
-one_shot = true
-autostart = true
+[node name="SecondsTimer" type="Timer" parent="."]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 1
@@ -234,7 +233,7 @@ text = "0"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="BoxTimer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -247,12 +246,12 @@ grow_horizontal = 2
 pivot_offset = Vector2(34.5, 0)
 theme_override_constants/separation = 6
 
-[node name="TextureTime" type="TextureRect" parent="VBoxContainer"]
+[node name="TextureTime" type="TextureRect" parent="BoxTimer"]
 layout_mode = 2
 texture = ExtResource("4_6eq8x")
 stretch_mode = 3
 
-[node name="LabelTimer" type="Label" parent="VBoxContainer"]
+[node name="LabelTimer" type="Label" parent="BoxTimer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.996078, 1, 0.219608, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -260,7 +259,7 @@ theme_override_constants/outline_size = 10
 theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("5_oc2fj")
 theme_override_font_sizes/font_size = 48
-text = "54"
+text = "0"
 horizontal_alignment = 1
 
 [node name="BoxStars" type="VBoxContainer" parent="."]
@@ -317,7 +316,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0.803922, 0.415686, 0.415686, 1)
+theme_override_colors/font_color = Color(0.984314, 0.509804, 0.509804, 1)
 theme_override_fonts/font = ExtResource("2_sh8ho")
 text = "5"
 horizontal_alignment = 1
@@ -329,3 +328,6 @@ libraries = {
 }
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
+
+[connection signal="timeout" from="SecondsTimer" to="." method="_on_seconds_timer_timeout"]
