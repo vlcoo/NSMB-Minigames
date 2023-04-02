@@ -16,14 +16,9 @@ enum ScoreboardTypes {GENERIC, STARS, TIME, COINS}
 
 var scoreboard: Dictionary = {
 	"Place1": 0,
-	"Place1MSeconds": 0,
 	"Place2": 0,
-	"Place2MSeconds": 0,
 	"Place3": 0,
-	"Place3MSeconds": 0,
 	"Place4": 0,
-	"Place4MSeconds": 0,
 	"Place5": 0,
-	"Place5MSeconds": 0,
 	"Coins": 0
 }

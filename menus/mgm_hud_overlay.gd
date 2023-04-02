@@ -19,11 +19,14 @@ var sfx_point = preload("res://menus/assets/audio/point_singular.ogg")
 
 var seconds_left: int
 var points: int = 0
+var hiscore: int
 
 
 func _ready():
 	seconds_left = timer + 1
-	if score_style == ScoreTypes.EXPLICIT_TEXT: $BoxStars.visible = false
+	if score_style == ScoreTypes.EXPLICIT_TEXT:
+		$BoxStars.visible = false
+		if Transitionizer.selected_minigame != null: hiscore = Transitionizer.selected_minigame.scoreboard.get("Place1")
 	elif score_style == ScoreTypes.STAR_COUNT:
 		$BoxScoreBar.visible = false
 		auto_score_increase = 0
@@ -62,6 +65,7 @@ func _on_points_sum_specific(how_much: int):
 	points += how_much
 	if points < 0: points = 0
 	$BoxScoreBar/LabelScore.text = str(points)
+	$BoxScoreBar/LabelHiScore.text = str(max(hiscore, points))
 
 func _update_star_collection_count():
 	$BoxStars/CollectionBG/LabelScore.text = str(points)
@@ -72,6 +76,7 @@ func _on_point_gotten():
 	match score_style:
 		ScoreTypes.EXPLICIT_TEXT:
 			$BoxScoreBar/LabelScore.text = str(points)
+			$BoxScoreBar/LabelHiScore.text = str(max(hiscore, points))
 		ScoreTypes.STAR_COUNT:
 			if $"BoxStars/4thStar".visible:
 				$AnimationPlayer.play("collect_points")

@@ -14,15 +14,16 @@ func load_scoreboard(minigame: MinigameData):
 	SaveSystem.load_scoreboard(minigame)
 	set_scoreboard_style(minigame.scoreboard_type)
 
-	match minigame.scoreboard_type:
-		MinigameData.ScoreboardTypes.GENERIC, MinigameData.ScoreboardTypes.STARS:
-			for i in range(1, 6):
-				get_node("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer%d/LabelScore" % i).text = str(minigame.scoreboard["Place" + str(i)])
-		MinigameData.ScoreboardTypes.TIME:
-			for i in range(1, 6):
-				get_node("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer%d/LabelScore" % i).text = str(minigame.scoreboard["Place" + str(i)]) + "\"" + str(minigame.scoreboard["Place" + str(i) + "MSeconds"])
-		MinigameData.ScoreboardTypes.COINS:
-			$PanelCoincount/MarginContainer/VBoxContainer/HBoxContainer/LabelScore.text = str(minigame.scoreboard["Coins"])
+	if minigame.scoreboard_type != MinigameData.ScoreboardTypes.COINS:
+		for i in range(1, 6):
+			var s_score: String
+			if minigame.scoreboard_type == MinigameData.ScoreboardTypes.TIME:
+				s_score = "%04d" % minigame.scoreboard["Place" + str(i)]
+				s_score = s_score.substr(0, 2) + "\"" + s_score.substr(2, 4)
+			else: s_score = str(minigame.scoreboard["Place" + str(i)])
+			get_node("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer%d/LabelScore" % i).text = s_score
+	else:
+		$PanelCoincount/MarginContainer/VBoxContainer/HBoxContainer/LabelScore.text = str(minigame.scoreboard["Coins"])
 
 
 func set_scoreboard_style(style: MinigameData.ScoreboardTypes):

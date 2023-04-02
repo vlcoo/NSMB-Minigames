@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://nu7p0kg0jvd6"]
+[gd_scene load_steps=33 format=3 uid="uid://nu7p0kg0jvd6"]
 
 [ext_resource type="Script" path="res://menus/results_overlay.gd" id="1_bbuyh"]
 [ext_resource type="AudioStream" uid="uid://ceiob0ihr5jtu" path="res://menus/assets/songs/NCS_BGM_MINIOVER.ogg" id="2_7d885"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://cyv5rrm616cq8" path="res://menus/assets/theme_resources/sheet_font_numbers.png" id="5_mtb8q"]
 [ext_resource type="StyleBox" uid="uid://cl21lofeowt5r" path="res://menus/assets/theme_resources/blocky_colorful_base.tres" id="6_qlk45"]
 [ext_resource type="Texture2D" uid="uid://biesatt8rga6b" path="res://menus/assets/graphics/tap_0.png" id="7_0rlpx"]
+[ext_resource type="Script" path="res://common/effects/bbcode_blink.gd" id="7_sb2nc"]
 [ext_resource type="Texture2D" uid="uid://btb8labs882av" path="res://menus/assets/graphics/tap_1.png" id="8_by8kp"]
 
 [sub_resource type="Gradient" id="Gradient_kcneg"]
@@ -103,7 +104,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer:modulate")
+tracks/7/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer1:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -550,7 +551,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer:modulate")
+tracks/5/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer1:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -695,7 +696,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer:modulate")
+tracks/7/path = NodePath("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer1:modulate")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -818,6 +819,12 @@ colors = PackedColorArray(0.765625, 0.158508, 0.158508, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_l6d1c")
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fohiw"]
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_es5cm"]
+script = ExtResource("7_sb2nc")
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_jeuhp"]
+script = ExtResource("7_sb2nc")
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_1txaa"]
 frames = 2
@@ -1042,10 +1049,10 @@ theme_override_constants/margin_right = 24
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
+[node name="HBoxContainer1" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
 
-[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LabelStarhint" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer1"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.0
@@ -1054,29 +1061,35 @@ theme_override_fonts/font = ExtResource("5_mtb8q")
 text = "abcd"
 vertical_alignment = 1
 
-[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LabelScoreBig" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer1"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme_override_colors/default_color = Color(1, 0.913725, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("2_p75an")
-theme_override_font_sizes/font_size = 16
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("2_p75an")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_es5cm")]
 
-[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer1"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("5_mtb8q")
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_fonts/normal_font = ExtResource("5_mtb8q")
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
@@ -1090,29 +1103,35 @@ theme_override_fonts/font = ExtResource("5_mtb8q")
 text = "abcd"
 vertical_alignment = 1
 
-[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="LabelScoreBig" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme_override_colors/default_color = Color(1, 0.913725, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("2_p75an")
-theme_override_font_sizes/font_size = 16
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("2_p75an")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_es5cm")]
 
-[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("5_mtb8q")
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_fonts/normal_font = ExtResource("5_mtb8q")
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
@@ -1126,29 +1145,35 @@ theme_override_fonts/font = ExtResource("5_mtb8q")
 text = "abcd"
 vertical_alignment = 1
 
-[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="LabelScoreBig" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme_override_colors/default_color = Color(1, 0.913725, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("2_p75an")
-theme_override_font_sizes/font_size = 16
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("2_p75an")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_es5cm")]
 
-[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("5_mtb8q")
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_fonts/normal_font = ExtResource("5_mtb8q")
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
@@ -1162,29 +1187,35 @@ theme_override_fonts/font = ExtResource("5_mtb8q")
 text = "abcd"
 vertical_alignment = 1
 
-[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="LabelScoreBig" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme_override_colors/default_color = Color(1, 0.913725, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("2_p75an")
-theme_override_font_sizes/font_size = 16
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("2_p75an")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_es5cm")]
 
-[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("5_mtb8q")
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_fonts/normal_font = ExtResource("5_mtb8q")
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
 layout_mode = 2
@@ -1198,29 +1229,35 @@ theme_override_fonts/font = ExtResource("5_mtb8q")
 text = "abcd"
 vertical_alignment = 1
 
-[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="LabelScoreBig" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme_override_colors/default_color = Color(1, 0.913725, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("2_p75an")
-theme_override_font_sizes/font_size = 16
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("2_p75an")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_es5cm")]
 
-[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("5_mtb8q")
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_fonts/normal_font = ExtResource("5_mtb8q")
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="Spacer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -1254,29 +1291,35 @@ theme_override_fonts/font = ExtResource("5_mtb8q")
 text = "abcd"
 vertical_alignment = 1
 
-[node name="LabelScoreBig" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry"]
+[node name="LabelScoreBig" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry"]
+clip_contents = false
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.2
+theme_override_colors/default_color = Color(1, 0.913725, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 2
-theme_override_constants/outline_size = 3
 theme_override_constants/shadow_outline_size = 2
-theme_override_fonts/font = ExtResource("2_p75an")
-theme_override_font_sizes/font_size = 16
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_constants/outline_size = 3
+theme_override_fonts/normal_font = ExtResource("2_p75an")
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_es5cm")]
 
-[node name="LabelScore" type="Label" parent="PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry"]
+[node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry"]
+clip_contents = false
+custom_minimum_size = Vector2(0, 18)
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("5_mtb8q")
-text = "0"
-horizontal_alignment = 2
-vertical_alignment = 1
+theme_override_fonts/normal_font = ExtResource("5_mtb8q")
+bbcode_enabled = true
+text = "[right]%"
+fit_content = true
+custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -1285,10 +1328,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 648.0
-offset_top = 648.0
-offset_right = 692.0
-offset_bottom = 694.0
+offset_left = -72.0
+offset_top = -72.0
+offset_right = -28.0
+offset_bottom = -26.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = SubResource("AnimatedTexture_1txaa")

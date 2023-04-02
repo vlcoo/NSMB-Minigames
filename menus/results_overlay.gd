@@ -2,6 +2,7 @@ extends Control
 
 enum GameOverTypes {GENERIC, TIME_UP, GOAL}
 @onready var sfx: AudioStreamPlayer = $AudioStreamPlayer
+const FORMAT_BBCODE: String = "[pulse freq=2.5 ease=1.0 height=0]"
 
 @export var type: GameOverTypes = GameOverTypes.GENERIC
 @export var scoreboard_style: MinigameData.ScoreboardTypes = MinigameData.ScoreboardTypes.GENERIC
@@ -27,7 +28,7 @@ func appear():
 		$ScoreboardTitle.text = ""
 	else:
 		match scoreboard_style:
-			[MinigameData.ScoreboardTypes.GENERIC, MinigameData.ScoreboardTypes.TIME]:
+			MinigameData.ScoreboardTypes.GENERIC, MinigameData.ScoreboardTypes.TIME:
 				for child in get_tree().get_nodes_in_group("ScoreboardEntry"):
 					child.get_node("LabelStarhint").visible = false
 					child.get_node("LabelScoreBig").visible = false
@@ -52,6 +53,35 @@ func appear():
 func reveal_scorelist():
 	# TODO: reveal animation
 	$AnimationPlayer.play("reveal_scorelist")
+
+
+func calc_and_store_scoreboard(new_score: int):
+	if Transitionizer.selected_minigame == null: return
+
+	var place = SaveSystem.add_scoreboard_place(Transitionizer.selected_minigame, new_score)
+	SaveSystem.save_scoreboard(Transitionizer.selected_minigame)
+	$PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry.visible = place == 6
+
+	if scoreboard_style != MinigameData.ScoreboardTypes.COINS:
+		for i in range(1, 6):
+			var s_score: String = calc_score_string(Transitionizer.selected_minigame.scoreboard["Place" + str(i)])
+			var node = get_node("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer" + str(i) + "/LabelScore" + ("Big" if scoreboard_style == MinigameData.ScoreboardTypes.STARS else ""))
+			node.text = node.text.replace("%", (FORMAT_BBCODE if i == place else "") + s_score)
+		if place == 6:
+			var s_score: String = calc_score_string(new_score)
+			var node = get_node("PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry/LabelScore" + "Big" if scoreboard_style == MinigameData.ScoreboardTypes.STARS else "")
+			node.text = node.text.replace("%", FORMAT_BBCODE + s_score)
+	else:
+		pass
+
+
+func calc_score_string(score: int) -> String:
+	var s_score: String
+	if scoreboard_style == MinigameData.ScoreboardTypes.TIME:
+		s_score = "%04d" % score
+		s_score = s_score.substr(0, 2) + "\"" + s_score.substr(2, 4)
+	else: s_score = str(score)
+	return s_score
 
 
 func _on_button_continue_button_down():
