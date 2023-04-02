@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://bw6i38jxrd0vp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_om4i2"]
+size = Vector2(64, 64)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_ikptm"]
+polygon = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_xo1ki"]
+emission_shape = 3
+emission_box_extents = Vector3(16, 16, 16)
+particle_flag_disable_z = true
+spread = 92.57
+gravity = Vector3(0, 98, 0)
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+collision_mode = 1
+collision_friction = 0.0
+collision_bounce = 0.0
+
+[node name="Minigame" type="Node"]
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(392, 424)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_om4i2")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Area2D"]
+occluder = SubResource("OccluderPolygon2D_ikptm")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(392, 368)
+amount = 32
+process_material = SubResource("ParticleProcessMaterial_xo1ki")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://tadec8otcayg"]
+[gd_scene load_steps=72 format=3 uid="uid://tadec8otcayg"]
 
 [ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_8k22e"]
 [ext_resource type="Script" path="res://menus/single_game_chooser.gd" id="1_vvenx"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://ckmr6a8t1c4m1" path="res://menus/assets/graphics/game_icons/snowball_race.png" id="17_k4d8b"]
 [ext_resource type="Script" path="res://globals/minigame_data.gd" id="17_sgy8n"]
 [ext_resource type="Texture2D" uid="uid://c0swh76jhukf5" path="res://menus/assets/graphics/game_icons/slingshot_basket.png" id="19_m3sa4"]
+[ext_resource type="PackedScene" uid="uid://bw6i38jxrd0vp" path="res://game_scenes/avoid_fireball/avoid_fireball.tscn" id="20_ehsyt"]
 [ext_resource type="Texture2D" uid="uid://c3i0fqj6wwq0n" path="res://menus/assets/graphics/game_icons/avoid_fireball.png" id="20_ffcwn"]
 [ext_resource type="PackedScene" uid="uid://5ecipxy1qolo" path="res://game_scenes/whack_mole/whack_mole.tscn" id="21_u1lof"]
 [ext_resource type="Texture2D" uid="uid://cmq0y1p25i4ex" path="res://menus/assets/graphics/game_icons/whack_mole.png" id="21_uwsoc"]
@@ -108,6 +109,7 @@ icon = ExtResource("20_ffcwn")
 singleplayer = true
 multiplayer = false
 description = "Drag the Bob-omb to guide it out of the incoming fireballs. Watch out for Bowser‘s flame breath too. How long can you survive?"
+game_scene = ExtResource("20_ehsyt")
 
 [sub_resource type="Resource" id="Resource_kg0xq"]
 script = ExtResource("17_sgy8n")
