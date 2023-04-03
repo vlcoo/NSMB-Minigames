@@ -1,9 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://bw6i38jxrd0vp"]
+[gd_scene load_steps=10 format=3 uid="uid://bw6i38jxrd0vp"]
 
 [ext_resource type="Texture2D" uid="uid://3mh2lnw324ry" path="res://game_scenes/avoid_fireball/assets/graphics/bg_top.png" id="1_s8g1a"]
+[ext_resource type="Script" path="res://game_scenes/avoid_fireball/avoid_fireball.gd" id="1_vcic0"]
 [ext_resource type="Texture2D" uid="uid://gs6a04ue8wox" path="res://game_scenes/avoid_fireball/assets/graphics/bg_bottom.png" id="2_5r4gl"]
 [ext_resource type="PackedScene" uid="uid://cji5ysugg8ekc" path="res://game_scenes/avoid_fireball/entities/statue.tscn" id="2_444jd"]
 [ext_resource type="AudioStream" uid="uid://c3gc1juod5uuy" path="res://common/assets/songs/NCS_BGM_VS_CASTLE.ogg" id="4_syxb0"]
+[ext_resource type="PackedScene" uid="uid://nexju8ee1pc7" path="res://menus/mgm_hud_overlay.tscn" id="5_brthj"]
+[ext_resource type="PackedScene" uid="uid://nu7p0kg0jvd6" path="res://menus/results_overlay.tscn" id="6_m2u6f"]
 
 [sub_resource type="Curve2D" id="Curve2D_6ltob"]
 _data = {
@@ -17,12 +20,14 @@ _data = {
 }
 point_count = 5
 
-[node name="Minigame" type="Node"]
+[node name="Minigame" type="Node" groups=["BaseScreen"]]
+script = ExtResource("1_vcic0")
 
 [node name="2D" type="Node2D" parent="."]
 texture_filter = 1
 
 [node name="BGTop" type="Sprite2D" parent="2D"]
+z_index = -1
 position = Vector2(360, 192)
 scale = Vector2(2, 2)
 texture = ExtResource("1_s8g1a")
@@ -36,6 +41,7 @@ position = Vector2(-104, -30.5)
 rotates = false
 
 [node name="BGBottom" type="Sprite2D" parent="2D"]
+z_index = -1
 position = Vector2(360, 528)
 scale = Vector2(2, 2)
 texture = ExtResource("2_5r4gl")
@@ -51,3 +57,9 @@ rotation = 1.5708
 stream = ExtResource("4_syxb0")
 autoplay = true
 bus = &"FadeableMusic"
+
+[node name="HUDOverlay" parent="." instance=ExtResource("5_brthj")]
+timer = 0
+auto_score_increase = 100
+
+[node name="ResultsOverlay" parent="." instance=ExtResource("6_m2u6f")]

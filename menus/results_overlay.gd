@@ -69,7 +69,7 @@ func calc_and_store_scoreboard(new_score: int):
 			node.text = node.text.replace("%", (FORMAT_BBCODE if i == place else "") + s_score)
 		if place == 6:
 			var s_score: String = calc_score_string(new_score)
-			var node = get_node("PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry/LabelScore" + "Big" if scoreboard_style == MinigameData.ScoreboardTypes.STARS else "")
+			var node = get_node("PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry/LabelScore" + ("Big" if scoreboard_style == MinigameData.ScoreboardTypes.STARS else ""))
 			node.text = node.text.replace("%", FORMAT_BBCODE + s_score)
 	else:
 		pass

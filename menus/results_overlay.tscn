@@ -328,7 +328,7 @@ tracks/4/path = NodePath("GameOverTitle:process_mode")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [4, 0]
@@ -933,7 +933,6 @@ grow_vertical = 2
 pivot_offset = Vector2(360, 360)
 mouse_filter = 1
 script = ExtResource("1_bbuyh")
-scoreboard_style = 3
 
 [node name="GameOverTitle" type="RichTextLabel" parent="."]
 light_mask = 2

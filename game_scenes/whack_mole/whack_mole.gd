@@ -34,5 +34,6 @@ func _on_timer_timeout():
 
 func _on_hud_overlay_time_up():
 	$Timer.stop()
+	$AudioMusic.volume_db = -6
 	$ResultsOverlay.calc_and_store_scoreboard($HUDOverlay.points)
 	$ResultsOverlay.appear()

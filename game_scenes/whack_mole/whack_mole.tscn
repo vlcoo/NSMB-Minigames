@@ -121,7 +121,6 @@ bus = &"SFX"
 
 [node name="ResultsOverlay" parent="." instance=ExtResource("2_b4dgq")]
 type = 1
-scoreboard_style = 0
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.8
