@@ -2,10 +2,10 @@ extends Node
 
 const SOUNDS: Dictionary = {
 	"mole_hit": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VS_MOG_CHOROHIT.ogg"),
-	"luigi_hit_0": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VO_GRASP_L.ogg"),
-	"luigi_hit_1": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VO_DAMAGE_S_L.ogg"),
-	"luigi_hit_2": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VO_DAMAGE_H_L_MG.ogg"),
-	"luigi_hit_3": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VO_FALL_L.ogg")
+	"luigi_hit_0": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VS_MOG_LUIGIHIT_0.ogg"),
+	"luigi_hit_1": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VS_MOG_LUIGIHIT_1.ogg"),
+	"luigi_hit_2": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VS_MOG_LUIGIHIT_2.ogg"),
+	"luigi_hit_3": preload("res://game_scenes/whack_mole/assets/audio/NCS_SE_VS_MOG_LUIGIHIT_3.ogg")
 }
 
 var hittable = preload("res://game_scenes/whack_mole/entities/hittable.tscn")
