@@ -3,6 +3,10 @@ extends Node
 var json = JSON.new()
 
 
+func erase_scoreboards():
+	OS.move_to_trash(ProjectSettings.globalize_path("user://scoreboards/"))
+
+
 func load_scoreboard(minigame: MinigameData):
 	if not FileAccess.file_exists("user://scoreboards/%s.json" % minigame.name):
 		return
@@ -17,6 +21,9 @@ func load_scoreboard(minigame: MinigameData):
 
 
 func save_scoreboard(minigame: MinigameData):
+	if not FileAccess.file_exists("user://scoreboards"):
+		DirAccess.make_dir_absolute("user://scoreboards")
+
 	var save_game = FileAccess.open("user://scoreboards/%s.json" % minigame.name, FileAccess.WRITE)
 	save_game.store_line(JSON.stringify(minigame.scoreboard))
 

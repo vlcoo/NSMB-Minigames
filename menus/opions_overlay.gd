@@ -24,3 +24,17 @@ func _on_button_continue_button_down():
 	$AudioSFX.play()
 	await $AudioSFX.finished
 	Transitionizer.free_current_overlay()
+
+
+func _on_button_erase_toggled(button_pressed: bool) -> void:
+	if button_pressed:
+		$AudioSFX.stream = DBs.SOUNDS.positive
+		$AudioSFX.play()
+		$VBoxBottom/ButtonErase.text = "Sure?"
+	else:
+		$AudioSFX.stream = DBs.SOUNDS.negative
+		$AudioSFX.play()
+		$VBoxBottom/ButtonErase.text = "Done"
+		SaveSystem.erase_scoreboards()
+		await $AudioSFX.finished
+		Transitionizer.free_current_overlay()
