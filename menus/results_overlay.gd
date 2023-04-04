@@ -2,11 +2,15 @@ extends Control
 
 enum GameOverTypes {GENERIC, TIME_UP, GOAL}
 @onready var sfx: AudioStreamPlayer = $AudioStreamPlayer
-const FORMAT_BBCODE: String = "[pulse freq=2.5 ease=1.0 height=0]"
+const BBCODE_SCORE_PULSE: String = "[pulse freq=2.5 ease=1.0 height=0]"
+const BBCODE_HIGHSCORE_RAINBOW: String = "[shake rate=12 level=8][center][rainbow freq=0.5 sat=0.8 val=1]"
 
 @export var type: GameOverTypes = GameOverTypes.GENERIC
 @export var scoreboard_style: MinigameData.ScoreboardTypes = MinigameData.ScoreboardTypes.GENERIC
 @export var show_scorelist: bool = true
+
+var hiscore_sfx = preload("res://common/assets/songs/NCS_BGM_MINIHISCORE.ogg")
+var place = -1
 
 
 func _ready():
@@ -55,10 +59,19 @@ func reveal_scorelist():
 	$AnimationPlayer.play("reveal_scorelist")
 
 
+func check_and_reveal_hiscore():
+	if place != 1: return
+
+	sfx.stream = hiscore_sfx
+	sfx.play()
+	$GameOverTitle.visible = true
+	$GameOverTitle.text = BBCODE_HIGHSCORE_RAINBOW + "Highscore"
+
+
 func calc_and_store_scoreboard(new_score: int):
 	if Transitionizer.selected_minigame == null: return
 
-	var place = SaveSystem.add_scoreboard_place(Transitionizer.selected_minigame, new_score)
+	place = SaveSystem.add_scoreboard_place(Transitionizer.selected_minigame, new_score)
 	SaveSystem.save_scoreboard(Transitionizer.selected_minigame)
 	$PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry.visible = place == 6
 
@@ -66,11 +79,11 @@ func calc_and_store_scoreboard(new_score: int):
 		for i in range(1, 6):
 			var s_score: String = calc_score_string(Transitionizer.selected_minigame.scoreboard["Place" + str(i)])
 			var node = get_node("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer" + str(i) + "/LabelScore" + ("Big" if scoreboard_style == MinigameData.ScoreboardTypes.STARS else ""))
-			node.text = node.text.replace("%", (FORMAT_BBCODE if i == place else "") + s_score)
+			node.text = node.text.replace("%", (BBCODE_SCORE_PULSE if i == place else "") + s_score)
 		if place == 6:
 			var s_score: String = calc_score_string(new_score)
 			var node = get_node("PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry/LabelScore" + ("Big" if scoreboard_style == MinigameData.ScoreboardTypes.STARS else ""))
-			node.text = node.text.replace("%", FORMAT_BBCODE + s_score)
+			node.text = node.text.replace("%", BBCODE_SCORE_PULSE + s_score)
 	else:
 		pass
 

@@ -39,6 +39,7 @@ func _process(delta):
 	if auto_score_increase > 0:
 		points += auto_score_increase * delta
 		$BoxScoreBar/LabelScore.text = str(points)
+		$BoxScoreBar/LabelHiScore.text = str(max(hiscore, points))
 
 
 func _on_seconds_timer_timeout():

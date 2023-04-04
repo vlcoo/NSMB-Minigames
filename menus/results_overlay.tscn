@@ -318,7 +318,7 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(0.419608, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
+"points": PackedFloat32Array(0.42, -0.25, 0, 0.25, 0, 1, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.4)
 }
 tracks/4/type = "value"
@@ -484,6 +484,18 @@ tracks/8/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("GameOverTitle:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_uvupe"]
 resource_name = "reveal_scorelist"
@@ -607,6 +619,20 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(648, 648)]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"check_and_reveal_hiscore"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_5wv5v"]
@@ -1327,10 +1353,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 648.0
-offset_top = 648.0
-offset_right = 692.0
-offset_bottom = 694.0
+offset_left = -72.0
+offset_top = -72.0
+offset_right = -28.0
+offset_bottom = -26.0
 grow_horizontal = 0
 grow_vertical = 0
 texture = SubResource("AnimatedTexture_1txaa")
