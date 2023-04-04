@@ -12,7 +12,7 @@ func _ready() -> void:
 
 
 func _physics_process(delta: float) -> void:
-	if not Engine.get_process_frames() % 16:
+	if not Engine.get_process_frames() % 16 and going:
 		fireball_spawnerO.progress_ratio = randf()
 		fireball_spawnerF.progress_ratio = fireball_spawnerO.progress_ratio + randf_range(0.3, 0.7)
 		var new_fball: CollisionObject2D = fireball_template.duplicate()
@@ -24,3 +24,11 @@ func _physics_process(delta: float) -> void:
 		new_fball.process_mode = Node.PROCESS_MODE_INHERIT
 		fireball_container.add_child(new_fball)
 		fireball_container.move_child(new_fball, 0)
+
+
+func _on_bobomb_detonated() -> void:
+	going = false
+	$AudioMusic.volume_db = -6
+	$HUDOverlay.auto_score_increase = 0
+	$ResultsOverlay.calc_and_store_scoreboard($HUDOverlay.points)
+	$ResultsOverlay.appear()

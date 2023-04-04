@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw6i38jxrd0vp"]
+[gd_scene load_steps=14 format=3 uid="uid://bw6i38jxrd0vp"]
 
 [ext_resource type="Texture2D" uid="uid://3mh2lnw324ry" path="res://game_scenes/avoid_fireball/assets/graphics/bg_top.png" id="1_s8g1a"]
 [ext_resource type="Script" path="res://game_scenes/avoid_fireball/avoid_fireball.gd" id="1_vcic0"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://nexju8ee1pc7" path="res://menus/mgm_hud_overlay.tscn" id="5_brthj"]
 [ext_resource type="PackedScene" uid="uid://nu7p0kg0jvd6" path="res://menus/results_overlay.tscn" id="6_m2u6f"]
 [ext_resource type="Texture2D" uid="uid://ddpi6y5nrxrc5" path="res://game_scenes/avoid_fireball/assets/graphics/fireball.png" id="6_ywrkh"]
+[ext_resource type="PackedScene" uid="uid://da8yqyd23edgg" path="res://game_scenes/avoid_fireball/entities/bobomb.tscn" id="7_7vboj"]
 
 [sub_resource type="Curve2D" id="Curve2D_6ltob"]
 _data = {
@@ -88,17 +89,35 @@ position = Vector2(124, 88)
 progress = 424.0
 rotates = false
 
+[node name="BoundsLeft" type="Marker2D" parent="2D/BGBottom"]
+position = Vector2(-120, 0)
+
+[node name="BoundsRight" type="Marker2D" parent="2D/BGBottom"]
+position = Vector2(120, 0)
+
+[node name="BoundsUp" type="Marker2D" parent="2D/BGBottom"]
+position = Vector2(0, -84)
+
+[node name="BoundsDown" type="Marker2D" parent="2D/BGBottom"]
+position = Vector2(0, 84.5)
+
+[node name="Bobomb" parent="2D" node_paths=PackedStringArray("bounds_left_marker", "bounds_right_marker", "bounds_up_marker", "bounds_down_marker") instance=ExtResource("7_7vboj")]
+scale = Vector2(2, 2)
+bounds_left_marker = NodePath("../BGBottom/BoundsLeft")
+bounds_right_marker = NodePath("../BGBottom/BoundsRight")
+bounds_up_marker = NodePath("../BGBottom/BoundsUp")
+bounds_down_marker = NodePath("../BGBottom/BoundsDown")
+
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_syxb0")
 autoplay = true
 bus = &"FadeableMusic"
 
 [node name="HUDOverlay" parent="." instance=ExtResource("5_brthj")]
-visible = false
 timer = 0
 auto_score_increase = 100
 
 [node name="ResultsOverlay" parent="." instance=ExtResource("6_m2u6f")]
-visible = false
 
 [connection signal="screen_exited" from="2D/BGBottom/PathFireballSpawner/CanvasGroup/FireballTemplate/VisibleOnScreenNotifier2D" to="2D/BGBottom/PathFireballSpawner/CanvasGroup/FireballTemplate" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="detonated" from="2D/Bobomb" to="." method="_on_bobomb_detonated"]

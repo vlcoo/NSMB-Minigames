@@ -1,0 +1,158 @@
+[gd_scene load_steps=19 format=3 uid="uid://da8yqyd23edgg"]
+
+[ext_resource type="Texture2D" uid="uid://bixcgs8tmulf4" path="res://game_scenes/avoid_fireball/assets/graphics/bobomb_walks.png" id="1_1sueo"]
+[ext_resource type="Texture2D" uid="uid://byyi4bgxwavg3" path="res://game_scenes/avoid_fireball/assets/graphics/bobomb_denotation.png" id="1_hwp26"]
+[ext_resource type="Script" path="res://game_scenes/avoid_fireball/entities/bobomb.gd" id="1_kvyyd"]
+[ext_resource type="AudioStream" uid="uid://cs1j7kgj6ujfm" path="res://game_scenes/avoid_fireball/assets/audio/NCS_SE_VS_YOKE_BOMBSTEP.ogg" id="2_cypfb"]
+[ext_resource type="Texture2D" uid="uid://rpc5qwmvn8kr" path="res://game_scenes/avoid_fireball/assets/graphics/bobomb_smokes.png" id="3_hb7sc"]
+[ext_resource type="AudioStream" uid="uid://boybspwci1eei" path="res://game_scenes/avoid_fireball/assets/audio/NCS_SE_MGS_BOMBOM.ogg" id="5_vi82p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ga0n3"]
+atlas = ExtResource("3_hb7sc")
+region = Rect2(0, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hb4w1"]
+atlas = ExtResource("3_hb7sc")
+region = Rect2(46, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehacx"]
+atlas = ExtResource("3_hb7sc")
+region = Rect2(92, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qook"]
+atlas = ExtResource("3_hb7sc")
+region = Rect2(138, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kl2ey"]
+atlas = ExtResource("3_hb7sc")
+region = Rect2(184, 0, 46, 46)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6p16"]
+atlas = ExtResource("1_1sueo")
+region = Rect2(0, 0, 16, 25)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_goc1h"]
+atlas = ExtResource("1_1sueo")
+region = Rect2(21, 0, 16, 25)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dy42o"]
+animations = [{
+"frames": [{
+"duration": 4.0,
+"texture": ExtResource("1_hwp26")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ga0n3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hb4w1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehacx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5qook")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kl2ey")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"detonate",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6p16")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_goc1h")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_h417j"]
+resource_name = "detonate"
+length = 1.2
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_vi82p")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/0/use_blend = true
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"detonate", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_b4uxv"]
+resource_name = "RESET"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:stream")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_cypfb")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f1p3h"]
+_data = {
+"RESET": SubResource("Animation_b4uxv"),
+"detonate": SubResource("Animation_h417j")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a0yml"]
+radius = 4.0
+
+[node name="Bobomb" type="Area2D"]
+script = ExtResource("1_kvyyd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_dy42o")
+animation = &"detonate"
+autoplay = "walk"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_cypfb")
+volume_db = 8.0
+autoplay = true
+bus = &"SFX"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_f1p3h")
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a0yml")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
