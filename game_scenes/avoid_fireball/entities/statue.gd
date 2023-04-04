@@ -7,7 +7,6 @@ var tween: Tween
 
 
 func _ready() -> void:
-	randomize()
 	move_randomly()
 
 func _process(delta: float) -> void:
