@@ -2,6 +2,33 @@ extends Node
 
 var json = JSON.new()
 
+var options: Dictionary = {
+	"music_volume": -11.1,
+	"sfx_volume": -7.7
+}
+
+func _ready() -> void:
+	load_options()
+
+
+func save_options():
+	var config = ConfigFile.new()
+	for option in options:
+		config.set_value("LocalSettings", option, options[option])
+	config.save("user://savedata.ini")
+
+
+func load_options():
+	var config = ConfigFile.new()
+	if config.load("user://savedata.ini") != OK:
+		return
+
+	for option in options:
+		options[option] = config.get_value("LocalSettings", option)
+
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), options["music_volume"])
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), options["sfx_volume"])
+
 
 func erase_scoreboards():
 	OS.move_to_trash(ProjectSettings.globalize_path("user://scoreboards/"))

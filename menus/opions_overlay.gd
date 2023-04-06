@@ -20,6 +20,10 @@ func _on_sfx_slider_drag_ended(value_changed):
 
 
 func _on_button_continue_button_down():
+	SaveSystem.options["music_volume"] = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
+	SaveSystem.options["sfx_volume"] = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
+	SaveSystem.save_options()
+
 	$AudioSFX.stream = DBs.SOUNDS.positive
 	$AudioSFX.play()
 	await $AudioSFX.finished
