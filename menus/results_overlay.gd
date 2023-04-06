@@ -65,7 +65,8 @@ func check_and_reveal_hiscore():
 	sfx.stream = hiscore_sfx
 	sfx.play()
 	$GameOverTitle.visible = true
-	$GameOverTitle.text = BBCODE_HIGHSCORE_RAINBOW + "Highscore"
+	$GameOverTitle/PointLight2D.visible = false
+	$GameOverTitle.text = BBCODE_HIGHSCORE_RAINBOW + "High Score"
 
 
 func calc_and_store_scoreboard(new_score: int):

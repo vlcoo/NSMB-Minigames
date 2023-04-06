@@ -28,7 +28,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_bobomb_detonated() -> void:
 	going = false
-	$AudioMusic.volume_db = -6
+	$AudioMusic.volume_db = -8
 	$HUDOverlay.auto_score_increase = 0
 	$ResultsOverlay.calc_and_store_scoreboard($HUDOverlay.points)
 	$ResultsOverlay.appear()

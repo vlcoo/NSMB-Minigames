@@ -110,6 +110,7 @@ bounds_down_marker = NodePath("../BGBottom/BoundsDown")
 
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_syxb0")
+volume_db = -4.0
 autoplay = true
 bus = &"FadeableMusic"
 

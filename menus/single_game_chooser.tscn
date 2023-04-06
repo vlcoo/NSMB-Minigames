@@ -592,6 +592,8 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_x5hbt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_svq3f")
 toggle_mode = true
 button_pressed = true
+action_mode = 0
+keep_pressed_outside = true
 button_group = SubResource("ButtonGroup_45h4c")
 text = "Action"
 
@@ -617,6 +619,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_bi2cl")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_1mkvw")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ndnjl")
 toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
 button_group = SubResource("ButtonGroup_45h4c")
 text = "Puzzle"
 
@@ -642,6 +646,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_a3ll2")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_rjomt")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_wm3gw")
 toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
 button_group = SubResource("ButtonGroup_45h4c")
 text = "Table"
 
@@ -667,6 +673,8 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_qw0am")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_kw2wc")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_f5wjf")
 toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
 button_group = SubResource("ButtonGroup_45h4c")
 text = "Variety"
 
