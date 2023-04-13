@@ -1,7 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2qxigbg83wpu"]
+[gd_scene load_steps=15 format=3 uid="uid://bgojsnjutukgo"]
 
 [ext_resource type="Script" path="res://game_scenes/whack_mole/entities/hittable.gd" id="1_nc8th"]
-[ext_resource type="SpriteFrames" uid="uid://dtof5rr3r2uy3" path="res://game_scenes/whack_mole/hittable_mole.tres" id="2_mbxws"]
+[ext_resource type="SpriteFrames" path="res://game_scenes/whack_mole/hittable_mole.tres" id="2_mbxws"]
 [ext_resource type="Texture2D" uid="uid://bdiikmrnsxdcg" path="res://game_scenes/whack_mole/assets/graphics/particle_hit.png" id="3_8dftc"]
 [ext_resource type="AudioStream" uid="uid://bsiy2q41m2n41" path="res://game_scenes/whack_mole/assets/audio/NCS_SE_VS_MOG_CHOROHIT.ogg" id="3_m05nc"]
 [ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="4_iske5"]

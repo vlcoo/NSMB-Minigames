@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://byarotjtjykxc"]
+[gd_resource type="SpriteFrames" load_steps=3 format=3]
 
 [ext_resource type="Texture2D" uid="uid://dul2qr8816pld" path="res://game_scenes/whack_mole/assets/graphics/luigi_stare.png" id="1_m2utl"]
 [ext_resource type="Texture2D" uid="uid://bug2ru0uv63by" path="res://game_scenes/whack_mole/assets/graphics/luigi_hit.png" id="2_qdg8m"]

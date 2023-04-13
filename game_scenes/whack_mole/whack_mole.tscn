@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://5ecipxy1qolo"]
+[gd_scene load_steps=8 format=3 uid="uid://cvnknan13ytvy"]
 
 [ext_resource type="Script" path="res://game_scenes/whack_mole/whack_mole.gd" id="1_fhnkf"]
 [ext_resource type="AudioStream" uid="uid://ctuto8184lb2a" path="res://common/assets/songs/NCS_BGM_MINICOIN.ogg" id="1_gc23r"]
 [ext_resource type="PackedScene" uid="uid://nu7p0kg0jvd6" path="res://menus/results_overlay.tscn" id="2_b4dgq"]
 [ext_resource type="Texture2D" uid="uid://0g4ncys2nu6l" path="res://game_scenes/whack_mole/assets/graphics/bg_top.png" id="2_imnym"]
 [ext_resource type="Texture2D" uid="uid://cvn77rja747j6" path="res://game_scenes/whack_mole/assets/graphics/bg_bottom.png" id="3_gs8l7"]
-[ext_resource type="Texture2D" uid="uid://dlur5jvk3o0bn" path="res://game_scenes/whack_mole/assets/graphics/bg_mask.png" id="4_82vsv"]
+[ext_resource type="PackedScene" uid="uid://dld1x4fiik8fn" path="res://game_scenes/whack_mole/entities/hole.tscn" id="4_l4di2"]
 [ext_resource type="PackedScene" uid="uid://nexju8ee1pc7" path="res://menus/mgm_hud_overlay.tscn" id="7_q10q3"]
 
 [node name="Minigame" type="Node" groups=["BaseScreen"]]
@@ -14,101 +14,88 @@ script = ExtResource("1_fhnkf")
 [node name="2D" type="Node2D" parent="."]
 texture_filter = 1
 
+[node name="BGTop" type="Sprite2D" parent="2D"]
+position = Vector2(360, 176)
+scale = Vector2(2, 2)
+texture = ExtResource("2_imnym")
+
 [node name="BGBottom" type="Sprite2D" parent="2D"]
-position = Vector2(360, 536)
+position = Vector2(360, 528)
+scale = Vector2(2, 2)
 texture = ExtResource("3_gs8l7")
 
-[node name="Mask" type="Sprite2D" parent="2D/BGBottom"]
-z_index = 1
-position = Vector2(0, 8)
-texture = ExtResource("4_82vsv")
+[node name="Hole" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(-83, -53.5)
 
-[node name="Marker2D" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(-168, -120)
-gizmo_extents = 15.0
+[node name="Hole2" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(-41, -53.5)
 
-[node name="Marker2D2" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(-80, -120)
-gizmo_extents = 15.0
+[node name="Hole3" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(1, -53.5)
 
-[node name="Marker2D3" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(0, -120)
-gizmo_extents = 15.0
+[node name="Hole4" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(43, -53.5)
 
-[node name="Marker2D4" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(86, -120)
-gizmo_extents = 15.0
+[node name="Hole5" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(85, -53.5)
 
-[node name="Marker2D5" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(168, -120)
-gizmo_extents = 15.0
+[node name="Hole6" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(-83, -16)
 
-[node name="Marker2D6" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(-168, -37)
-gizmo_extents = 15.0
+[node name="Hole7" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(-41, -16)
 
-[node name="Marker2D7" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(-80, -37)
-gizmo_extents = 15.0
+[node name="Hole8" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(1, -16)
 
-[node name="Marker2D8" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(0, -37)
-gizmo_extents = 15.0
+[node name="Hole9" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(43, -16)
 
-[node name="Marker2D9" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(86, -37)
-gizmo_extents = 15.0
+[node name="Hole10" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(85, -16)
 
-[node name="Marker2D10" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(168, -37)
-gizmo_extents = 15.0
+[node name="Hole11" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(-83, 21.5)
 
-[node name="Marker2D11" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(-168, 43)
-gizmo_extents = 15.0
+[node name="Hole12" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(-41, 21.5)
 
-[node name="Marker2D12" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(-80, 43)
-gizmo_extents = 15.0
+[node name="Hole13" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(1, 21.5)
 
-[node name="Marker2D13" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(0, 43)
-gizmo_extents = 15.0
+[node name="Hole14" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(43, 21.5)
 
-[node name="Marker2D14" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(86, 43)
-gizmo_extents = 15.0
+[node name="Hole15" parent="2D/BGBottom" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(85, 21.5)
 
-[node name="Marker2D15" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(168, 43)
-gizmo_extents = 15.0
+[node name="CanvasGroup" type="CanvasGroup" parent="2D/BGBottom"]
+editor_description = "Bottom five holes would appear \"over\" the background frame, so we mask them."
 
-[node name="Marker2D16" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(-168, 121)
-gizmo_extents = 15.0
+[node name="Hole16" parent="2D/BGBottom/CanvasGroup" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(-83, 59)
 
-[node name="Marker2D17" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(-80, 121)
-gizmo_extents = 15.0
+[node name="Hole17" parent="2D/BGBottom/CanvasGroup" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(-41, 59)
 
-[node name="Marker2D18" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(0, 121)
-gizmo_extents = 15.0
+[node name="Hole18" parent="2D/BGBottom/CanvasGroup" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(1, 59)
 
-[node name="Marker2D19" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(86, 121)
-gizmo_extents = 15.0
+[node name="Hole19" parent="2D/BGBottom/CanvasGroup" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(43, 59)
 
-[node name="Marker2D20" type="Marker2D" parent="2D/BGBottom/Mask"]
-position = Vector2(168, 121)
-gizmo_extents = 15.0
+[node name="Hole20" parent="2D/BGBottom/CanvasGroup" groups=["Hole"] instance=ExtResource("4_l4di2")]
+position = Vector2(85, 59)
 
-[node name="BGTop" type="Sprite2D" parent="2D"]
-position = Vector2(360, 160)
-texture = ExtResource("2_imnym")
+[node name="Polygon2D" type="Polygon2D" parent="2D/BGBottom/CanvasGroup"]
+clip_children = 1
+polygon = PackedVector2Array(-104, 78, 104, 78, 104, 96, -104, 96)
 
 [node name="HUDOverlay" parent="." instance=ExtResource("7_q10q3")]
 timer = 15
+
+[node name="ResultsOverlay" parent="." instance=ExtResource("2_b4dgq")]
+type = 1
 
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_gc23r")
@@ -118,9 +105,6 @@ bus = &"FadeableMusic"
 [node name="AudioSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_gc23r")
 bus = &"SFX"
-
-[node name="ResultsOverlay" parent="." instance=ExtResource("2_b4dgq")]
-type = 1
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.8
