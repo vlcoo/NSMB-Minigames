@@ -21,7 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://c0swh76jhukf5" path="res://menus/assets/graphics/game_icons/slingshot_basket.png" id="19_m3sa4"]
 [ext_resource type="PackedScene" uid="uid://bw6i38jxrd0vp" path="res://game_scenes/avoid_fireball/avoid_fireball.tscn" id="20_ehsyt"]
 [ext_resource type="Texture2D" uid="uid://c3i0fqj6wwq0n" path="res://menus/assets/graphics/game_icons/avoid_fireball.png" id="20_ffcwn"]
-[ext_resource type="PackedScene" uid="uid://5ecipxy1qolo" path="res://game_scenes/whack_mole/whack_mole.tscn" id="21_u1lof"]
+[ext_resource type="PackedScene" uid="uid://cvnknan13ytvy" path="res://game_scenes/whack_mole/whack_mole.tscn" id="21_u1lof"]
 [ext_resource type="Texture2D" uid="uid://cmq0y1p25i4ex" path="res://menus/assets/graphics/game_icons/whack_mole.png" id="21_uwsoc"]
 [ext_resource type="Texture2D" uid="uid://cx20fbgqybsk6" path="res://menus/assets/graphics/game_icons/blow_balloon.png" id="22_hncyr"]
 [ext_resource type="Texture2D" uid="uid://deksdwellbg5i" path="res://menus/assets/graphics/game_icons/find_wanted.png" id="23_xj3c7"]

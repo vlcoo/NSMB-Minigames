@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dld1x4fiik8fn"]
+[gd_scene load_steps=11 format=3 uid="uid://dld1x4fiik8fn"]
 
 [ext_resource type="Texture2D" uid="uid://cuuxhrmdhl1pt" path="res://game_scenes/whack_mole/assets/graphics/hole.png" id="1_5xwvh"]
+[ext_resource type="Script" path="res://game_scenes/whack_mole/entities/hole.gd" id="1_6gxxm"]
 [ext_resource type="Texture2D" uid="uid://bwsctg6ggv4lr" path="res://game_scenes/whack_mole/assets/graphics/hole_mask.png" id="2_7lvkf"]
-[ext_resource type="Texture2D" path="res://game_scenes/whack_mole/assets/atlas_moles.tres" id="2_kx6hk"]
+[ext_resource type="Texture2D" uid="uid://bmqunn6at35nw" path="res://game_scenes/whack_mole/assets/graphics/moles.png" id="3_m321h"]
 [ext_resource type="Texture2D" uid="uid://bdiikmrnsxdcg" path="res://game_scenes/whack_mole/assets/graphics/particle_hit.png" id="4_mhrd3"]
+[ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="5_rt08u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r324u"]
 size = Vector2(24, 24)
@@ -19,15 +21,24 @@ orbit_velocity_max = 0.0
 damping_min = 100.0
 damping_max = 100.0
 
+[sub_resource type="Animation" id="Animation_pkjai"]
+resource_name = "out"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_40cq3"]
+_data = {
+"out": SubResource("Animation_pkjai")
+}
+
 [node name="Hole" type="Area2D"]
 texture_filter = 1
+script = ExtResource("1_6gxxm")
 
 [node name="SpriteHoleBG" type="Sprite2D" parent="."]
 texture = ExtResource("1_5xwvh")
 
 [node name="SpritetHittable" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-texture = ExtResource("2_kx6hk")
+texture = ExtResource("3_m321h")
 hframes = 2
 region_rect = Rect2(0, 0, 76, 29)
 
@@ -54,7 +65,20 @@ speed_scale = 3.0
 explosiveness = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_40cq3")
+}
 
 [node name="Label" type="Label" parent="."]
-offset_right = 40.0
-offset_bottom = 26.0
+offset_left = -12.0
+offset_top = -8.0
+offset_right = 11.0
+offset_bottom = 10.0
+pivot_offset = Vector2(12, 9)
+theme_override_colors/font_color = Color(1, 0.517647, 0.517647, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("5_rt08u")
+text = "+ 1"
+horizontal_alignment = 1
+vertical_alignment = 1
