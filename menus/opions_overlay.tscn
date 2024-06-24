@@ -75,7 +75,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(290, 241.75)]
+"values": [Vector2(67, 124)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -87,12 +87,13 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(290, 399.75)]
+"values": [Vector2(67, 192)]
 }
 
 [sub_resource type="Animation" id="Animation_qpdrl"]
 resource_name = "intro"
 length = 0.6
+step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,10 +101,10 @@ tracks/0/path = NodePath("VBoxTop:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.15, 1),
+"times": PackedFloat32Array(0, 0.17),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-240, 241.75), Vector2(290, 241.75)]
+"values": [Vector2(-145, 124), Vector2(67, 124)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -112,10 +113,10 @@ tracks/1/path = NodePath("VBoxBottom:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.6),
-"transitions": PackedFloat32Array(0.15, 1),
+"times": PackedFloat32Array(0, 0.17),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(816, 399.75), Vector2(290, 399.75)]
+"values": [Vector2(280, 192), Vector2(67, 192)]
 }
 tracks/2/type = "audio"
 tracks/2/imported = false
@@ -165,23 +166,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 162.0
-offset_top = 49.75
-offset_right = 303.0
-offset_bottom = 116.75
+offset_left = -61.0
+offset_top = -68.0
+offset_right = 60.9999
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-pivot_offset = Vector2(70.625, 33.75)
-theme_override_constants/separation = 12
+theme_override_constants/separation = 7
 metadata/_edit_group_ = true
 
 [node name="ButtonContinue" type="Button" parent="VBoxTop"]
+custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("1_4v6p5")
+theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8aq7q")
 theme_override_styles/hover = ExtResource("2_fojsy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3jf6d")
@@ -222,15 +223,12 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 162.0
-offset_top = 207.75
-offset_right = 303.0
-offset_bottom = 274.75
+offset_left = -61.0
+offset_right = 60.9999
+offset_bottom = 66.0002
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(2, 2)
-pivot_offset = Vector2(70.625, 33.75)
-theme_override_constants/separation = 12
+theme_override_constants/separation = 7
 alignment = 1
 metadata/_edit_group_ = true
 
@@ -246,6 +244,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxBottom/ButtonSFXVol/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 8
@@ -262,18 +261,20 @@ value = -10.0
 tick_count = 1
 
 [node name="ButtonErase" type="Button" parent="VBoxBottom"]
+custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
 tooltip_text = "Erase all saved minigame scoreboards and high scores"
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("1_4v6p5")
+theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5xy64")
 theme_override_styles/hover = SubResource("StyleBoxFlat_njyxm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y6jqe")
 theme_override_styles/normal = SubResource("StyleBoxFlat_njyxm")
 toggle_mode = true
-text = "Erase data"
+text = "Clear All"
 
 [node name="AudioSFX" type="AudioStreamPlayer" parent="."]
 autoplay = true

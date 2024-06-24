@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://bf7jwtp86drqm"]
+[gd_scene load_steps=10 format=3 uid="uid://bf7jwtp86drqm"]
 
 [ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_em113"]
 [ext_resource type="Script" path="res://menus/about.gd" id="1_sm5pg"]
 [ext_resource type="StyleBox" uid="uid://o8sfnpxebumo" path="res://menus/assets/theme_resources/panel_static_gray.tres" id="2_75vf5"]
-[ext_resource type="FontFile" uid="uid://cpqpr3nr5kmx5" path="res://menus/assets/theme_resources/super_mario_64DS.ttf" id="3_i6kr5"]
 [ext_resource type="AudioStream" uid="uid://1igdi4lcqgmm" path="res://menus/assets/songs/sample.ogg" id="4_rdonh"]
 [ext_resource type="Texture2D" uid="uid://crj3y8etdowhy" path="res://menus/assets/graphics/button_back_normal.png" id="6_7j0ye"]
 [ext_resource type="Texture2D" uid="uid://docojj1nq3phv" path="res://menus/assets/graphics/button_back_pressed.png" id="7_nca5n"]
@@ -13,62 +12,38 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:position")
+tracks/0/path = NodePath("ButtonBack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(152, 248)]
+"values": [Vector2(210, 344)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel2:position")
+tracks/1/path = NodePath("Panel1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(152, 392)]
+"values": [Vector2(9, 116)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ButtonBack:position")
+tracks/2/path = NodePath("Panel2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(628, 631.4)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Panel:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(408, 72)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Panel2:size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(412, 74)]
+"values": [Vector2(9, 192)]
 }
 
 [sub_resource type="Animation" id="Animation_c1qvj"]
@@ -77,62 +52,38 @@ length = 1.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Panel:position")
+tracks/0/path = NodePath("ButtonBack:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1, 1.5),
-"transitions": PackedFloat32Array(1, 0.15, 1),
+"times": PackedFloat32Array(0, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-432, 248), Vector2(-432, 248), Vector2(152, 248)]
+"values": [Vector2(211, 390), Vector2(211, 390), Vector2(210, 344)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Panel2:position")
+tracks/1/path = NodePath("Panel1:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 1, 1.5),
-"transitions": PackedFloat32Array(1, 0.15, 1),
+"transitions": PackedFloat32Array(1, 0.2, 1),
 "update": 0,
-"values": [Vector2(744, 392), Vector2(744, 392), Vector2(152, 392)]
+"values": [Vector2(-260, 116), Vector2(-260, 116), Vector2(9, 116)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ButtonBack:position")
+tracks/2/path = NodePath("Panel2:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 1, 1.2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 0.2, 1),
 "update": 0,
-"values": [Vector2(628, 744), Vector2(628, 744), Vector2(628, 631.4)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Panel:size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(408, 72)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Panel2:size")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(412, 74)]
+"values": [Vector2(276, 192), Vector2(276, 192), Vector2(9, 192)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5yeqi"]
@@ -157,87 +108,77 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -232.0
+offset_top = -168.0
+offset_right = 232.0
+offset_bottom = 168.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_em113")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel1" type="Panel" parent="."]
+custom_minimum_size = Vector2(240, 38)
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.211111
-anchor_top = 0.344444
-anchor_right = 0.777778
-anchor_bottom = 0.444444
-offset_left = 9.15527e-05
-offset_top = 0.000320435
-offset_right = -0.000183105
-offset_bottom = 0.000305176
+anchor_right = 1.0
+anchor_bottom = 0.401
+offset_left = 9.0
+offset_top = 116.0
+offset_right = -6.99997
+offset_bottom = 0.0160065
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(204, 36)
 theme_override_styles/panel = ExtResource("2_75vf5")
-metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
 
-[node name="Label" type="RichTextLabel" parent="Panel"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -76.0
-offset_top = -27.0
-offset_right = 76.0
-offset_bottom = 27.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("3_i6kr5")
-bbcode_enabled = true
-text = "[center]Game by: [url=https://vlcoo.net]vlco_o[/url]
-ver 0.0"
-fit_content = true
-autowrap_mode = 0
-
-[node name="Panel2" type="Panel" parent="."]
+[node name="Label" type="RichTextLabel" parent="Panel1"]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.211111
-anchor_top = 0.544444
-anchor_right = 0.783333
-anchor_bottom = 0.647222
-offset_left = 9.15527e-05
-offset_top = 0.000305176
-offset_right = 0.000244141
-offset_bottom = 0.000183105
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = -3.00002
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(207, 37)
-theme_override_styles/panel = ExtResource("2_75vf5")
-metadata/_edit_use_anchors_ = true
-
-[node name="Label" type="RichTextLabel" parent="Panel2"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -159.0
-offset_top = -26.0
-offset_right = 159.0
-offset_bottom = 26.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-theme_override_fonts/normal_font = ExtResource("3_i6kr5")
+theme_override_constants/line_separation = 4
+theme_override_font_sizes/normal_font_size = 8
 bbcode_enabled = true
 text = "[center]Assets & original game: Nintendo
 Powered by the [url=https://godotengine.org]Godot Engine[/url]"
-fit_content = true
-autowrap_mode = 0
+scroll_active = false
+autowrap_mode = 2
+
+[node name="Panel2" type="Panel" parent="."]
+custom_minimum_size = Vector2(240, 38)
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_right = -6.99994
+offset_bottom = -154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_75vf5")
+metadata/_edit_group_ = true
+
+[node name="Label" type="RichTextLabel" parent="Panel2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 3.0
+offset_bottom = -3.00002
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_separation = 4
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[center]Game by: [url=https://vlcoo.net]vlco_o[/url]
+ver 0.0"
+scroll_active = false
+autowrap_mode = 2
 
 [node name="AudioMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_rdonh")
@@ -250,17 +191,16 @@ bus = &"SFX"
 [node name="ButtonBack" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.968611
-anchor_top = 0.963056
-anchor_right = 0.968611
-anchor_bottom = 0.963056
-offset_left = -69.3999
-offset_top = -62.0003
-offset_right = -34.3999
-offset_bottom = -31.0003
+anchor_left = 0.82
+anchor_top = 0.896
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 0.0799713
+offset_top = -0.0640259
+offset_right = -11.0
+offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
-scale = Vector2(2, 2)
 toggle_mode = true
 texture_normal = ExtResource("6_7j0ye")
 texture_pressed = ExtResource("7_nca5n")
@@ -268,11 +208,10 @@ texture_disabled = ExtResource("7_nca5n")
 stretch_mode = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "intro"
 libraries = {
 "": SubResource("AnimationLibrary_5yeqi")
 }
+autoplay = "intro"
 
-[connection signal="meta_clicked" from="Panel/Label" to="." method="_on_label_meta_clicked"]
-[connection signal="meta_clicked" from="Panel2/Label" to="." method="_on_label_meta_clicked"]
+[connection signal="meta_clicked" from="Panel1/Label" to="." method="_on_label_meta_clicked"]
 [connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

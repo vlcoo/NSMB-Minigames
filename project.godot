@@ -25,6 +25,7 @@ SaveSystem="*res://globals/save_system.gd"
 
 window/size/viewport_width=256
 window/size/viewport_height=384
+window/size/resizable=false
 window/size/window_width_override=512
 window/size/window_height_override=768
 window/stretch/mode="viewport"
@@ -45,4 +46,7 @@ theme/default_font_subpixel_positioning=0
 [rendering]
 
 renderer/rendering_method="mobile"
+textures/default_filters/use_nearest_mipmap_filter=true
 environment/defaults/default_clear_color=Color(0.337255, 0.337255, 0.337255, 1)
+2d/snap/snap_2d_transforms_to_pixel=true
+2d/snap/snap_2d_vertices_to_pixel=true

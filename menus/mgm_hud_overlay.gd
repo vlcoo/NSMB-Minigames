@@ -69,8 +69,10 @@ func _on_points_sum_specific(how_much: int):
 	$BoxScoreBar/LabelScore.text = str(points)
 	$BoxScoreBar/LabelHiScore.text = str(max(hiscore, points))
 
+
 func _update_star_collection_count():
 	$BoxStars/CollectionBG/LabelScore.text = str(points)
+
 
 func _on_point_gotten():
 	points += 1
