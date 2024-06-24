@@ -6,6 +6,8 @@
 [ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="3_bkn2g"]
 [ext_resource type="AudioStream" uid="uid://bk4b6vmi3fn1a" path="res://menus/assets/audio/pause.ogg" id="5_1e05x"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8aq7q"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jf6d"]
 content_margin_left = 18.0
 content_margin_top = 6.0
@@ -20,8 +22,6 @@ shadow_size = 1
 shadow_offset = Vector2(2, 2)
 anti_aliasing = false
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8aq7q"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la724"]
 content_margin_left = 18.0
 content_margin_top = 6.0
@@ -34,6 +34,8 @@ border_color = Color(0.94902, 0.94902, 0.94902, 1)
 shadow_size = 1
 shadow_offset = Vector2(2, 2)
 anti_aliasing = false
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xy64"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njyxm"]
 content_margin_left = 18.0
@@ -60,8 +62,6 @@ border_color = Color(0.94902, 0.94902, 0.94902, 1)
 shadow_size = 1
 shadow_offset = Vector2(2, 2)
 anti_aliasing = false
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xy64"]
 
 [sub_resource type="Animation" id="Animation_nkfgm"]
 length = 0.001
@@ -165,10 +165,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = -118.25
-offset_right = 71.0
-offset_bottom = -51.25
+offset_left = 162.0
+offset_top = 49.75
+offset_right = 303.0
+offset_bottom = 116.75
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -182,10 +182,10 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("1_4v6p5")
-theme_override_styles/normal = ExtResource("2_fojsy")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8aq7q")
 theme_override_styles/hover = ExtResource("2_fojsy")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3jf6d")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8aq7q")
+theme_override_styles/normal = ExtResource("2_fojsy")
 toggle_mode = true
 text = "Continue"
 
@@ -222,10 +222,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -70.0
-offset_top = 39.75
-offset_right = 71.0
-offset_bottom = 106.75
+offset_left = 162.0
+offset_top = 207.75
+offset_right = 303.0
+offset_bottom = 274.75
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -268,10 +268,10 @@ theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("1_4v6p5")
-theme_override_styles/normal = SubResource("StyleBoxFlat_njyxm")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_5xy64")
 theme_override_styles/hover = SubResource("StyleBoxFlat_njyxm")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_y6jqe")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_5xy64")
+theme_override_styles/normal = SubResource("StyleBoxFlat_njyxm")
 toggle_mode = true
 text = "Erase data"
 
@@ -280,10 +280,10 @@ autoplay = true
 bus = &"SFX"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "intro"
 libraries = {
 "": SubResource("AnimationLibrary_1nnsl")
 }
+autoplay = "intro"
 
 [connection signal="button_down" from="VBoxTop/ButtonContinue" to="." method="_on_button_continue_button_down"]
 [connection signal="value_changed" from="VBoxTop/ButtonMusicVol/HBoxContainer/HSlider" to="." method="_on_music_slider_value_changed"]

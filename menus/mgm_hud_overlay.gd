@@ -18,12 +18,13 @@ var sfx_countdown_depleted = preload("res://menus/assets/audio/countdown_deplete
 var sfx_point = preload("res://menus/assets/audio/point_singular.ogg")
 
 var seconds_left: int
-var points: int = 0
+var points: float = 0
 var hiscore: int
 
 
 func _ready():
 	seconds_left = timer + 1
+	
 	if score_style == ScoreTypes.EXPLICIT_TEXT:
 		$BoxStars.visible = false
 		if Transitionizer.selected_minigame != null: hiscore = Transitionizer.selected_minigame.scoreboard.get("Place1")
@@ -38,8 +39,8 @@ func _ready():
 func _process(delta):
 	if auto_score_increase > 0:
 		points += auto_score_increase * delta
-		$BoxScoreBar/LabelScore.text = str(points)
-		$BoxScoreBar/LabelHiScore.text = str(max(hiscore, points))
+		$BoxScoreBar/LabelScore.text = str(int(points))
+		$BoxScoreBar/LabelHiScore.text = str(int(max(hiscore, points)))
 
 
 func _on_seconds_timer_timeout():

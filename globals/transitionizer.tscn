@@ -235,6 +235,7 @@ layer = 10
 script = ExtResource("1_68rui")
 
 [node name="CanvasGroup" type="CanvasGroup" parent="."]
+visible = false
 texture_filter = 1
 
 [node name="ColorRect" type="ColorRect" parent="CanvasGroup"]
