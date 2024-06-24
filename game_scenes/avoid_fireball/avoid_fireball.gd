@@ -3,7 +3,7 @@ extends Node
 @export var fireball_template: CollisionObject2D
 @onready var fireball_spawnerO: PathFollow2D = $"2D/BGBottom/PathFireballSpawner/FireballSpawnpointO"
 @onready var fireball_spawnerF: PathFollow2D = $"2D/BGBottom/PathFireballSpawner/FireballSpawnpointF"
-@onready var fireball_container: CanvasGroup = $"2D/BGBottom/PathFireballSpawner/CanvasGroup"
+@onready var fireball_container: CanvasGroup = $"2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup"
 
 var going: bool = true
 

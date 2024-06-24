@@ -1,6 +1,7 @@
-[gd_scene load_steps=33 format=3 uid="uid://nu7p0kg0jvd6"]
+[gd_scene load_steps=34 format=3 uid="uid://nu7p0kg0jvd6"]
 
 [ext_resource type="Script" path="res://menus/results_overlay.gd" id="1_bbuyh"]
+[ext_resource type="FontFile" uid="uid://cfn2q0hbtfp3w" path="res://menus/assets/theme_resources/super_mario_wii.ttf" id="2_5x0ou"]
 [ext_resource type="AudioStream" uid="uid://ceiob0ihr5jtu" path="res://menus/assets/songs/NCS_BGM_MINIOVER.ogg" id="2_7d885"]
 [ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="2_p75an"]
 [ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="4_kgo0j"]
@@ -894,16 +895,15 @@ script = ExtResource("1_bbuyh")
 metadata/_edit_horizontal_guides_ = [192.0]
 
 [node name="GameOverTitle" type="Label" parent="."]
-process_mode = 4
 light_mask = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
-anchor_bottom = 0.266
+anchor_bottom = 0.271
 offset_left = 9.0
 offset_top = 72.0
 offset_right = -9.0
-offset_bottom = -0.143997
+offset_bottom = -2.06401
 grow_horizontal = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -911,16 +911,16 @@ theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_constants/outline_size = 9
 theme_override_constants/shadow_outline_size = 9
-theme_override_fonts/font = ExtResource("2_p75an")
-theme_override_font_sizes/font_size = 32
+theme_override_fonts/font = ExtResource("2_5x0ou")
+theme_override_font_sizes/font_size = 38
 text = "%placeholder%"
 horizontal_alignment = 1
 metadata/_edit_group_ = true
 
 [node name="PointLight2D" type="PointLight2D" parent="GameOverTitle"]
-position = Vector2(119, 8.5)
+position = Vector2(128, 14)
 rotation = -1.5708
-scale = Vector2(0.209297, 256)
+scale = Vector2(0.252266, 274)
 energy = 2.13
 blend_mode = 2
 range_item_cull_mask = 2
@@ -1325,7 +1325,7 @@ anchor_right = 0.738
 anchor_bottom = 1.0
 offset_left = 0.927994
 offset_top = 0.159973
-offset_right = 1.07199
+offset_right = 1.07201
 offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 0
@@ -1350,7 +1350,7 @@ anchor_right = 0.738
 anchor_bottom = 1.0
 offset_left = 0.927994
 offset_top = 0.071991
-offset_right = 1.07193
+offset_right = 1.07195
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0

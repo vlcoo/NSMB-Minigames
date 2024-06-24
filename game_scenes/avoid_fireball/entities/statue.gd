@@ -7,6 +7,8 @@ var tween: Tween
 
 
 func _ready() -> void:
+	randomize()
+	progress_ratio = randf()
 	move_randomly()
 
 func _process(delta: float) -> void:
@@ -20,7 +22,8 @@ func move_randomly() -> void:
 	tween.finished.connect(move_finished)
 	sfx.stream = moving_grinding_sfx
 	sfx.play()
-	tween.tween_property(self, "progress_ratio", randf(), 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	var destination_point := randf()
+	tween.tween_property(self, "progress_ratio", destination_point, 4).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
 func move_finished() -> void:

@@ -12,6 +12,7 @@
 
 [sub_resource type="FontVariation" id="FontVariation_cmnkn"]
 base_font = ExtResource("5_oc2fj")
+spacing_glyph = 8
 
 [sub_resource type="Animation" id="Animation_tyho2"]
 length = 0.001
@@ -280,7 +281,7 @@ theme_override_constants/line_spacing = 0
 theme_override_constants/outline_size = 9
 theme_override_fonts/font = SubResource("FontVariation_cmnkn")
 theme_override_font_sizes/font_size = 32
-text = "abcd"
+text = "99"
 horizontal_alignment = 1
 
 [node name="BoxStars" type="VBoxContainer" parent="."]

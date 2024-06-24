@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cji5ysugg8ekc"]
+[gd_scene load_steps=31 format=3 uid="uid://cji5ysugg8ekc"]
 
 [ext_resource type="Texture2D" uid="uid://dy4yku6s7mi86" path="res://game_scenes/avoid_fireball/assets/graphics/statue.png" id="1_51n4j"]
 [ext_resource type="Script" path="res://game_scenes/avoid_fireball/entities/statue.gd" id="1_80cr3"]
@@ -130,6 +130,15 @@ animations = [{
 "speed": 15.0
 }]
 
+[sub_resource type="Curve" id="Curve_xffxt"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.95, 1), 0.0, -20.0, 0, 1, Vector2(1, 0), -20.0, 0.0, 1, 0]
+point_count = 3
+metadata/_snap_enabled = true
+metadata/_snap_count = 20
+
+[sub_resource type="CurveTexture" id="CurveTexture_tyxi8"]
+curve = SubResource("Curve_xffxt")
+
 [sub_resource type="Curve" id="Curve_xexoc"]
 _data = [Vector2(0, 0.254545), 0.0, 1.81835, 0, 1, Vector2(0.409962, 1), 1.81835, 0.0, 1, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
 point_count = 3
@@ -141,14 +150,15 @@ curve = SubResource("Curve_xexoc")
 particle_flag_disable_z = true
 direction = Vector3(0, 1, 0)
 spread = 0.0
-gravity = Vector3(0, 0, 0)
 initial_velocity_min = 100.0
 initial_velocity_max = 100.0
 angular_velocity_min = -400.0
 angular_velocity_max = 400.0
-orbit_velocity_min = 0.0
-orbit_velocity_max = 0.0
+gravity = Vector3(0, 0, 0)
+scale_min = 2.0
+scale_max = 2.0
 scale_curve = SubResource("CurveTexture_r6wcq")
+alpha_curve = SubResource("CurveTexture_tyxi8")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tm3fv"]
 size = Vector2(20, 290)
@@ -202,6 +212,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_g1ocf"]
@@ -384,6 +406,18 @@ tracks/5/keys = {
 "method": &"move_randomly"
 }]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../AudioStreamPlayer2D:playing")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x2lfm"]
 _data = {
@@ -420,8 +454,9 @@ emitting = false
 amount = 14
 process_material = SubResource("ParticleProcessMaterial_lxr28")
 texture = ExtResource("5_vxgaf")
-lifetime = 3.0
+lifetime = 3.4
 speed_scale = 1.2
+fixed_fps = 60
 
 [node name="AreaFlames" type="Area2D" parent="."]
 
