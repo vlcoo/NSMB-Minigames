@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/draw_path.png" id="1_3h6po"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_4rw6u"]
+
+[resource]
+script = ExtResource("2_4rw6u")
+name = "Draw Path"
+category = 3
+scoreboard_type = 1
+icon = ExtResource("1_3h6po")
+singleplayer = true
+multiplayer = false
+description = "Guide Mario down the slides to the Star. Draw lines on the bottom to create new routes for him. If Mario lands in a Piranha Plant, it’s game over! Collect five Stars to move up a stage."

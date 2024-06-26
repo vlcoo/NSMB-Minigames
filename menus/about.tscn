@@ -214,4 +214,5 @@ libraries = {
 autoplay = "intro"
 
 [connection signal="meta_clicked" from="Panel1/Label" to="." method="_on_label_meta_clicked"]
+[connection signal="meta_clicked" from="Panel2/Label" to="." method="_on_label_meta_clicked"]
 [connection signal="pressed" from="ButtonBack" to="." method="_on_button_back_pressed"]

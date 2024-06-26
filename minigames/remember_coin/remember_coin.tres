@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/remember_coin.png" id="1_dqr34"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_vv3ua"]
+
+[resource]
+script = ExtResource("2_vv3ua")
+name = "Remember Coin"
+category = 1
+scoreboard_type = 0
+icon = ExtResource("1_dqr34")
+singleplayer = true
+multiplayer = false
+description = "Pay attention to where the falling coins land. Tap or click on the blocks to retrieve the coins. Choose wisely: if you pick the wrong block, your game will end."

@@ -2,27 +2,14 @@
 
 [ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="1_4v6p5"]
 [ext_resource type="Script" path="res://menus/opions_overlay.gd" id="1_26hkp"]
-[ext_resource type="StyleBox" uid="uid://cl21lofeowt5r" path="res://menus/assets/theme_resources/blocky_colorful_base.tres" id="2_fojsy"]
+[ext_resource type="StyleBox" uid="uid://cl21lofeowt5r" path="res://menus/assets/theme_resources/blocky_colorful_base_normal.tres" id="2_fojsy"]
 [ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="3_bkn2g"]
+[ext_resource type="StyleBox" uid="uid://cgkmqudabfhsa" path="res://menus/assets/theme_resources/blocky_colorful_base_pressed.tres" id="4_0agdu"]
 [ext_resource type="AudioStream" uid="uid://bk4b6vmi3fn1a" path="res://menus/assets/audio/pause.ogg" id="5_1e05x"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8aq7q"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3jf6d"]
-content_margin_left = 18.0
-content_margin_top = 6.0
-content_margin_right = 18.0
-content_margin_bottom = 6.0
-bg_color = Color(0.870588, 0.937255, 0.870588, 1)
-border_width_left = 2
-border_width_top = 2
-border_color = Color(0.94902, 0.94902, 0.94902, 1)
-expand_margin_top = 2.0
-shadow_size = 1
-shadow_offset = Vector2(2, 2)
-anti_aliasing = false
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_la724"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26h6b"]
 content_margin_left = 18.0
 content_margin_top = 6.0
 content_margin_right = 18.0
@@ -31,13 +18,17 @@ bg_color = Color(1, 0.678431, 0.352941, 1)
 border_width_left = 2
 border_width_top = 2
 border_color = Color(0.94902, 0.94902, 0.94902, 1)
+corner_detail = 1
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(2, 2)
 anti_aliasing = false
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xy64"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_njyxm"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gn02i"]
 content_margin_left = 18.0
 content_margin_top = 6.0
 content_margin_right = 18.0
@@ -46,21 +37,31 @@ bg_color = Color(0.968627, 0, 0.160784, 1)
 border_width_left = 2
 border_width_top = 2
 border_color = Color(0.94902, 0.94902, 0.94902, 1)
+corner_detail = 1
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
 shadow_offset = Vector2(2, 2)
 anti_aliasing = false
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y6jqe"]
-content_margin_left = 18.0
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u4k05"]
+content_margin_left = 20.0
 content_margin_top = 6.0
 content_margin_right = 18.0
-content_margin_bottom = 6.0
+content_margin_bottom = 4.0
 bg_color = Color(1, 0.968627, 0, 1)
 border_width_left = 2
 border_width_top = 2
 border_color = Color(0.94902, 0.94902, 0.94902, 1)
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+shadow_color = Color(0, 0, 0, 1)
 shadow_size = 1
-shadow_offset = Vector2(2, 2)
+shadow_offset = Vector2(1, 1)
 anti_aliasing = false
 
 [sub_resource type="Animation" id="Animation_nkfgm"]
@@ -185,15 +186,16 @@ theme_override_fonts/font = ExtResource("1_4v6p5")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_8aq7q")
 theme_override_styles/hover = ExtResource("2_fojsy")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_3jf6d")
+theme_override_styles/pressed = ExtResource("4_0agdu")
 theme_override_styles/normal = ExtResource("2_fojsy")
 toggle_mode = true
+action_mode = 0
 text = "Continue"
 
 [node name="ButtonMusicVol" type="PanelContainer" parent="VBoxTop"]
 layout_mode = 2
 theme = ExtResource("3_bkn2g")
-theme_override_styles/panel = SubResource("StyleBoxFlat_la724")
+theme_override_styles/panel = SubResource("StyleBoxFlat_26h6b")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxTop/ButtonMusicVol"]
 layout_mode = 2
@@ -235,7 +237,7 @@ metadata/_edit_group_ = true
 [node name="ButtonSFXVol" type="PanelContainer" parent="VBoxBottom"]
 layout_mode = 2
 theme = ExtResource("3_bkn2g")
-theme_override_styles/panel = SubResource("StyleBoxFlat_la724")
+theme_override_styles/panel = SubResource("StyleBoxFlat_26h6b")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxBottom/ButtonSFXVol"]
 layout_mode = 2
@@ -264,16 +266,19 @@ tick_count = 1
 custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
 tooltip_text = "Erase all saved minigame scoreboards and high scores"
+theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("1_4v6p5")
 theme_override_font_sizes/font_size = 16
 theme_override_styles/focus = SubResource("StyleBoxEmpty_5xy64")
-theme_override_styles/hover = SubResource("StyleBoxFlat_njyxm")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y6jqe")
-theme_override_styles/normal = SubResource("StyleBoxFlat_njyxm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gn02i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_u4k05")
+theme_override_styles/normal = SubResource("StyleBoxFlat_gn02i")
 toggle_mode = true
+action_mode = 0
 text = "Clear All"
 
 [node name="AudioSFX" type="AudioStreamPlayer" parent="."]

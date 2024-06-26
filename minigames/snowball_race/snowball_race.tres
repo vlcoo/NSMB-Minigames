@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/snowball_race.png" id="1_nddhn"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_s75i5"]
+
+[resource]
+script = ExtResource("2_s75i5")
+name = "Snowball Race"
+category = 0
+scoreboard_type = 2
+icon = ExtResource("1_nddhn")
+singleplayer = true
+multiplayer = false
+description = "Rub the snowman’s head to roll it to the goal before time runs out! Rocks will slow you down, so avoid them!"

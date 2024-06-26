@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/find_identical.png" id="1_12mv3"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_2be4j"]
+
+[resource]
+script = ExtResource("2_2be4j")
+name = "Find Identical"
+category = 1
+scoreboard_type = 1
+icon = ExtResource("1_12mv3")
+singleplayer = true
+multiplayer = false
+description = "Touch or click on the Wiggler on the bottom that matches the one on the top. Choose carefully, though: he has a terrible temper."

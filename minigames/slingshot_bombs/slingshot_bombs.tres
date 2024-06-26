@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/slingshot_bombs.png" id="1_nfxst"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_3a0yb"]
+
+[resource]
+script = ExtResource("2_3a0yb")
+name = "Slingshot Bombs"
+category = 3
+scoreboard_type = 0
+icon = ExtResource("1_nfxst")
+singleplayer = true
+multiplayer = false
+description = "The parachuting Bob-ombs have targeted your precious garden! Use your slingshot to knock them out of the air. Hit Lakitu to blow them all up at once!"

@@ -67,7 +67,7 @@ func add_scoreboard_place(to_which: MinigameData, new_score: int) -> int:
 		var place_id = places.find(new_score)
 		for i in places.size():
 			to_which.scoreboard["Place" + str(i+1)] = places[i]
-		return 6 if place_id == -1 else place_id + 1
+		return 6 if (place_id == -1 or new_score <= 0) else place_id + 1
 
 	else:
 		return -1

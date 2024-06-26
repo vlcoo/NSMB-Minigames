@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=4 format=3]
+
+[ext_resource type="PackedScene" path="res://minigames/avoid_fireball/avoid_fireball.tscn" id="1_g36lc"]
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/avoid_fireball.png" id="2_a8a6p"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="3_y053m"]
+
+[resource]
+script = ExtResource("3_y053m")
+name = "Avoid Fireball"
+category = 0
+scoreboard_type = 0
+icon = ExtResource("2_a8a6p")
+singleplayer = true
+multiplayer = false
+description = "Drag the Bob-omb to guide it out of the incoming fireballs. Watch out for Bowser‘s flame breath too. How long can you survive?"
+game_scene = ExtResource("1_g36lc")

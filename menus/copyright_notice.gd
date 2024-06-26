@@ -7,7 +7,8 @@ func _ready() -> void:
 	randomize()
 	company_name = get_company_name()
 
-	$BoxContainer/LabelLogo.text = company_name
+	$BoxContainer/LabelLogo.text = company_name + \
+		"[b][valign y=14]" + ["Ⓖ", "Ⓗ", "Ⓥ"].pick_random() + "[/valign][/b]"
 	$BoxContainer/LabelDetail.text = $BoxContainer/LabelDetail.text.replace("%placeholder%", company_name.to_upper())
 
 

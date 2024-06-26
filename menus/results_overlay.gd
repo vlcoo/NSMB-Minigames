@@ -2,8 +2,8 @@ extends Control
 
 enum GameOverTypes {GENERIC, TIME_UP, GOAL}
 @onready var sfx: AudioStreamPlayer = $AudioStreamPlayer
-const BBCODE_SCORE_PULSE: String = "[pulse freq=2.5 ease=1.0 height=0]"
-const BBCODE_HIGHSCORE_RAINBOW: String = "[shake rate=12 level=8][center][rainbow freq=0.5 sat=0.8 val=1]"
+const BBCODE_SCORE_PULSE: String = "[pulse freq=2 ease=4.0]"
+const BBCODE_HIGHSCORE_RAINBOW: String = "[rainbow freq=0.5 sat=0.8 val=1]"
 
 @export var type: GameOverTypes = GameOverTypes.GENERIC
 @export var scoreboard_style: MinigameData.ScoreboardTypes = MinigameData.ScoreboardTypes.GENERIC
@@ -11,6 +11,7 @@ const BBCODE_HIGHSCORE_RAINBOW: String = "[shake rate=12 level=8][center][rainbo
 
 var hiscore_sfx = preload("res://common/assets/songs/NCS_BGM_MINIHISCORE.ogg")
 var place = -1
+var current_score = -1
 
 
 func _ready():
@@ -26,7 +27,7 @@ func appear():
 			new_text = "Time's Up"
 		GameOverTypes.GOAL:
 			new_text = "Goal"
-	$GameOverTitle.text = $GameOverTitle.text.replace("%placeholder%", new_text)
+	$GameOverTitle.text = $GameOverTitle.text.replace("%placeholder%", "[center]" + new_text)
 
 	if not show_scorelist:
 		$ScoreboardTitle.text = ""
@@ -60,18 +61,22 @@ func reveal_scorelist():
 
 
 func check_and_reveal_hiscore():
-	if place != 1: return
-
-	sfx.stream = hiscore_sfx
-	sfx.play()
-	$GameOverTitle.visible = true
-	$GameOverTitle/PointLight2D.visible = false
-	$GameOverTitle.text = BBCODE_HIGHSCORE_RAINBOW + "High Score"
+	if place == 1 and current_score > 0:
+		sfx.stream = hiscore_sfx
+		sfx.play()
+		$GameOverTitle.visible = true
+		$GameOverTitle/PointLight2D.visible = false
+		$GameOverTitle.text = BBCODE_HIGHSCORE_RAINBOW + "[center]" + "High Score"
+		await sfx.finished
+	
+	$ButtonContinue.disabled = false
+	$TextureRect.visible = true
 
 
 func calc_and_store_scoreboard(new_score: int):
 	if Transitionizer.selected_minigame == null: return
 
+	current_score = new_score
 	place = SaveSystem.add_scoreboard_place(Transitionizer.selected_minigame, new_score)
 	SaveSystem.save_scoreboard(Transitionizer.selected_minigame)
 	$PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry.visible = place == 6

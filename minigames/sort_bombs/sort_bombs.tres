@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/sort_bombs.png" id="1_jwwc8"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_kxmuc"]
+
+[resource]
+script = ExtResource("2_kxmuc")
+name = "Sort Bombs"
+category = 3
+scoreboard_type = 0
+icon = ExtResource("1_jwwc8")
+singleplayer = true
+multiplayer = false
+description = "Guide black Bob-ombs to the black carpet and red Bob-ombs to the red carpet. If you bring in the wrong Bob-omb, it will explode, and that’s no good!"

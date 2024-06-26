@@ -1,10 +1,16 @@
-[gd_scene load_steps=9 format=3 uid="uid://dtwrvfdlfqa0x"]
+[gd_scene load_steps=12 format=3 uid="uid://dtwrvfdlfqa0x"]
 
 [ext_resource type="FontFile" uid="uid://bemooruqc0syy" path="res://menus/assets/theme_resources/pretendo.ttf" id="1_dqplu"]
 [ext_resource type="Script" path="res://menus/copyright_notice.gd" id="1_toyc1"]
 [ext_resource type="AudioStream" uid="uid://briufx41hbd1x" path="res://menus/assets/audio/logo.ogg" id="2_3sbu0"]
+[ext_resource type="Script" path="res://menus/assets/theme_resources/bbcode_valign.gd" id="3_j34qj"]
+
+[sub_resource type="FontVariation" id="FontVariation_pr8un"]
+base_font = ExtResource("1_dqplu")
+variation_embolden = 0.51
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rfmkb"]
+bg_color = Color(1, 1, 1, 1)
 draw_center = false
 border_width_left = 6
 border_width_top = 6
@@ -18,7 +24,10 @@ corner_radius_bottom_left = 22
 corner_detail = 7
 expand_margin_left = 13.0
 expand_margin_top = 8.0
-expand_margin_right = 11.0
+expand_margin_right = 8.0
+
+[sub_resource type="RichTextEffect" id="RichTextEffect_013ju"]
+script = ExtResource("3_j34qj")
 
 [sub_resource type="SystemFont" id="SystemFont_ac4f2"]
 font_names = PackedStringArray("Sans-Serif")
@@ -107,17 +116,24 @@ theme_override_constants/separation = -20
 alignment = 1
 vertical = true
 
-[node name="LabelLogo" type="Label" parent="BoxContainer"]
+[node name="LabelLogo" type="RichTextLabel" parent="BoxContainer"]
+clip_contents = false
+custom_minimum_size = Vector2(40, 40)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
-theme_override_colors/font_color = Color(1, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_dqplu")
-theme_override_font_sizes/font_size = 28
+theme_override_colors/default_color = Color(1, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("1_dqplu")
+theme_override_fonts/bold_font = SubResource("FontVariation_pr8un")
+theme_override_font_sizes/normal_font_size = 28
+theme_override_font_sizes/bold_font_size = 11
 theme_override_styles/normal = SubResource("StyleBoxFlat_rfmkb")
-text = "%placeholder%"
-horizontal_alignment = 1
-vertical_alignment = 1
+bbcode_enabled = true
+text = "%placeholder%[b][valign y=14]Ⓑ[/valign][/b]"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+custom_effects = [SubResource("RichTextEffect_013ju")]
 
 [node name="LabelDetail" type="Label" parent="BoxContainer"]
 layout_mode = 2

@@ -1,0 +1,116 @@
+[gd_scene load_steps=17 format=3 uid="uid://dwi8uwdnc60os"]
+
+[ext_resource type="Texture2D" uid="uid://cu7gnj8v1hrq3" path="res://minigames/remember_coin/assets/wario_frame9.png" id="1_3b4bo"]
+[ext_resource type="Texture2D" uid="uid://dbq61ymjnubsf" path="res://minigames/remember_coin/assets/wario_frame10.png" id="2_3wv1x"]
+[ext_resource type="Texture2D" uid="uid://bxtf7a0a3cdx1" path="res://minigames/remember_coin/assets/wario_frame11.png" id="3_xh0xl"]
+[ext_resource type="Texture2D" uid="uid://bcgdliw4xbvrw" path="res://minigames/remember_coin/assets/wario_frame12.png" id="4_etv2o"]
+[ext_resource type="Texture2D" uid="uid://chnif5a5so8jh" path="res://minigames/remember_coin/assets/wario_frame13.png" id="5_4lpf7"]
+[ext_resource type="Texture2D" uid="uid://bsgbrr5cif2sh" path="res://minigames/remember_coin/assets/wario_frame14.png" id="6_0iud5"]
+[ext_resource type="Texture2D" uid="uid://ckuxbtcc3800o" path="res://minigames/remember_coin/assets/wario_frame15.png" id="7_rr41s"]
+[ext_resource type="Texture2D" uid="uid://cvjobo7j18ahm" path="res://minigames/remember_coin/assets/wario_frame16.png" id="8_2i3r0"]
+[ext_resource type="Texture2D" uid="uid://07wuxvv5rkcy" path="res://minigames/remember_coin/assets/wario_frame2.png" id="8_a5if4"]
+[ext_resource type="Texture2D" uid="uid://dxuefuki5xca" path="res://minigames/remember_coin/assets/wario_frame3.png" id="9_rnao8"]
+[ext_resource type="Texture2D" uid="uid://1g7yovpq0xvm" path="res://minigames/remember_coin/assets/wario_frame4.png" id="10_o5hgi"]
+[ext_resource type="Texture2D" uid="uid://cl212ats1tfom" path="res://minigames/remember_coin/assets/wario_frame5.png" id="11_25h5e"]
+[ext_resource type="Texture2D" uid="uid://da73c5iiu7m66" path="res://minigames/remember_coin/assets/wario_frame6.png" id="12_1rmdc"]
+[ext_resource type="Texture2D" uid="uid://2yqmd3qwycxp" path="res://minigames/remember_coin/assets/wario_frame7.png" id="13_o2s3o"]
+[ext_resource type="Texture2D" uid="uid://uqx5sf4hi1bn" path="res://minigames/remember_coin/assets/wario_frame8.png" id="14_5qmyw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ksiqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3b4bo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3wv1x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xh0xl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3wv1x")
+}],
+"loop": true,
+"name": &"chewing",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_etv2o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4lpf7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0iud5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rr41s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2i3r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rr41s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2i3r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_rr41s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2i3r0")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3b4bo")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_a5if4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_rnao8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_o5hgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_25h5e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1rmdc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o2s3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1rmdc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_o2s3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_5qmyw")
+}],
+"loop": true,
+"name": &"intro_punch",
+"speed": 12.0
+}]
+
+[node name="Wario" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ksiqt")
+animation = &"intro_punch"
+autoplay = "idle"
+frame_progress = 0.910136

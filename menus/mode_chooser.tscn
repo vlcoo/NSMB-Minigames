@@ -299,11 +299,11 @@ offset_bottom = 155.13
 grow_horizontal = 2
 grow_vertical = 2
 toggle_mode = true
+action_mode = 0
 texture_normal = ExtResource("4_b5rh0")
 texture_pressed = ExtResource("5_bvds5")
 texture_disabled = ExtResource("5_bvds5")
 stretch_mode = 3
-metadata/_edit_use_anchors_ = true
 
 [node name="ButtonSingle" type="TextureButton" parent="."]
 layout_mode = 2
@@ -316,6 +316,7 @@ offset_top = 100.0
 offset_right = 211.0
 offset_bottom = -9.0
 toggle_mode = true
+action_mode = 0
 texture_normal = ExtResource("2_si50q")
 texture_pressed = ExtResource("3_2b1qa")
 texture_disabled = ExtResource("3_2b1qa")
@@ -340,6 +341,7 @@ theme_override_constants/separation = 8
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("9_kr076")
+action_mode = 0
 text = "Options"
 alignment = 2
 
@@ -347,6 +349,7 @@ alignment = 2
 layout_mode = 2
 size_flags_vertical = 4
 theme = ExtResource("9_kr076")
+action_mode = 0
 text = "About"
 alignment = 2
 
@@ -364,6 +367,7 @@ offset_bottom = 37.0
 grow_horizontal = 0
 grow_vertical = 0
 toggle_mode = true
+action_mode = 0
 texture_normal = ExtResource("6_apb1n")
 texture_pressed = ExtResource("7_npih3")
 texture_disabled = ExtResource("7_npih3")

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/card_match.png" id="1_si28x"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_rfkxd"]
+
+[resource]
+script = ExtResource("2_rfkxd")
+name = "Card Match"
+category = 2
+scoreboard_type = 3
+icon = ExtResource("1_si28x")
+singleplayer = true
+multiplayer = false
+description = "Pick two matching cards to make them disappear. Clear all the cards to win. If you make three mistakes, Luigi wins."

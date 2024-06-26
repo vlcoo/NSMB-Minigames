@@ -1,0 +1,123 @@
+[gd_scene load_steps=14 format=3 uid="uid://bw6i38jxrd0vp"]
+
+[ext_resource type="Texture2D" uid="uid://3mh2lnw324ry" path="res://minigames/avoid_fireball/assets/graphics/bg_top.png" id="1_s8g1a"]
+[ext_resource type="Script" path="res://minigames/avoid_fireball/avoid_fireball.gd" id="1_vcic0"]
+[ext_resource type="Texture2D" uid="uid://gs6a04ue8wox" path="res://minigames/avoid_fireball/assets/graphics/bg_bottom.png" id="2_5r4gl"]
+[ext_resource type="PackedScene" uid="uid://cji5ysugg8ekc" path="res://minigames/avoid_fireball/entities/statue.tscn" id="2_444jd"]
+[ext_resource type="AudioStream" uid="uid://c3gc1juod5uuy" path="res://common/assets/songs/NCS_BGM_VS_CASTLE.ogg" id="4_syxb0"]
+[ext_resource type="Script" path="res://minigames/avoid_fireball/entities/fire_pellet.gd" id="5_58wtv"]
+[ext_resource type="PackedScene" uid="uid://nexju8ee1pc7" path="res://menus/mgm_hud_overlay.tscn" id="5_brthj"]
+[ext_resource type="PackedScene" uid="uid://nu7p0kg0jvd6" path="res://menus/results_overlay.tscn" id="6_m2u6f"]
+[ext_resource type="Texture2D" uid="uid://ddpi6y5nrxrc5" path="res://minigames/avoid_fireball/assets/graphics/fireball.png" id="6_ywrkh"]
+[ext_resource type="PackedScene" uid="uid://da8yqyd23edgg" path="res://minigames/avoid_fireball/entities/bobomb.tscn" id="7_7vboj"]
+
+[sub_resource type="Curve2D" id="Curve2D_6ltob"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -104, 28, 0, 0, 0, 0, 104, 28)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_yadbr"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -124, -88, 0, 0, 0, 0, -124, 88, 0, 0, 0, 0, 124, 88, 0, 0, 0, 0, 124, -88, 0, 0, 0, 0, -124, -88)
+}
+point_count = 5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlwqd"]
+radius = 4.0
+
+[node name="Minigame" type="Node" node_paths=PackedStringArray("fireball_template") groups=["BaseScreen"]]
+script = ExtResource("1_vcic0")
+fireball_template = NodePath("2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup/FireballTemplate")
+metadata/_edit_horizontal_guides_ = [192.0]
+
+[node name="2D" type="Node2D" parent="."]
+texture_filter = 1
+
+[node name="BGTop" type="Sprite2D" parent="2D"]
+z_index = -1
+position = Vector2(128, 96)
+texture = ExtResource("1_s8g1a")
+
+[node name="PathStatueRail" type="Path2D" parent="2D/BGTop"]
+z_index = 1
+curve = SubResource("Curve2D_6ltob")
+
+[node name="BowserStatue" parent="2D/BGTop/PathStatueRail" instance=ExtResource("2_444jd")]
+position = Vector2(-104, -30.5)
+rotates = false
+
+[node name="BGBottom" type="Sprite2D" parent="2D"]
+z_index = -1
+position = Vector2(128, 288)
+texture = ExtResource("2_5r4gl")
+
+[node name="PathFireballSpawner" type="Path2D" parent="2D/BGBottom"]
+curve = SubResource("Curve2D_yadbr")
+
+[node name="ScreenMask" type="Polygon2D" parent="2D/BGBottom/PathFireballSpawner"]
+clip_children = 1
+polygon = PackedVector2Array(-128, 96, -128, -96, 128, -96, 128, 96)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="2D/BGBottom/PathFireballSpawner/ScreenMask"]
+self_modulate = Color(1, 1, 1, 0)
+clip_children = 1
+fit_margin = 0.0
+
+[node name="FireballTemplate" type="Area2D" parent="2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup"]
+process_mode = 4
+position = Vector2(-140, 0)
+rotation = 1.5708
+script = ExtResource("5_58wtv")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup/FireballTemplate"]
+texture = ExtResource("6_ywrkh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup/FireballTemplate"]
+shape = SubResource("CircleShape2D_qlwqd")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup/FireballTemplate"]
+rect = Rect2(-5, -5, 10, 10)
+
+[node name="FireballSpawnpointO" type="PathFollow2D" parent="2D/BGBottom/PathFireballSpawner"]
+position = Vector2(-124, -88)
+rotates = false
+
+[node name="FireballSpawnpointF" type="PathFollow2D" parent="2D/BGBottom/PathFireballSpawner"]
+position = Vector2(124, 88)
+progress = 424.0
+rotates = false
+
+[node name="BoundsLeft" type="Marker2D" parent="2D/BGBottom"]
+position = Vector2(-120, 0)
+
+[node name="BoundsRight" type="Marker2D" parent="2D/BGBottom"]
+position = Vector2(120, 0)
+
+[node name="BoundsUp" type="Marker2D" parent="2D/BGBottom"]
+position = Vector2(0, -84)
+
+[node name="BoundsDown" type="Marker2D" parent="2D/BGBottom"]
+position = Vector2(0, 84.5)
+
+[node name="Bobomb" parent="2D" node_paths=PackedStringArray("bounds_left_marker", "bounds_right_marker", "bounds_up_marker", "bounds_down_marker") instance=ExtResource("7_7vboj")]
+bounds_left_marker = NodePath("../BGBottom/BoundsLeft")
+bounds_right_marker = NodePath("../BGBottom/BoundsRight")
+bounds_up_marker = NodePath("../BGBottom/BoundsUp")
+bounds_down_marker = NodePath("../BGBottom/BoundsDown")
+
+[node name="AudioMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_syxb0")
+volume_db = -4.0
+autoplay = true
+bus = &"FadeableMusic"
+
+[node name="HUDOverlay" parent="." instance=ExtResource("5_brthj")]
+timer = 0
+auto_score_increase = 100
+
+[node name="ResultsOverlay" parent="." instance=ExtResource("6_m2u6f")]
+
+[connection signal="screen_exited" from="2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup/FireballTemplate/VisibleOnScreenNotifier2D" to="2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup/FireballTemplate" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="detonated" from="2D/Bobomb" to="." method="_on_bobomb_detonated"]

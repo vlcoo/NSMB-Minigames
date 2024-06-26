@@ -40,9 +40,11 @@ libraries = {
 stream = ExtResource("3_ddw8q")
 bus = &"SFX"
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="CanvasGroup" type="CanvasGroup" parent="."]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasGroup"]
+offset_right = 256.0
+offset_bottom = 384.0
+size_flags_horizontal = 3
+size_flags_vertical = 3

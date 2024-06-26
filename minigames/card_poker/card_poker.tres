@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/card_poker.png" id="1_kc4xp"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_5xs3l"]
+
+[resource]
+script = ExtResource("2_5xs3l")
+name = "Card Poker"
+category = 2
+scoreboard_type = 3
+icon = ExtResource("1_kc4xp")
+singleplayer = true
+multiplayer = false
+description = "Get a better hand than Luigi to win! If you're confident that your hand’s the best, increase the number of coins you bet!"

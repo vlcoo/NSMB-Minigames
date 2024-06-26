@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/card_pairs.png" id="1_pt1tm"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_cy3t2"]
+
+[resource]
+script = ExtResource("2_cy3t2")
+name = "Card Pairs"
+category = 2
+scoreboard_type = 3
+icon = ExtResource("1_pt1tm")
+singleplayer = true
+multiplayer = false
+description = "Match up cards horizontally, vertically or diagonally to remove them from the table. Clear all the cards to win!"

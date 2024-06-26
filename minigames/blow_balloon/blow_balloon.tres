@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3 uid="uid://bpl2y88yq4x1e"]
+
+[ext_resource type="Texture2D" uid="uid://cx20fbgqybsk6" path="res://menus/assets/graphics/game_icons/blow_balloon.png" id="1_oilqs"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_0gp86"]
+
+[resource]
+script = ExtResource("2_0gp86")
+name = "Blow Balloon"
+category = 0
+scoreboard_type = 2
+icon = ExtResource("1_oilqs")
+singleplayer = true
+multiplayer = false
+description = "Blow into the mic to send Yoshi flying skyward. Yoshi's balloons will burst if he hits a Fly Guy. If all the balloons pop, Yoshi will fall. Can you reach the goal before the time limit?"

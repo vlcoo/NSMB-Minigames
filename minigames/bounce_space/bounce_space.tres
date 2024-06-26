@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/bounce_space.png" id="1_sdo46"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_0gp86"]
+
+[resource]
+script = ExtResource("2_0gp86")
+name = "Bounce Space"
+category = 3
+scoreboard_type = 0
+icon = ExtResource("1_sdo46")
+singleplayer = true
+multiplayer = false
+description = "The sky is thick with Fly Guys! Help Mario stomp on their heads by tapping or clicking on him. Tap or click on Mario on the left, right, or center to make him bounce left, right, or straight up into the air."

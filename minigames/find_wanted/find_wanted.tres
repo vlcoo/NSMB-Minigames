@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/find_wanted.png" id="1_ejjqj"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_7o5l5"]
+
+[resource]
+script = ExtResource("2_7o5l5")
+name = "Find Wanted"
+category = 1
+scoreboard_type = 1
+icon = ExtResource("1_ejjqj")
+singleplayer = true
+multiplayer = false
+description = "It’s easy to get lost in a crowd! Find the one who disappeared and touch or click on him. There he is!"

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/draw_trampoline.png" id="1_234b0"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_ty8m1"]
+
+[resource]
+script = ExtResource("2_ty8m1")
+name = "Draw Trampoline"
+category = 3
+scoreboard_type = 0
+icon = ExtResource("1_234b0")
+singleplayer = true
+multiplayer = false
+description = "Draw a line on the bottom to create a trampoline. You can draw up to three lines at a time. Use the trampolines to bounce Mario to safety!"

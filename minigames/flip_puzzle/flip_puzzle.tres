@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="MinigameData" load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://menus/assets/graphics/game_icons/puzzle_flip.png" id="1_ski73"]
+[ext_resource type="Script" path="res://globals/minigame_data.gd" id="2_v0rqo"]
+
+[resource]
+script = ExtResource("2_v0rqo")
+name = "Flip Puzzle"
+category = 1
+scoreboard_type = 1
+icon = ExtResource("1_ski73")
+singleplayer = true
+multiplayer = false
+description = "Match the bottom picture to the top one. Touch or click on a panel to turn over the sorrounding panels. Harder levels will take more turns to solve."
