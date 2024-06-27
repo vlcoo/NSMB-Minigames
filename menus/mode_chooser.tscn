@@ -227,6 +227,7 @@ stretch_mode = 5
 metadata/_edit_use_anchors_ = true
 
 [node name="LabelTitle" type="RichTextLabel" parent="."]
+clip_contents = false
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0

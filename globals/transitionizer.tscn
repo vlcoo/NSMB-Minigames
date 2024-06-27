@@ -1,22 +1,97 @@
-[gd_scene load_steps=9 format=3 uid="uid://beh64qqbfinwd"]
+[gd_scene load_steps=11 format=3 uid="uid://beh64qqbfinwd"]
 
 [ext_resource type="Script" path="res://globals/transitionizer.gd" id="1_68rui"]
+[ext_resource type="Texture2D" uid="uid://d4avt3x0oo31f" path="res://common/assets/graphics/transition_star.png" id="3_8nete"]
 [ext_resource type="AudioStream" uid="uid://1ts8bii7p6xv" path="res://common/assets/audio/star_transition.ogg" id="3_ddw8q"]
+[ext_resource type="Texture2D" uid="uid://2rfksffo5rlm" path="res://common/assets/graphics/transition_circle.png" id="4_bm6mf"]
 
 [sub_resource type="Animation" id="Animation_c7kq6"]
 length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureCircle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureStar:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureBlank:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_5vwra"]
 resource_name = "transition_circle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureCircle:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(4, 4)]
+}
 
 [sub_resource type="Animation" id="Animation_xc32l"]
 resource_name = "transition_fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureBlank:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_ee4fp"]
 resource_name = "transition_none"
 
 [sub_resource type="Animation" id="Animation_hrqro"]
 resource_name = "transition_star"
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureStar:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(10, 10)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yrkn8"]
 _data = {
@@ -35,16 +110,44 @@ script = ExtResource("1_68rui")
 libraries = {
 "": SubResource("AnimationLibrary_yrkn8")
 }
+speed_scale = 1.2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_ddw8q")
 bus = &"SFX"
 
-[node name="CanvasGroup" type="CanvasGroup" parent="."]
-visible = false
+[node name="TextureStar" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 58.5
+offset_top = 124.0
+offset_right = -60.5
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(68.5, 68)
+texture = ExtResource("3_8nete")
 
-[node name="ColorRect" type="ColorRect" parent="CanvasGroup"]
-offset_right = 256.0
-offset_bottom = 384.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="TextureCircle" type="TextureRect" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 58.5
+offset_top = 124.0
+offset_right = -60.5
+offset_bottom = -124.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(68.5, 68)
+texture = ExtResource("4_bm6mf")
+
+[node name="TextureBlank" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

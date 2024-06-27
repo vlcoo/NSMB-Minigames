@@ -3,8 +3,8 @@ extends Node
 var json = JSON.new()
 
 var options: Dictionary = {
-	"music_volume": -11.1,
-	"sfx_volume": -7.7
+	"music_volume": -1.0,
+	"sfx_volume": -1.0
 }
 
 func _ready() -> void:

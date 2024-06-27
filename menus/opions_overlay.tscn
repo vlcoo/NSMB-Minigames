@@ -10,9 +10,9 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8aq7q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_26h6b"]
-content_margin_left = 18.0
+content_margin_left = 12.0
 content_margin_top = 6.0
-content_margin_right = 18.0
+content_margin_right = 12.0
 content_margin_bottom = 6.0
 bg_color = Color(1, 0.678431, 0.352941, 1)
 border_width_left = 2
@@ -202,6 +202,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxTop/ButtonMusicVol/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -214,9 +215,9 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 theme = ExtResource("3_bkn2g")
-min_value = -60.0
-max_value = 0.0
-value = -10.0
+max_value = 1.0
+step = 0.01
+value = 0.8
 
 [node name="VBoxBottom" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -244,6 +245,7 @@ layout_mode = 2
 alignment = 1
 
 [node name="Label" type="Label" parent="VBoxBottom/ButtonSFXVol/HBoxContainer"]
+custom_minimum_size = Vector2(32, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 1
@@ -256,18 +258,20 @@ vertical_alignment = 1
 [node name="HSlider" type="HSlider" parent="VBoxBottom/ButtonSFXVol/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 4
 theme = ExtResource("3_bkn2g")
-min_value = -60.0
-max_value = 0.0
-value = -10.0
-tick_count = 1
+max_value = 1.0
+step = 0.01
+value = 0.8
 
 [node name="ButtonErase" type="Button" parent="VBoxBottom"]
 custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
-tooltip_text = "Erase all saved minigame scoreboards and high scores"
+tooltip_text = "Erase all saved minigame
+scoreboards and hi-scores"
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(1, 1, 0, 1)
 theme_override_colors/font_color = Color(1, 1, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3

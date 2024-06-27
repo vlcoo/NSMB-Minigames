@@ -23,7 +23,7 @@ func load_scoreboard(minigame: MinigameData):
 			else: s_score = str(minigame.scoreboard["Place" + str(i)])
 			get_node("PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer%d/LabelScore" % i).text = s_score
 	else:
-		$PanelCoincount/MarginContainer/VBoxContainer/HBoxContainer/LabelScore.text = str(minigame.scoreboard["Coins"])
+		$PanelCoins/MarginContainer/VBoxContainer/HBoxContainer/LabelScore.text = str(minigame.scoreboard["Coins"])
 
 
 func set_scoreboard_style(style: MinigameData.ScoreboardTypes):
@@ -36,7 +36,7 @@ func set_scoreboard_style(style: MinigameData.ScoreboardTypes):
 				child.get_node("LabelStarhint").visible = true
 		MinigameData.ScoreboardTypes.COINS:
 			$PanelScoreboard.visible = false
-			$PanelCoincount.visible = true
+			$PanelCoins.visible = true
 
 
 func _on_button_back_button_down():
