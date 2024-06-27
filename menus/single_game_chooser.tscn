@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://tadec8otcayg"]
+[gd_scene load_steps=57 format=3 uid="uid://tadec8otcayg"]
 
 [ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_8k22e"]
 [ext_resource type="Script" path="res://menus/single_game_chooser.gd" id="1_vvenx"]
@@ -18,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://b4qqc04mgip1i" path="res://menus/assets/graphics/variety_unfocused.png" id="15_mw41w"]
 [ext_resource type="Texture2D" uid="uid://bchejvscim6b1" path="res://menus/assets/graphics/variety_focused.png" id="16_sisrm"]
 [ext_resource type="Resource" path="res://minigames/snowball_race/snowball_race.tres" id="18_mwqha"]
+[ext_resource type="Texture2D" uid="uid://18dk28csxfny" path="res://menus/assets/graphics/custom_unfocused.png" id="18_s8a6g"]
+[ext_resource type="Texture2D" uid="uid://dxka4nun7kjv2" path="res://menus/assets/graphics/custom_focused.png" id="19_hs60o"]
 [ext_resource type="Resource" path="res://minigames/slingshot_basket/slingshot_basket.tres" id="19_xvjcq"]
 [ext_resource type="Resource" path="res://minigames/avoid_fireball/avoid_fireball.tres" id="20_715bu"]
 [ext_resource type="Resource" path="res://minigames/whack_mole/whack_mole.tres" id="21_eaneb"]
@@ -45,44 +47,92 @@ border_color = Color(0, 0, 0, 1)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_svq3f"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_208q8"]
-content_margin_top = 2.0
+content_margin_top = 6.0
 texture = ExtResource("9_24scq")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_x5hbt"]
-content_margin_top = 2.0
+content_margin_top = 6.0
 texture = ExtResource("10_rynvx")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_45h4c"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ndnjl"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bi2cl"]
-content_margin_top = 2.0
+content_margin_top = 6.0
 texture = ExtResource("11_kkgil")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1mkvw"]
-content_margin_top = 2.0
+content_margin_top = 6.0
 texture = ExtResource("12_ytkvu")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wm3gw"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_a3ll2"]
-content_margin_top = 2.0
+content_margin_top = 6.0
 texture = ExtResource("13_ccu7h")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rjomt"]
-content_margin_top = 2.0
+content_margin_top = 6.0
 texture = ExtResource("14_qsf6b")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f5wjf"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qw0am"]
-content_margin_top = 2.0
+content_margin_top = 6.0
 texture = ExtResource("15_mw41w")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kw2wc"]
-content_margin_top = 2.0
+content_margin_top = 6.0
 texture = ExtResource("16_sisrm")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ba7xw"]
+content_margin_top = 6.0
+texture = ExtResource("18_s8a6g")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_35i68"]
+content_margin_top = 6.0
+texture = ExtResource("19_hs60o")
+texture_margin_left = 2.0
+texture_margin_top = 8.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
 
 [sub_resource type="Animation" id="Animation_e3cb4"]
 length = 0.001
@@ -109,6 +159,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(84, 232)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ContainerCategories:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_jqu64"]
@@ -138,6 +200,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 0.2, 1),
 "update": 0,
 "values": [Vector2(282, 232), Vector2(282, 232), Vector2(84, 232)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ContainerCategories:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.65, 1.15),
+"transitions": PackedFloat32Array(0.2, 0.2, 1),
+"update": 0,
+"values": [Vector2(1e-05, 1), Vector2(1e-05, 1), Vector2(1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wh84v"]
@@ -246,6 +320,7 @@ offset_right = -9.99988
 offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
+focus_mode = 0
 toggle_mode = true
 action_mode = 0
 texture_normal = ExtResource("5_lwm6y")
@@ -263,10 +338,12 @@ bus = &"SFX"
 
 [node name="ContainerCategories" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 9
+anchors_preset = -1
+anchor_top = 0.516
+anchor_right = 0.312
 anchor_bottom = 1.0
-offset_top = 198.0
-offset_right = 80.0
+offset_top = -0.144012
+offset_right = 0.127998
 grow_vertical = 2
 theme_override_constants/separation = 0
 
@@ -274,6 +351,7 @@ theme_override_constants/separation = 0
 light_mask = 2
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
@@ -298,6 +376,7 @@ text = "Action"
 light_mask = 2
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
@@ -320,6 +399,7 @@ text = "Puzzle"
 light_mask = 2
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
@@ -342,6 +422,7 @@ text = "Table"
 light_mask = 2
 layout_mode = 2
 size_flags_vertical = 3
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
@@ -360,6 +441,30 @@ keep_pressed_outside = true
 button_group = SubResource("ButtonGroup_45h4c")
 text = "Variety"
 
+[node name="Custom" type="Button" parent="ContainerCategories"]
+visible = false
+light_mask = 2
+layout_mode = 2
+size_flags_vertical = 3
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.698039, 0.698039, 0.698039, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_focus_color = Color(0.698039, 0.698039, 0.698039, 1)
+theme_override_colors/font_color = Color(0.698039, 0.698039, 0.698039, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("2_w2b47")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f5wjf")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ba7xw")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_35i68")
+theme_override_styles/normal = SubResource("StyleBoxTexture_ba7xw")
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
+button_group = SubResource("ButtonGroup_45h4c")
+text = "Custom"
+
 [node name="ContainerGames" type="GridContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -369,7 +474,7 @@ anchor_right = 1.0
 anchor_bottom = 0.889
 offset_left = -165.088
 offset_top = -1.088
-offset_right = -7.0
+offset_right = -6.99942
 offset_bottom = -2.37601
 pivot_offset = Vector2(82, 54)
 columns = 3
@@ -429,3 +534,4 @@ autoplay = "intro"
 [connection signal="button_down" from="ContainerCategories/Puzzle" to="." method="change_category" binds= [1, false]]
 [connection signal="button_down" from="ContainerCategories/Table" to="." method="change_category" binds= [2, false]]
 [connection signal="button_down" from="ContainerCategories/Variety" to="." method="change_category" binds= [3, false]]
+[connection signal="button_down" from="ContainerCategories/Custom" to="." method="change_category" binds= [4, false]]

@@ -25,4 +25,5 @@ const CATEGORY_DESCRIPTIONS: Dictionary = {
 	MinigameData.GameCategories.PUZZLE: "If you think you’ve got a big brain,\nPuzzle games are the choice for you!",
 	MinigameData.GameCategories.TABLE: "If you like Table games, this is the\nchoice for you!",
 	MinigameData.GameCategories.VARIETY: "If you want to pick from a wide\narray of games, just choose Variety!",
+	MinigameData.GameCategories.CUSTOM: "An assortment of games not present\nin the original release.",
 }

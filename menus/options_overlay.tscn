@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cyxir4vkgljqt"]
 
 [ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="1_4v6p5"]
-[ext_resource type="Script" path="res://menus/opions_overlay.gd" id="1_26hkp"]
+[ext_resource type="Script" path="res://menus/options_overlay.gd" id="1_26hkp"]
 [ext_resource type="StyleBox" uid="uid://cl21lofeowt5r" path="res://menus/assets/theme_resources/blocky_colorful_base_normal.tres" id="2_fojsy"]
 [ext_resource type="Theme" uid="uid://c45u3bs2vsb7a" path="res://menus/assets/theme_resources/plain.tres" id="3_bkn2g"]
 [ext_resource type="StyleBox" uid="uid://cgkmqudabfhsa" path="res://menus/assets/theme_resources/blocky_colorful_base_pressed.tres" id="4_0agdu"]
@@ -179,6 +179,7 @@ metadata/_edit_group_ = true
 [node name="ButtonContinue" type="Button" parent="VBoxTop"]
 custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 3
@@ -214,6 +215,7 @@ vertical_alignment = 1
 [node name="HSlider" type="HSlider" parent="VBoxTop/ButtonMusicVol/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
 theme = ExtResource("3_bkn2g")
 max_value = 1.0
 step = 0.01
@@ -259,6 +261,7 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 4
+focus_mode = 0
 theme = ExtResource("3_bkn2g")
 max_value = 1.0
 step = 0.01
@@ -269,6 +272,7 @@ custom_minimum_size = Vector2(0, 27)
 layout_mode = 2
 tooltip_text = "Erase all saved minigame
 scoreboards and hi-scores"
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(1, 1, 0, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 theme_override_colors/font_focus_color = Color(1, 1, 0, 1)

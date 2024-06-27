@@ -772,7 +772,7 @@ _data = {
 }
 
 [sub_resource type="Gradient" id="Gradient_l6d1c"]
-offsets = PackedFloat32Array(0.392157, 0.882353)
+offsets = PackedFloat32Array(0.404844, 1)
 colors = PackedColorArray(0.765625, 0.158508, 0.158508, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_lph43"]
@@ -996,6 +996,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_es5cm")]
 
 [node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer1"]
@@ -1008,6 +1009,7 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
@@ -1040,6 +1042,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_es5cm")]
 
 [node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer2"]
@@ -1052,6 +1055,7 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
@@ -1084,6 +1088,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_es5cm")]
 
 [node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer3"]
@@ -1096,6 +1101,7 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="HBoxContainer4" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
@@ -1128,6 +1134,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_es5cm")]
 
 [node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer4"]
@@ -1140,6 +1147,7 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="HBoxContainer5" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer" groups=["ScoreboardEntry"]]
@@ -1172,6 +1180,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_es5cm")]
 
 [node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/HBoxContainer5"]
@@ -1184,6 +1193,7 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="Spacer" type="HBoxContainer" parent="PanelScoreboard/MarginContainer/VBoxContainer"]
@@ -1236,6 +1246,7 @@ theme_override_font_sizes/normal_font_size = 16
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_es5cm")]
 
 [node name="LabelScore" type="RichTextLabel" parent="PanelScoreboard/MarginContainer/VBoxContainer/NoTopEntry"]
@@ -1248,6 +1259,7 @@ theme_override_font_sizes/normal_font_size = 15
 bbcode_enabled = true
 text = "[right]%"
 fit_content = true
+autowrap_mode = 0
 custom_effects = [SubResource("RichTextEffect_jeuhp")]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -1272,6 +1284,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
 mouse_filter = 1
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1300,6 +1313,7 @@ offset_right = 1.57201
 offset_bottom = -65.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
@@ -1327,6 +1341,7 @@ offset_right = 1.07195
 offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 0
+focus_mode = 0
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)

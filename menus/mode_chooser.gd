@@ -22,7 +22,7 @@ func _on_button_vs_button_down():
 
 
 func _on_button_options_pressed():
-	Transitionizer.set_overlay("res://menus/opions_overlay.tscn")
+	Transitionizer.set_overlay("res://menus/options_overlay.tscn")
 
 
 func _on_button_about_pressed():

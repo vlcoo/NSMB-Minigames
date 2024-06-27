@@ -1,7 +1,7 @@
 extends Resource
 class_name MinigameData
 
-enum GameCategories {ACTION, PUZZLE, TABLE, VARIETY}
+enum GameCategories {ACTION, PUZZLE, TABLE, VARIETY, CUSTOM}
 enum ScoreboardTypes {GENERIC, STARS, TIME, COINS}
 
 @export_category("Minigame Data")

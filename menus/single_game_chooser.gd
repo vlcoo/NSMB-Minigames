@@ -11,6 +11,7 @@ func _ready():
 		button.size_flags_vertical = Control.SIZE_SHRINK_CENTER + Control.SIZE_EXPAND
 		$ContainerGames.add_child(button)
 		button.button_down.connect(_on_button_minigame_pressed.bind(minigame, button))
+		button.focus_mode = Control.FOCUS_NONE
 		button.add_to_group(MinigameData.GameCategories.keys()[minigame.category])
 
 	change_category(Transitionizer.selected_category)
@@ -18,6 +19,8 @@ func _ready():
 
 
 func change_category(category: MinigameData.GameCategories, silently: bool = true):
+	assert(category >= 0 and category < MinigameData.GameCategories.size(), "Tried to load a non-existent minigame category.")
+	
 	Transitionizer.selected_category = category
 	var category_name = MinigameData.GameCategories.keys()[category]
 

@@ -117,7 +117,7 @@ stream = ExtResource("3_ddw8q")
 bus = &"SFX"
 
 [node name="TextureStar" type="TextureRect" parent="."]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 58.5
@@ -128,10 +128,11 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(68.5, 68)
+mouse_filter = 2
 texture = ExtResource("3_8nete")
 
 [node name="TextureCircle" type="TextureRect" parent="."]
-anchors_preset = -1
+anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 58.5
@@ -142,6 +143,7 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1e-05, 1e-05)
 pivot_offset = Vector2(68.5, 68)
+mouse_filter = 2
 texture = ExtResource("4_bm6mf")
 
 [node name="TextureBlank" type="ColorRect" parent="."]
@@ -151,3 +153,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
