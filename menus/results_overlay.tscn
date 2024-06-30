@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://btb8labs882av" path="res://menus/assets/graphics/tap_1.png" id="8_by8kp"]
 [ext_resource type="StyleBox" uid="uid://cgkmqudabfhsa" path="res://menus/assets/theme_resources/blocky_colorful_base_pressed.tres" id="11_y7n7o"]
 
-[sub_resource type="Gradient" id="Gradient_kcneg"]
+[sub_resource type="Gradient" id="Gradient_bwuqd"]
 offsets = PackedFloat32Array(0.323529, 0.887255)
 colors = PackedColorArray(0.319664, 0.110352, 0.441406, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_wtg0f"]
-gradient = SubResource("Gradient_kcneg")
+gradient = SubResource("Gradient_bwuqd")
 
 [sub_resource type="Animation" id="Animation_mhp4q"]
 length = 0.001

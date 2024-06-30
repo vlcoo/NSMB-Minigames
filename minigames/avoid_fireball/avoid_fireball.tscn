@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cji5ysugg8ekc" path="res://minigames/avoid_fireball/entities/statue.tscn" id="2_444jd"]
 [ext_resource type="AudioStream" uid="uid://c3gc1juod5uuy" path="res://common/assets/songs/NCS_BGM_VS_CASTLE.ogg" id="4_syxb0"]
 [ext_resource type="Script" path="res://minigames/avoid_fireball/entities/fire_pellet.gd" id="5_58wtv"]
-[ext_resource type="PackedScene" uid="uid://nexju8ee1pc7" path="res://menus/mgm_hud_overlay.tscn" id="5_brthj"]
+[ext_resource type="PackedScene" uid="uid://nexju8ee1pc7" path="res://menus/hud_overlay.tscn" id="5_brthj"]
 [ext_resource type="PackedScene" uid="uid://nu7p0kg0jvd6" path="res://menus/results_overlay.tscn" id="6_m2u6f"]
 [ext_resource type="Texture2D" uid="uid://ddpi6y5nrxrc5" path="res://minigames/avoid_fireball/assets/graphics/fireball.png" id="6_ywrkh"]
 [ext_resource type="PackedScene" uid="uid://da8yqyd23edgg" path="res://minigames/avoid_fireball/entities/bobomb.tscn" id="7_7vboj"]
@@ -121,3 +121,4 @@ auto_score_increase = 100
 
 [connection signal="screen_exited" from="2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup/FireballTemplate/VisibleOnScreenNotifier2D" to="2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup/FireballTemplate" method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="detonated" from="2D/Bobomb" to="." method="_on_bobomb_detonated"]
+[connection signal="intro_finished" from="HUDOverlay" to="." method="_on_hud_overlay_intro_finished"]

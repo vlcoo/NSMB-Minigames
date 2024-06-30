@@ -29,8 +29,8 @@ func transition(in_style: TransitionStyles, out_style: TransitionStyles, dark: b
 	
 	# TODO: fix mask and re-enable the rest of the transitions.
 	var needs_star_sfx = in_style == TransitionStyles.STAR
-	in_style = TransitionStyles.FADE
-	out_style = TransitionStyles.FADE
+	if in_style != TransitionStyles.NONE: in_style = TransitionStyles.FADE
+	if out_style != TransitionStyles.NONE: out_style = TransitionStyles.FADE
 	
 	var scene: String
 	if path_or_scene != null:
@@ -78,6 +78,14 @@ func free_current_overlay():
 	if current_overlay != null:
 		current_overlay.queue_free()
 		current_overlay = null
+
+
+func raise_fatal_error(custom_message: String = "", return_scene_override: String = "") -> void:
+	current_scene.process_mode = Node.PROCESS_MODE_DISABLED
+	$AnimationPlayer.stop()
+	is_transitioning = false
+	await get_tree().create_timer(1).timeout
+	set_overlay("res://menus/fatal_error_overlay.tscn" if not return_scene_override else return_scene_override)
 
 
 func _set_fadeable_music_volume(value: float):

@@ -1,18 +1,28 @@
-[gd_scene load_steps=14 format=3 uid="uid://nexju8ee1pc7"]
+[gd_scene load_steps=20 format=3 uid="uid://nexju8ee1pc7"]
 
 [ext_resource type="Texture2D" uid="uid://bu3sghyy4c8b3" path="res://common/assets/graphics/hint_hiscore.png" id="1_qfaia"]
-[ext_resource type="Script" path="res://menus/mgm_hud_overlay.gd" id="1_uy720"]
+[ext_resource type="Script" path="res://menus/hud_overlay.gd" id="1_uy720"]
 [ext_resource type="FontFile" uid="uid://cyv5rrm616cq8" path="res://menus/assets/theme_resources/sheet_font_numbers.png" id="2_sh8ho"]
 [ext_resource type="Texture2D" uid="uid://c2iqlipt8vph7" path="res://common/assets/graphics/hint_score.png" id="3_gtjo5"]
 [ext_resource type="Texture2D" uid="uid://di8w1dsnra5jc" path="res://common/assets/graphics/hint_time.png" id="4_6eq8x"]
 [ext_resource type="FontFile" uid="uid://c23xy5g5o4kv" path="res://menus/assets/theme_resources/super_mario_DS.ttf" id="5_oc2fj"]
 [ext_resource type="Texture2D" uid="uid://bhxdpkhdiw77k" path="res://common/assets/graphics/hint_counter_star.png" id="7_ycwpk"]
 [ext_resource type="Texture2D" uid="uid://blr4ewv2y2v3e" path="res://common/assets/graphics/hint_score_collection.png" id="8_8s0ws"]
-[ext_resource type="AudioStream" uid="uid://dpdf0fs3tinh6" path="res://menus/assets/audio/points_collect.ogg" id="9_gpruk"]
+[ext_resource type="FontFile" uid="uid://cfn2q0hbtfp3w" path="res://menus/assets/theme_resources/super_mario_wii.ttf" id="9_3m4hr"]
+[ext_resource type="AudioStream" uid="uid://dpdf0fs3tinh6" path="res://common/assets/audio/points_collect.ogg" id="9_gpruk"]
+[ext_resource type="AudioStream" uid="uid://d4nsei0ats0o6" path="res://common/assets/audio/intro_1.ogg" id="11_lpdjp"]
+[ext_resource type="AudioStream" uid="uid://brql6ew57jyxg" path="res://common/assets/audio/intro_depleted.ogg" id="12_1rsxd"]
 
 [sub_resource type="FontVariation" id="FontVariation_cmnkn"]
 base_font = ExtResource("5_oc2fj")
 spacing_glyph = 8
+
+[sub_resource type="Gradient" id="Gradient_rx0n5"]
+offsets = PackedFloat32Array(0.322259, 0.887255)
+colors = PackedColorArray(1, 0, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f7yk3"]
+gradient = SubResource("Gradient_rx0n5")
 
 [sub_resource type="Animation" id="Animation_tyho2"]
 length = 0.001
@@ -87,6 +97,42 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LabelTimer:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LabelTimer:text")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["3"]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("GameOverTitle:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_dq80f"]
@@ -194,10 +240,107 @@ tracks/7/keys = {
 "values": [Color(1, 1, 1, 1)]
 }
 
+[sub_resource type="Animation" id="Animation_ar51e"]
+resource_name = "intro_countdown"
+length = 4.0
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LabelTimer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LabelTimer:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["3", "2", "1"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("GameOverTitle:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SFXTimer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_lpdjp")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_lpdjp")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_lpdjp")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_1rsxd")
+}],
+"times": PackedFloat32Array(0, 1, 2, 3)
+}
+tracks/3/use_blend = true
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"intro_finished"],
+"method": &"emit_signal"
+}]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"current_state", 2],
+"method": &"set"
+}]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pi73m"]
 _data = {
 "RESET": SubResource("Animation_tyho2"),
-"collect_points": SubResource("Animation_dq80f")
+"collect_points": SubResource("Animation_dq80f"),
+"intro_countdown": SubResource("Animation_ar51e")
 }
 
 [node name="HUDOverlay" type="Control"]
@@ -344,6 +487,66 @@ theme_override_font_sizes/font_size = 15
 text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="LabelTimer" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 98.0
+offset_top = 78.0
+offset_right = -98.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.996078, 1, 0.219608, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 0
+theme_override_constants/outline_size = 9
+theme_override_fonts/font = SubResource("FontVariation_cmnkn")
+theme_override_font_sizes/font_size = 32
+text = "3"
+horizontal_alignment = 1
+
+[node name="GameOverTitle" type="RichTextLabel" parent="."]
+visible = false
+light_mask = 2
+clip_contents = false
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = 73.0
+offset_right = 1.0
+offset_bottom = -81.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 9
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_outline_size = 9
+theme_override_fonts/normal_font = ExtResource("9_3m4hr")
+theme_override_font_sizes/normal_font_size = 38
+bbcode_enabled = true
+text = "[center]Start"
+scroll_active = false
+autowrap_mode = 0
+metadata/_edit_group_ = true
+
+[node name="PointLight2D" type="PointLight2D" parent="GameOverTitle"]
+position = Vector2(128, 14)
+rotation = -1.5708
+scale = Vector2(0.252266, 274)
+energy = 2.13
+blend_mode = 2
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture1D_f7yk3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

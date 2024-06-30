@@ -5,7 +5,7 @@ extends Node
 @onready var fireball_spawnerF: PathFollow2D = $"2D/BGBottom/PathFireballSpawner/FireballSpawnpointF"
 @onready var fireball_container: CanvasGroup = $"2D/BGBottom/PathFireballSpawner/ScreenMask/CanvasGroup"
 
-var going: bool = true
+var going: bool = false
 
 func _ready() -> void:
 	randomize()
@@ -32,3 +32,7 @@ func _on_bobomb_detonated() -> void:
 	$HUDOverlay.auto_score_increase = 0
 	$ResultsOverlay.calc_and_store_scoreboard($HUDOverlay.points)
 	$ResultsOverlay.appear()
+
+
+func _on_hud_overlay_intro_finished() -> void:
+	going = true

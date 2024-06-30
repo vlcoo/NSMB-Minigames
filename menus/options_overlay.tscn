@@ -141,7 +141,7 @@ _data = {
 "intro": SubResource("Animation_qpdrl")
 }
 
-[node name="OpionsOverlay" type="Control"]
+[node name="OptionsOverlay" type="Control"]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15

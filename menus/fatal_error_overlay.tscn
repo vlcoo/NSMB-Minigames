@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://drp4bjol414cv"]
+[gd_scene load_steps=5 format=3 uid="uid://drp4bjol414cv"]
 
-[ext_resource type="Script" path="res://menus/fatal_error.gd" id="1_5ge3b"]
-[ext_resource type="Texture2D" uid="uid://d3fwolqt7hsp" path="res://menus/assets/graphics/background.png" id="1_aegqw"]
+[ext_resource type="Script" path="res://menus/fatal_error_overlay.gd" id="1_5ge3b"]
 [ext_resource type="FontFile" uid="uid://cpqpr3nr5kmx5" path="res://menus/assets/theme_resources/super_mario_64DS.ttf" id="2_7ji1y"]
-[ext_resource type="AudioStream" uid="uid://cpqn13fxw36jx" path="res://menus/assets/audio/fatal.ogg" id="3_02gf7"]
+[ext_resource type="AudioStream" uid="uid://dblw7qj6dii81" path="res://menus/assets/audio/warning.ogg" id="3_cb3rc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tgj4g"]
 bg_color = Color(0.886275, 0, 0, 1)
@@ -27,15 +26,14 @@ grow_vertical = 2
 script = ExtResource("1_5ge3b")
 metadata/_edit_horizontal_guides_ = [192.0]
 
-[node name="TextureRect" type="TextureRect" parent="."]
-self_modulate = Color(0.521569, 0.541176, 0.552941, 1)
+[node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_aegqw")
+color = Color(0, 0, 0, 0.584314)
 
 [node name="Panel" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -66,7 +64,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_02gf7")
+stream = ExtResource("3_cb3rc")
 autoplay = true
 bus = &"SFX"
 

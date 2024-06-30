@@ -1,43 +1,62 @@
 extends Control
 
 enum ScoreTypes {EXPLICIT_TEXT, STAR_COUNT}
+enum GameStates {STALLING, INTRO, PLAYING, PAUSED, GAMEOVER}
 signal time_up
+signal intro_finished
 @onready var sfx_timer: AudioStreamPlayer = $SFXTimer
 @onready var sfx_points: AudioStreamPlayer = $SFXPoints
 
 @export_range(0, 60) var timer: int = 30
 @export var show_hiscore: bool = true
+@export var have_countdown: bool = true
 @export var score_style: ScoreTypes = ScoreTypes.EXPLICIT_TEXT
 @export var timer_bonus_on_scored: int = 0
 ## Will be set to 0 if score style is not explicit text
 @export var auto_score_increase: int = 0
 
-var sfx_countdown_1 = preload("res://menus/assets/audio/countdown_1.ogg")
-var sfx_countdown_2 = preload("res://menus/assets/audio/countdown_2.ogg")
-var sfx_countdown_depleted = preload("res://menus/assets/audio/countdown_depleted.ogg")
-var sfx_point = preload("res://menus/assets/audio/point_singular.ogg")
+var sfx_countdown_1 = preload("res://common/assets/audio/countdown_1.ogg")
+var sfx_countdown_2 = preload("res://common/assets/audio/countdown_2.ogg")
+var sfx_countdown_depleted = preload("res://common/assets/audio/countdown_depleted.ogg")
+var sfx_point = preload("res://common/assets/audio/point_singular.ogg")
 
 var seconds_left: int
 var points: float = 0
 var hiscore: int
+var current_state: GameStates = GameStates.STALLING:
+	set(v):
+		current_state = v
+		$SecondsTimer.paused = current_state != GameStates.PLAYING
 
 
 func _ready():
-	seconds_left = timer + 1
+	seconds_left = timer
+	$BoxTimer/LabelTimer.text = str(seconds_left)
 	
 	if score_style == ScoreTypes.EXPLICIT_TEXT:
 		$BoxStars.visible = false
-		if Transitionizer.selected_minigame != null: hiscore = Transitionizer.selected_minigame.scoreboard.get("Place1")
+		if Transitionizer.selected_minigame != null: 
+			hiscore = Transitionizer.selected_minigame.scoreboard.get("Place1")
+			$BoxScoreBar/LabelHiScore.text = str(hiscore)
 	elif score_style == ScoreTypes.STAR_COUNT:
 		$BoxScoreBar.visible = false
 		auto_score_increase = 0
 
 	if timer > 0: $SecondsTimer.start()
 	else: $BoxTimer.visible = false
+	
+	if Transitionizer.is_transitioning:
+		await Transitionizer.transition_finished
+	if have_countdown: 
+		$AnimationPlayer.play(&"intro_countdown")
+		current_state = GameStates.INTRO
+	else:
+		current_state = GameStates.PLAYING
+		intro_finished.emit()
 
 
 func _process(delta):
-	if auto_score_increase > 0:
+	if auto_score_increase > 0 and current_state == GameStates.PLAYING:
 		points += auto_score_increase * delta
 		$BoxScoreBar/LabelScore.text = str(int(points))
 		$BoxScoreBar/LabelHiScore.text = str(int(max(hiscore, points)))
@@ -48,7 +67,7 @@ func _on_seconds_timer_timeout():
 	$BoxTimer/LabelTimer.text = str(seconds_left)
 
 	if seconds_left == 0:
-		auto_score_increase = 0
+		current_state = GameStates.GAMEOVER
 		sfx_timer.set_stream(sfx_countdown_depleted)
 		sfx_timer.play()
 	elif seconds_left == -1:

@@ -35,6 +35,10 @@ window/handheld/orientation=5
 
 project/assembly_name="NSMB Minigames"
 
+[global_group]
+
+BaseScreen=""
+
 [gui]
 
 theme/custom="res://menus/assets/theme_resources/plain.tres"

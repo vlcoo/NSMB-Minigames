@@ -16,9 +16,7 @@ func _on_button_single_button_down():
 
 
 func _on_button_vs_button_down():
-	sfx.set_stream(DBs.SOUNDS.positive)
-	sfx.play()
-	Transitionizer.transition(Transitionizer.TransitionStyles.NONE, Transitionizer.TransitionStyles.NONE, false, "res://menus/fatal_error.tscn")
+	Transitionizer.raise_fatal_error()
 
 
 func _on_button_options_pressed():
